@@ -4,7 +4,7 @@
 config.ini
 contacts.json
 .tmp
-jadrolinija/data/*
+jadrolinija/data/feed*.xml
 jadrolinija/processing.log
 jadrolinija/results.log
 hep.py
