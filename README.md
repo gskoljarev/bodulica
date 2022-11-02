@@ -6,10 +6,10 @@ Please visit https://skoljarev.com/bodulica and subscribe to start receiving not
 
 ## Documentation
 
-- [Requirements (WIP)](#requirements-wip)
-- [Download (WIP)](#download-wip)
-- [Setup (WIP)](#setup-wip)
-- [How to use (WIP)](#how-to-use-wip)
+- [Requirements](#requirements-wip)
+- [Download](#download-wip)
+- [Setup](#setup-wip)
+- [How to use](#how-to-use-wip)
 
 ## Requirements (WIP)
 
