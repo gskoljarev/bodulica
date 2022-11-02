@@ -1,0 +1,323 @@
+[
+    {
+        "name": "babac",
+        "label": "Babac",
+        "settlements": [
+            {
+                "name": "babac",
+                "label": "Babac",
+                "tags": "babac"
+            }
+        ]
+    },
+    {
+        "name": "dugi-otok",
+        "label": "Dugi otok",
+        "settlements": [
+            {
+                "name": "bozava",
+                "label": "Božava",
+                "tags": "božava"
+            },
+            {
+                "name": "brbinj",
+                "label": "Brbinj",
+                "tags": "brbinj"
+            },
+            {
+                "name": "dragove",
+                "label": "Dragove",
+                "tags": "dragove"
+            },
+            {
+                "name": "luka",
+                "label": "Luka",
+                "tags": "luka"
+            },
+            {
+                "name": "sali",
+                "label": "Sali",
+                "tags": "sali"
+            },
+            {
+                "name": "savar",
+                "label": "Savar",
+                "tags": "savar"
+            },
+            {
+                "name": "soline",
+                "label": "Soline",
+                "tags": "soline"
+            },
+            {
+                "name": "veli-rat",
+                "label": "Veli Rat",
+                "tags": "veli rat,v.rat,v. rat"
+            },
+            {
+                "name": "verunic",
+                "label": "Verunić",
+                "tags": "verunić"
+            },
+            {
+                "name": "zaglav",
+                "label": "Zaglav",
+                "tags": "zaglav"
+            },
+            {
+                "name": "zman",
+                "label": "Žman",
+                "tags": "žman"
+            }
+        ]
+    },
+    {
+        "name": "ist",
+        "label": "Ist",
+        "settlements": [
+            {
+                "name": "ist",
+                "label": "Ist",
+                "tags": "ist"
+            }
+        ]
+    },
+    {
+        "name": "iz",
+        "label": "Iž",
+        "settlements": [
+            {
+                "name": "mali-iz",
+                "label": "Mali Iž",
+                "tags": "mali iž,m. iž, m.iž,iž mali"
+            },
+            {
+                "name": "veli-iz",
+                "label": "Veli Iž",
+                "tags": "veli iž,v. iž,v.iž,iž veli"
+            }
+        ]
+    },
+    {
+        "name": "molat",
+        "label": "Molat",
+        "settlements": [
+            {
+                "name": "brgulje",
+                "label": "Brgulje",
+                "tags": "brgulje"
+            },
+            {
+                "name": "molat",
+                "label": "Molat",
+                "tags": "molat"
+            },
+            {
+                "name": "zapuntel",
+                "label": "Zapuntel",
+                "tags": "zapuntel"
+            }
+        ]
+    },
+    {
+        "name": "olib",
+        "label": "Olib",
+        "settlements": [
+            {
+                "name": "olib",
+                "label": "Olib",
+                "tags": "olib"
+            }
+        ]
+    },
+    {
+        "name": "osljak",
+        "label": "Ošljak",
+        "settlements": [
+            {
+                "name": "osljak",
+                "label": "Ošljak",
+                "tags": "ošljak"
+            }
+        ]
+    },
+    {
+        "name": "pasman",
+        "label": "Pašman",
+        "settlements": [
+            {
+                "name": "banj",
+                "label": "Banj",
+                "tags": "banj"
+            },
+            {
+                "name": "barotul",
+                "label": "Barotul",
+                "tags": "barotul"
+            },
+            {
+                "name": "dobropoljana",
+                "label": "Dobropoljana",
+                "tags": "dobropoljana"
+            },
+            {
+                "name": "kraj",
+                "label": "Kraj",
+                "tags": "kraj"
+            },
+            {
+                "name": "mrljane",
+                "label": "Mrljane",
+                "tags": "mrljane"
+            },
+            {
+                "name": "nevidjane",
+                "label": "Neviđane",
+                "tags": "neviđane"
+            },
+            {
+                "name": "pasman",
+                "label": "Pašman",
+                "tags": "pašman"
+            },
+            {
+                "name": "tkon",
+                "label": "Tkon",
+                "tags": "tkon"
+            },
+            {
+                "name": "ugrinic",
+                "label": "Ugrinić",
+                "tags": "ugrinić"
+            },
+            {
+                "name": "zdrelac",
+                "label": "Ždrelac",
+                "tags": "ždrelac"
+            }
+        ]
+    },
+    {
+        "name": "premuda",
+        "label": "Premuda",
+        "settlements": [
+            {
+                "name": "premuda",
+                "label": "Premuda",
+                "tags": "premuda"
+            }
+        ]
+    },
+    {
+        "name": "rava",
+        "label": "Rava",
+        "settlements": [
+            {
+                "name": "mala-rava",
+                "label": "Mala Rava",
+                "tags": "mala rava,m. rava, m.rava,rava mala,rava"
+            },
+            {
+                "name": "vela-rava",
+                "label": "Vela Rava",
+                "tags": "vela rava,v. rava,v.rava,rava vela,rava"
+            }
+        ]
+    },
+    {
+        "name": "rivanj",
+        "label": "Rivanj",
+        "settlements": [
+            {
+                "name": "rivanj",
+                "label": "Rivanj",
+                "tags": "rivanj"
+            }
+        ]
+    },
+    {
+        "name": "sestrunj",
+        "label": "Sestrunj",
+        "settlements": [
+            {
+                "name": "sestrunj",
+                "label": "Sestrunj",
+                "tags": "sestrunj"
+            }
+        ]
+    },
+    {
+        "name": "silba",
+        "label": "Silba",
+        "settlements": [
+            {
+                "name": "silba",
+                "label": "Silba",
+                "tags": "silba"
+            }
+        ]
+    },
+    {
+        "name": "ugljan",
+        "label": "Ugljan",
+        "settlements": [
+            {
+                "name": "kali",
+                "label": "Kali",
+                "tags": "kali"
+            },
+            {
+                "name": "kukljica",
+                "label": "Kukljica",
+                "tags": "kukljica"
+            },
+            {
+                "name": "lukoran",
+                "label": "Lukoran",
+                "tags": "lukoran"
+            },
+            {
+                "name": "poljana",
+                "label": "Poljana",
+                "tags": "poljana"
+            },
+            {
+                "name": "preko",
+                "label": "Preko",
+                "tags": "preko"
+            },
+            {
+                "name": "sutomiscica",
+                "label": "Sutomišćica",
+                "tags": "sutomišćica"
+            },
+            {
+                "name": "ugljan",
+                "label": "Ugljan",
+                "tags": "ugljan,muline,sušica,čeprljanda,fortoština"
+            }
+        ]
+    },
+    {
+        "name": "vrgada",
+        "label": "Vrgada",
+        "settlements": [
+            {
+                "name": "vrgada",
+                "label": "Vrgada",
+                "tags": "vrgada"
+            }
+        ]
+    },
+    {
+        "name": "zverinac",
+        "label": "Zverinac",
+        "settlements": [
+            {
+                "name": "zverinac",
+                "label": "Zverinac",
+                "tags": "zverinac"
+            }
+        ]
+    }
+]
