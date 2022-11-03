@@ -53,3 +53,36 @@ def send_email(emails, subject, body):
     request.add_header('api-key', MAIL_API_TOKEN)
     request.add_header('Content-Type', 'application/json')
     urlopen(request)
+
+
+def get_settlement_names_and_tags(islands, island_name):
+    """
+    Returns list of settlement names and tags for an island name as an input.
+
+    - Input:
+    islands: list of dictionaries
+    island_name: 'ugljan'
+
+    - Output:
+    [{'name': 'ugljan', 'tags': 'ugljan'},
+    {'name': 'lukoran', 'tags': 'lukoran'},
+    {'name': 'sutomiscica', 'tags': 'sutomišćica'},
+    {'name': 'poljana', 'tags': 'poljana'},
+    {'name': 'preko', 'tags': 'preko'},
+    {'name': 'kali', 'tags': 'kali'},
+    {'name': 'kukljica', 'tags': 'kukljica'}]
+    """
+    # process
+    island = next((item for item in islands if item['name'] == island_name), None)
+    if island:
+        settlements = island.get('settlements', [])
+        if settlements:
+            results = []
+            for settlement in settlements:
+                result = {
+                    "name": settlement.get('name'),
+                    "tags": settlement.get('tags'),
+                }
+                results.append(result)
+            return results
+    return []

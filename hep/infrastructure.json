@@ -1,0 +1,31 @@
+{
+    "name": "hep",
+    "companies": [
+        {
+            "name": "zadar",
+            "label": "Elektra Zadar",
+            "tag": "zadar",
+            "units": [
+                {
+                    "name": "zadar",
+                    "label": "Elektra Zadar",
+                    "tag": "ZD",
+                    "islands": "babac,dugi-otok,ist,iz,molat,olib,osljak,pasman,premuda,rava,rivanj,sestrunj,silba,ugljan,vrgada,zverinac"
+                }
+            ]
+        },
+        {
+            "name": "sibenik",
+            "label": "Elektra Šibenik",
+            "tag": "sibenik",
+            "units": [
+                {
+                    "name": "sibenik",
+                    "label": "Elektra Šibenik",
+                    "tag": "SIB",
+                    "islands": "zlarin,zirje,krapanj,kaprije,prvic,kornat"
+                }
+            ]
+        }
+    ]
+}

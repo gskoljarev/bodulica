@@ -7,8 +7,9 @@ contacts.json
 jadrolinija/data/feed*.xml
 jadrolinija/processing.log
 jadrolinija/results.log
-hep.py
-hep
+hep/data/data*.json
+hep/processing.log
+hep/results.log
 
 
 # Python
