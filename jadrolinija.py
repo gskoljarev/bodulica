@@ -57,6 +57,9 @@ logger.addHandler(log_file_handler)
 logger.addHandler(stdout_handler)
 
 
+# processing
+# ----------
+
 def process(url):
     # download the RSS feed
     try:
@@ -110,7 +113,8 @@ def process(url):
         body = html.unescape(
             entry.findtext("{http://www.w3.org/2005/Atom}content", default="")
         )
-        # published_at = entry.findtext("pubDate", default="")  # not used
+        # # not used / unreliable in the feed
+        # published_at = entry.findtext("pubDate", default="")
         
         # compare XML entry data with results data
         processing_fields = [
@@ -173,8 +177,8 @@ def process(url):
             []
         )
         emails_all = []
+        # collect contacts' emails connected to this island
         for island in islands:
-            # collect contacts' emails connected to this island
             emails = next(
                 (
                     item.get("contacts") for item in contacts \
@@ -211,7 +215,7 @@ def process(url):
     f.write(response)
     f.close()
 
-    # also copy for archive & debugging purposes
+    # also copy for archiving & debugging purposes
     shutil.copy(
         str(DOWNLOAD_PATH.resolve()),
         str(ARCHIVE_PATH.resolve())
