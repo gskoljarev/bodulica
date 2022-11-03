@@ -118,7 +118,7 @@ def process(url):
         ]   
         for unit in units:
             unit_name = unit.get("name")
-            result = f"{external_id}|{unit_name}"
+            result = f"{external_id}|{title}|{unit_name}"
             # check first if there is already a result for this unit
             if result not in results and result not in new_results:
                 unit_tags = unit.get("tags").split(",")
@@ -155,19 +155,12 @@ def process(url):
     with open("contacts.json", "rb") as f:
         contacts = json.load(f)
 
-    # send notifications
+    # send email notifications
     for result in new_results:
-        external_id, unit_name = result.split("|")
-        # construct a message
-        entry = next(
-            (
-                entry for entry in entries if \
-                    entry.findtext("guid") == external_id
-            ),
-            None
-        )
-        title = html.unescape(entry.findtext("title", default=""))
-        message = f'<!DOCTYPE html><html><body><h4>{title}</h4>'\
+        # construct an email message
+        external_id, title, unit_name = result.split("|")
+        subject = f'[Jadrolinija] {title}'
+        body = f'<!DOCTYPE html><html><body><h4>{title}</h4>'\
             '<a href="https://www.jadrolinija.hr">'\
             'https://www.jadrolinija.hr</a></body></html>'.strip()
 
@@ -181,7 +174,7 @@ def process(url):
         )
         emails_all = []
         for island in islands:
-            # retrieve contacts connected to this island
+            # collect contacts' emails connected to this island
             emails = next(
                 (
                     item.get("contacts") for item in contacts \
@@ -195,17 +188,17 @@ def process(url):
         emails_all = list(set(emails_all))
         
         # log what is to be sent
-        emails_formatted = ",".join(emails_all) if emails_all \
+        emails_str = ",".join(emails_all) if emails_all \
             else "<no recepients>"
-        islands_formatted = ",".join(islands)
+        islands_str = ",".join(islands)
         logger.info(
-            f"[SEND EMAIL] {result} | {islands_formatted} | "\
-            f"{emails_formatted} | {message}"
+            f"[SEND EMAIL] {result}|{islands_str}|"\
+            f"{emails_str}|{body}"
         )
 
         # send emails
         if emails_all:
-            send_email(emails_all, title, message)
+            send_email(emails_all, subject, body)
 
     # write new results
     rf = RESULTS_PATH.open("a+")
