@@ -10,6 +10,8 @@ jadrolinija/results.log
 hep/data/data*.json
 hep/processing.log
 hep/results.log
+hrvatska_posta
+hrvatska_posta.py
 
 
 # Python

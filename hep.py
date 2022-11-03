@@ -171,7 +171,7 @@ def process():
         entry_unit_tag = entry.get("unit_tag")
         company = next((item for item in companies if item['tag'] == entry_company_tag), None)
         unit = next((item for item in company.get('units') if item['tag'] == entry_unit_tag), None)
-        islands = unit.get('islands').split(',')
+        islands = unit.get('islands')
 
         # check if islands' settlements' tags in entry content
         for island in islands:

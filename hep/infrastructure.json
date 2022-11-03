@@ -10,7 +10,24 @@
                     "name": "zadar",
                     "label": "Elektra Zadar",
                     "tag": "ZD",
-                    "islands": "babac,dugi-otok,ist,iz,molat,olib,osljak,pasman,premuda,rava,rivanj,sestrunj,silba,ugljan,vrgada,zverinac"
+                    "islands": [
+                        "babac",
+                        "dugi-otok",
+                        "ist",
+                        "iz",
+                        "molat",
+                        "olib",
+                        "osljak",
+                        "pasman",
+                        "premuda",
+                        "rava",
+                        "rivanj",
+                        "sestrunj",
+                        "silba",
+                        "ugljan",
+                        "vrgada",
+                        "zverinac"
+                    ]
                 }
             ]
         },
@@ -23,7 +40,15 @@
                     "name": "sibenik",
                     "label": "Elektra Šibenik",
                     "tag": "SIB",
-                    "islands": "zlarin,zirje,krapanj,kaprije,prvic,kornat"
+                    "islands": [
+                        "kaprije",
+                        "kornat",
+                        "krapanj",
+                        "prvic",
+                        "zlarin",
+                        "zirje"
+
+                    ]
                 }
             ]
         }
