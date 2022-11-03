@@ -1,4 +1,3 @@
-import configparser
 import html
 import json
 import logging
@@ -27,13 +26,6 @@ RESULTS_PATH = Path(f"{SCRIPT_NAME}/results.log")
 DOWNLOAD_PATH = Path(f"{SCRIPT_NAME}/data/feed.xml")
 ARCHIVE_PATH = Path(f"{SCRIPT_NAME}/data/feed_{NOW}_{JOB_ID}.xml")
 LOG_PATH = Path(f"{SCRIPT_NAME}/processing.log")
-
-
-# load configuration
-# ------------------
-
-config = configparser.ConfigParser()
-config.read("config.ini")
 
 
 # setup logging
