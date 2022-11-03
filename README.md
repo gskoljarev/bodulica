@@ -2,7 +2,7 @@
 
 Send notifications about infrastructure changes and disruptions on Croatian islands.
 
-Please visit https://skoljarev.com/bodulica and subscribe to start receiving notifications.
+Visit https://skoljarev.com/bodulica and subscribe via email to start receiving notifications.
 
 ## Documentation
 
