@@ -99,6 +99,39 @@
         ]
     },
     {
+        "name": "kaprije",
+        "label": "Kaprije",
+        "settlements": [
+            {
+                "name": "kaprije",
+                "label": "Kaprije",
+                "tags": "kaprije"
+            }
+        ]
+    },
+    {
+        "name": "kornat",
+        "label": "Kornat",
+        "settlements": [
+            {
+                "name": "kornati",
+                "label": "Kornati",
+                "tags": "kornati"
+            }
+        ]
+    },
+    {
+        "name": "krapanj",
+        "label": "Krapanj",
+        "settlements": [
+            {
+                "name": "krapanj",
+                "label": "Krapanj",
+                "tags": "krapanj"
+            }
+        ]
+    },
+    {
         "name": "molat",
         "label": "Molat",
         "settlements": [
@@ -209,6 +242,22 @@
         ]
     },
     {
+        "name": "prvic",
+        "label": "Prvić",
+        "settlements": [
+            {
+                "name": "prvic-luka",
+                "label": "Prvić Luka",
+                "tags": "prvić luka"
+            },
+            {
+                "name": "prvic-sepurine",
+                "label": "Prvić Šepurine",
+                "tags": "prvić šepurine"
+            }
+        ]
+    },
+    {
         "name": "rava",
         "label": "Rava",
         "settlements": [
@@ -310,6 +359,17 @@
         ]
     },
     {
+        "name": "zlarin",
+        "label": "Zlarin",
+        "settlements": [
+            {
+                "name": "zlarin",
+                "label": "Zlarin",
+                "tags": "zlarin"
+            }
+        ]
+    },
+    {
         "name": "zverinac",
         "label": "Zverinac",
         "settlements": [
@@ -317,6 +377,17 @@
                 "name": "zverinac",
                 "label": "Zverinac",
                 "tags": "zverinac"
+            }
+        ]
+    },
+    {
+        "name": "zirje",
+        "label": "Žirje",
+        "settlements": [
+            {
+                "name": "zirje",
+                "label": "Žirje",
+                "tags": "žirje"
             }
         ]
     }
