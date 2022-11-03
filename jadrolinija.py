@@ -64,7 +64,6 @@ def process(url):
     # create a download file it doesn't exist
     if not DOWNLOAD_PATH.exists():
         f = DOWNLOAD_PATH.open("wb+")
-        f.write(response)
         f.close()
 
     # check if new data available
