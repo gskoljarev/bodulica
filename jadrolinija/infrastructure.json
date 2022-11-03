@@ -97,6 +97,25 @@
                 "iz",
                 "rava"
             ]
+        },
+        {
+            "name": "532",
+            "label": "532 Šibenik - Zlarin - Obonjan - Kaprije - Žirje",
+            "tags": "šibenik - zlarin,zlarin - šibenik,zlarin-šibenik,šibenik-zlarin,šibenik-kaprije-žirje,šibenik - kaprije,šibenik-kaprije",
+            "islands": [
+                "kaprije",
+                "zlarin",
+                "zirje"
+            ]
+        },
+        {
+            "name": "505",
+            "label": "505 Vodice - Prvić Šepurine - Prvić Luka - Zlarin - Šibenik",
+            "tags": "vodice -,- vodice,vodice-,-vodice",
+            "islands": [
+                "prvic",
+                "zlarin"
+            ]
         }
     ]
 }
