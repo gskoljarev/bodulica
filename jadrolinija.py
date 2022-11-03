@@ -17,6 +17,7 @@ from utils import send_email
 # set constants
 # -------------
 
+COMPANY_NAME = "Jadrolinija"
 SCRIPT_NAME = "jadrolinija"
 JOB_ID = "".join(random.choices(string.ascii_lowercase + string.digits, k=8))
 NOW = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -154,7 +155,7 @@ def process(url):
     for result in new_results:
         # construct an email message
         external_id, title, unit_name = result.split("|")
-        subject = f'[Jadrolinija] {title}'
+        subject = f'[{COMPANY_NAME}] {title}'
         body = f'<!DOCTYPE html><html><body><h4>{title}</h4>'\
             '<a href="https://www.jadrolinija.hr">'\
             'https://www.jadrolinija.hr</a></body></html>'.strip()
@@ -196,10 +197,9 @@ def process(url):
             send_email(emails_all, subject, body)
 
     # write new results
-    rf = RESULTS_PATH.open("a+")
-    for result in new_results:
-        rf.write(f"{result}\n")
-    rf.close()
+    with open(RESULTS_PATH.resolve(), "a+", encoding="utf-8") as f:
+        for result in new_results:
+            f.write(f"{result}\n")
 
     # write to download file
     f = DOWNLOAD_PATH.open("wb+")

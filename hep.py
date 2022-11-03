@@ -21,6 +21,7 @@ from utils import (
 # set constants
 # -------------
 
+COMPANY_NAME = "HEP"
 SCRIPT_NAME = "hep"
 JOB_ID = "".join(random.choices(string.ascii_lowercase + string.digits, k=8))
 NOW = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -107,7 +108,7 @@ def process():
     # start making requests
     responses = make_requests(headers, urls)
 
-    # scrape responses
+    # scrape responses & collect entries
     entries = []
     for url, response in responses:
         if 'Nema planiranih' in response:
@@ -155,7 +156,7 @@ def process():
     with open("islands.json", "rb") as f:
         islands_all = json.load(f)
 
-    # process responses
+    # process entries
     new_results = []
     for entry in entries:
         # isolate and format settlement names in the entry body
@@ -207,7 +208,7 @@ def process():
     for result in new_results:
         # construct an email message
         external_id, title, island_name, _ = result.split("|")
-        subject = f'[HEP] {title}'
+        subject = f'[{COMPANY_NAME}] {title}'
         body = f'<!DOCTYPE html><html><body><h4>{title}</h4>'\
             f'<a href="{external_id}">'\
             f'{external_id}</a></body></html>'.strip()
@@ -233,10 +234,9 @@ def process():
             send_email(emails, subject, body)
 
     # write new results
-    rf = RESULTS_PATH.open("a+")
-    for result in new_results:
-        rf.write(f"{result}\n")
-    rf.close()
+    with open(RESULTS_PATH.resolve(), "a+", encoding="utf-8") as f:
+        for result in new_results:
+            f.write(f"{result}\n")
 
     # write to download file
     with open(DOWNLOAD_PATH.resolve(), "w+") as f:
