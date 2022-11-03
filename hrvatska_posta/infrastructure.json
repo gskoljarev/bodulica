@@ -1,0 +1,249 @@
+{
+    "name": "hrvatska_posta",
+    "units": [
+        {
+            "name": "22000",
+            "label": "22000 ŠIBENIK",
+            "tags": "22000",
+            "islands": [
+                "krapanj"
+            ]
+        },
+        {
+            "name": "22243",
+            "label": "22243 MURTER",
+            "tags": "22243",
+            "islands": [
+                "kornat"
+            ]
+        },
+        {
+            "name": "23210",
+            "label": "23210 BIOGRAD NA MORU",
+            "tags": "23210",
+            "islands": [
+                "babac",
+                "vrgada"
+            ]
+        },
+        {
+            "name": "23212",
+            "label": "23212 TKON",
+            "tags": "23212",
+            "islands": [
+                "pasman"
+            ]
+        },
+        {
+            "name": "23262",
+            "label": "23262 PAŠMAN",
+            "tags": "23262",
+            "islands": [
+                "pasman"
+            ]
+        },
+        {
+            "name": "23263",
+            "label": "23263 ŽDRELAC",
+            "tags": "23263",
+            "islands": [
+                "pasman"
+            ]
+        },
+        {
+            "name": "23264",
+            "label": "23264 NEVIĐANE",
+            "tags": "23264",
+            "islands": [
+                "pasman"
+            ]
+        },
+        {
+            "name": "23271",
+            "label": "23271 KUKLJICA",
+            "tags": "23271",
+            "islands": [
+                "pasman",
+                "ugljan"
+            ]
+        },
+        {
+            "name": "23272",
+            "label": "23272 KALI",
+            "tags": "23272",
+            "islands": [
+                "ugljan"
+            ]
+        },
+        {
+            "name": "23273",
+            "label": "23273 PREKO",
+            "tags": "23273",
+            "islands": [
+                "ugljan"
+            ]
+        },
+        {
+            "name": "23274",
+            "label": "23274 LUKORAN SEZ.",
+            "tags": "23274",
+            "islands": [
+                "ugljan"
+            ]
+        },
+        {
+            "name": "23275",
+            "label": "23275 UGLJAN",
+            "tags": "23275",
+            "islands": [
+                "ugljan"
+            ]
+        },
+        {
+            "name": "23281",
+            "label": "23281 SALI",
+            "tags": "23281",
+            "islands": [
+                "dugi-otok"
+            ]
+        },
+        {
+            "name": "23282",
+            "label": "23282 ŽMAN",
+            "tags": "23282",
+            "islands": [
+                "dugi-otok"
+            ]
+        },
+        {
+            "name": "23283",
+            "label": "23283 RAVA",
+            "tags": "23283",
+            "islands": [
+                "rava"
+            ]
+        },
+        {
+            "name": "23284",
+            "label": "23284 VELI IŽ",
+            "tags": "23284",
+            "islands": [
+                "iž"
+            ]
+        },
+        {
+            "name": "23285",
+            "label": "23285 BRBINJ",
+            "tags": "23285",
+            "islands": [
+                "dugi-otok"
+            ]
+        },
+        {
+            "name": "23286",
+            "label": "23286 BOŽAVA",
+            "tags": "23286",
+            "islands": [
+                "dugi-otok"
+            ]
+        },
+        {
+            "name": "23287",
+            "label": "23287 VELI RAT",
+            "tags": "23287",
+            "islands": [
+                "dugi-otok"
+            ]
+        },
+        {
+            "name": "23291",
+            "label": "23291 SESTRUNJ",
+            "tags": "23291",
+            "islands": [
+                "rivanj",
+                "sestrunj",
+                "zverinac"
+            ]
+        },
+        {
+            "name": "23292",
+            "label": "23292 MOLAT",
+            "tags": "23292",
+            "islands": [
+                "molat"
+            ]
+        },
+        {
+            "name": "23293",
+            "label": "23293 IST",
+            "tags": "23293",
+            "islands": [
+                "ist"
+            ]
+        },
+        {
+            "name": "23294",
+            "label": "23294 PREMUDA",
+            "tags": "23294",
+            "islands": [
+                "premuda"
+            ]
+        },
+        {
+            "name": "23295",
+            "label": "23295 SILBA",
+            "tags": "23295",
+            "islands": [
+                "silba"
+            ]
+        },
+        {
+            "name": "23296",
+            "label": "23296 OLIB",
+            "tags": "23296",
+            "islands": [
+                "olib"
+            ]
+        },
+        {
+            "name": "22236",
+            "label": "22236 ŽIRJE",
+            "tags": "22236",
+            "islands": [
+                "zirje"
+            ]
+        },
+        {
+            "name": "22232",
+            "label": "22232 ZLARIN",
+            "tags": "22232",
+            "islands": [
+                "zlarin"
+            ]
+        },
+        {
+            "name": "22233",
+            "label": "22233 PRVIĆ LUKA",
+            "tags": "22233",
+            "islands": [
+                "prvic"
+            ]
+        },
+        {
+            "name": "22234",
+            "label": "22234 PRVIĆ ŠEPURINE",
+            "tags": "22234",
+            "islands": [
+                "prvic"
+            ]
+        },
+        {
+            "name": "22235",
+            "label": "22235 KAPRIJE",
+            "tags": "22235",
+            "islands": [
+                "kaprije"
+            ]
+        }
+    ]
+}
