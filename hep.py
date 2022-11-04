@@ -224,7 +224,7 @@ def process():
         
         # log what is to be sent
         emails_str = ",".join(emails) if emails \
-            else "<no recepients>"
+            else "<no recipients>"
         logger.info(
             f"[SEND EMAIL] {result}|{emails_str}|{body}"
         )

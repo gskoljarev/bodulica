@@ -145,7 +145,7 @@ def process(url):
 
     # load island data
     with open("islands.json", "rb") as f:
-        islands = json.load(f)
+        islands_all = json.load(f)
 
     # load contact data
     with open("contacts.json", "rb") as f:
@@ -170,7 +170,7 @@ def process(url):
         )
         emails_all = []
         # collect contacts' emails connected to this island
-        for island in islands:
+        for island in islands_all:
             emails = next(
                 (
                     item.get("contacts") for item in contacts \
@@ -185,7 +185,7 @@ def process(url):
         
         # log what is to be sent
         emails_str = ",".join(emails_all) if emails_all \
-            else "<no recepients>"
+            else "<no recipients>"
         islands_str = ",".join(islands)
         logger.info(
             f"[SEND EMAIL] {result}|{islands_str}|"\

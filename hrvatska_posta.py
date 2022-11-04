@@ -220,7 +220,7 @@ def process():
         
         # log what is to be sent
         emails_str = ",".join(emails_all) if emails_all \
-            else "<no recepients>"
+            else "<no recipients>"
         islands_str = ",".join(islands)
         logger.info(
             f"[SEND EMAIL] {result}|{islands_str}|"\
