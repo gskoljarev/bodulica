@@ -143,10 +143,6 @@ def process(url):
     for result in new_results:
         logger.info((f"[NEW RESULT] {result}"))
 
-    # load island data
-    with open("islands.json", "rb") as f:
-        islands_all = json.load(f)
-
     # load contact data
     with open("contacts.json", "rb") as f:
         contacts = json.load(f)
@@ -170,7 +166,7 @@ def process(url):
         )
         emails_all = []
         # collect contacts' emails connected to this island
-        for island in islands_all:
+        for island in islands:
             emails = next(
                 (
                     item.get("contacts") for item in contacts \
