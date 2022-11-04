@@ -72,7 +72,7 @@ def process():
     # prepare headers
     headers = {
         'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0)' \
-                      'Gecko/20100101 Firefox/52.0'
+                      'Gecko/20100101 Firefox/53.0'
     }
   
     # make initial request
@@ -139,7 +139,7 @@ def process():
         external_id = entry.get("external_id")
         title = entry.get("title")
         body = entry.get("body")
-        url = entry.get("url")
+        link = entry.get("link")
         processing_fields = [title, body]
         for unit in units:
             unit_name = unit.get("name")
@@ -156,7 +156,7 @@ def process():
                             message_links.append(
                                 {
                                     "external_id": external_id,
-                                    "url": url
+                                    "link": link
                                 }
                             )
     print(len(new_results))
@@ -183,17 +183,23 @@ def process():
     for result in new_results:
         # construct an email message
         external_id, title, unit_name = result.split("|")
-        subject = f'[{COMPANY_NAME}] {title}'
+        unit_label = next(
+            (
+                item.get("label") for item in units \
+                    if item.get("name") == unit_name
+            ),
+            ''
+        )
+        subject = f'[{COMPANY_NAME}] {unit_label}'
         link = next(
             (
-                item.get("url") for item in message_links \
+                item.get("link") for item in message_links \
                     if item.get("external_id") == external_id
             ),
-            None
+            ''
         )
-        body = f'<!DOCTYPE html><html><body><p>{title}</p>'\
-            f'<a href="{link}">'\
-            f'{link}</a></body></html>'.strip()
+        body = f'<!DOCTYPE html><html><body><p>{title}</p><br>'\
+            f'<a href="{link}">{link}</a></body></html>'.strip()
 
         # retrieve islands connected to this unit
         islands = next(
@@ -223,13 +229,11 @@ def process():
             else "<no recipients>"
         islands_str = ",".join(islands)
         logger.info(
-            f"[SEND EMAIL] {result}|{islands_str}|"\
-            f"{emails_str}|{body}"
+            f"[SEND EMAIL] {result}|{islands_str}|{emails_str}"
         )
 
         # send emails
-        if emails_all:
-            send_email(emails_all, subject, body)
+        send_email(emails_all, subject, body)
 
     # write new results
     with open(RESULTS_PATH.resolve(), "a+", encoding="utf-8") as f:

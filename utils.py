@@ -1,5 +1,6 @@
 import configparser
 import json
+import time
 from urllib.request import Request, urlopen
 
 
@@ -10,32 +11,35 @@ config = configparser.ConfigParser()
 config.read("config.ini")
 
 
-# set constants
+# mailing
 # -------------
 
 mailing_config = config['MAILING']
 MAIL_API_URL = mailing_config['MailAPIURL']
 MAIL_API_TOKEN = mailing_config['MailAPIToken']
+MAIL_SENDER_EMAIL = mailing_config['MailSenderEmail']
+MAIL_SENDER_NAME = mailing_config['MailSenderName']
 
 
 def construct_request_payload(emails, subject, body):
     payload = dict()
+
     # sender
     payload["sender"] = {
-        "email": "gskoljarev@gmail.com",
-        "name": "Bodulica App"
+        "email": MAIL_SENDER_EMAIL,
+        "name": MAIL_SENDER_NAME
     }
+
     # to
-    first_email = emails.pop()
-    payload["to"] = [{"email": first_email}]
+    payload["to"] = [{"email": MAIL_SENDER_EMAIL}]
+
     # bcc
     if len(emails) > 0:
-        first_email = emails.pop()
         bcc_list = []
         for email in emails:
             bcc_list.append({"email": email})
-        if bcc_list:
-            payload["bcc"] = bcc_list
+        payload["bcc"] = bcc_list
+
     # subject & body
     payload["subject"] = f"[Bodulica] {subject}"
     payload["htmlContent"] = body
@@ -52,6 +56,7 @@ def send_email(emails, subject, body):
     request = Request(f'{MAIL_API_URL}', data=data, method='POST')
     request.add_header('api-key', MAIL_API_TOKEN)
     request.add_header('Content-Type', 'application/json')
+    time.sleep(0.5)
     urlopen(request)
 
 

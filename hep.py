@@ -208,10 +208,17 @@ def process():
     for result in new_results:
         # construct an email message
         external_id, title, island_name, _ = result.split("|")
-        subject = f'[{COMPANY_NAME}] {title}'
-        body = f'<!DOCTYPE html><html><body><h4>{title}</h4>'\
-            f'<a href="{external_id}">'\
-            f'{external_id}</a></body></html>'.strip()
+        island_label = next(
+            (
+                item.get("label") for item in islands_all \
+                    if item.get("name") == island_name
+            ),
+            ''
+        )
+        subject = f'[{COMPANY_NAME}] {island_label}'
+        link = external_id
+        body = f'<!DOCTYPE html><html><body><p>{title}</p><br>'\
+            f'<a href="{link}">{link}</a></body></html>'.strip()
 
         # collect contacts' emails connected to this island
         emails = next(
@@ -226,12 +233,11 @@ def process():
         emails_str = ",".join(emails) if emails \
             else "<no recipients>"
         logger.info(
-            f"[SEND EMAIL] {result}|{emails_str}|{body}"
+            f"[SEND EMAIL] {result}|{emails_str}"
         )
 
         # send emails
-        if emails:
-            send_email(emails, subject, body)
+        send_email(emails, subject, body)
 
     # write new results
     with open(RESULTS_PATH.resolve(), "a+", encoding="utf-8") as f:

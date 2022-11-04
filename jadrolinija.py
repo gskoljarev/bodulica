@@ -151,8 +151,15 @@ def process(url):
     for result in new_results:
         # construct an email message
         external_id, title, unit_name = result.split("|")
-        subject = f'[{COMPANY_NAME}] {title}'
-        body = f'<!DOCTYPE html><html><body><h4>{title}</h4>'\
+        unit_label = next(
+            (
+                item.get("label") for item in units \
+                    if item.get("name") == unit_name
+            ),
+            ''
+        )
+        subject = f'[{COMPANY_NAME}] {unit_label}'
+        body = f'<!DOCTYPE html><html><body><p>{title}</p><br>'\
             '<a href="https://www.jadrolinija.hr">'\
             'https://www.jadrolinija.hr</a></body></html>'.strip()
 
@@ -184,13 +191,11 @@ def process(url):
             else "<no recipients>"
         islands_str = ",".join(islands)
         logger.info(
-            f"[SEND EMAIL] {result}|{islands_str}|"\
-            f"{emails_str}|{body}"
+            f"[SEND EMAIL] {result}|{islands_str}|{emails_str}"
         )
 
         # send emails
-        if emails_all:
-            send_email(emails_all, subject, body)
+        send_email(emails_all, subject, body)
 
     # write new results
     with open(RESULTS_PATH.resolve(), "a+", encoding="utf-8") as f:

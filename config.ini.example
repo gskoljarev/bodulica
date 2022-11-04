@@ -1,3 +1,5 @@
 [MAILING]
 MailAPIURL = url
 MailAPIToken = token
+MailSenderEmail = email
+MailSenderName = name
