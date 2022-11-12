@@ -116,6 +116,14 @@
                 "prvic",
                 "zlarin"
             ]
+        },
+        {
+            "name": "335",
+            "label": "Prizna - Žigljen",
+            "tags": "žigljen",
+            "islands": [
+                "pag"
+            ]
         }
     ]
 }

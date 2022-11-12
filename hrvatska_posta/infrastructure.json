@@ -10,11 +10,20 @@
             ]
         },
         {
+            "name": "22240",
+            "label": "22240 TISNO",
+            "tags": "22240",
+            "islands": [
+                "murter"
+            ]
+        },
+        {
             "name": "22243",
             "label": "22243 MURTER",
             "tags": "22243",
             "islands": [
-                "kornat"
+                "kornat",
+                "murter"
             ]
         },
         {
@@ -243,6 +252,14 @@
             "tags": "22235",
             "islands": [
                 "kaprije"
+            ]
+        },
+        {
+            "name": "23234",
+            "label": "23234 VIR",
+            "tags": "23234",
+            "islands": [
+                "vir"
             ]
         }
     ]

@@ -2,6 +2,21 @@
     "name": "hep",
     "companies": [
         {
+            "name": "gospic",
+            "label": "Elektrolika Gospić",
+            "tag": "gospic",
+            "units": [
+                {
+                    "name": "karlobag",
+                    "label": "Pogon Karlobag",
+                    "tag": "176",
+                    "islands": [
+                        "pag"
+                    ]
+                }
+            ]
+        },
+        {
             "name": "zadar",
             "label": "Elektra Zadar",
             "tag": "zadar",
@@ -18,6 +33,7 @@
                         "molat",
                         "olib",
                         "osljak",
+                        "pag",
                         "pasman",
                         "premuda",
                         "rava",
@@ -25,6 +41,7 @@
                         "sestrunj",
                         "silba",
                         "ugljan",
+                        "vir",
                         "vrgada",
                         "zverinac"
                     ]
@@ -47,7 +64,6 @@
                         "prvic",
                         "zlarin",
                         "zirje"
-
                     ]
                 }
             ]

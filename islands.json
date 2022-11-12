@@ -153,6 +153,32 @@
         ]
     },
     {
+        "name": "murter",
+        "label": "Murter",
+        "settlements": [
+            {
+                "name": "murter",
+                "label": "Murter",
+                "tags": "murter"
+            },
+            {
+                "name": "tisno",
+                "label": "Tisno",
+                "tags": "tisno"
+            },
+            {
+                "name": "betina",
+                "label": "Betina",
+                "tags": "betina"
+            },
+            {
+                "name": "jezera",
+                "label": "Jezera",
+                "tags": "jezera"
+            }
+        ]
+    },
+    {
         "name": "olib",
         "label": "Olib",
         "settlements": [
@@ -171,6 +197,132 @@
                 "name": "osljak",
                 "label": "Ošljak",
                 "tags": "ošljak"
+            }
+        ]
+    },
+    {
+        "name": "pag",
+        "label": "Pag",
+        "settlements": [
+            {
+                "name": "novalja",
+                "label": "Novalja",
+                "tags": "novalja,novalje"
+            },
+            {
+                "name": "caska",
+                "label": "Caska",
+                "tags": "caska"
+            },
+            {
+                "name": "gajac",
+                "label": "Gajac",
+                "tags": "gajac"
+            },
+            {
+                "name": "kustici",
+                "label": "Kustići",
+                "tags": "kustići"
+            },
+            {
+                "name": "lun",
+                "label": "Lun",
+                "tags": "lun,tovarnele,gurijel,dudići,perićev kanat,gager,stanišće,jakišnica"
+            },
+            {
+                "name": "metajna",
+                "label": "Metajna",
+                "tags": "metajna"
+            },
+            {
+                "name": "potocnica",
+                "label": "Potočnica",
+                "tags": "potočnica"
+            },
+            {
+                "name": "stara-novalja",
+                "label": "Stara Novalja",
+                "tags": "stara novalja,stare novalje,novalja stara"
+            },
+            {
+                "name": "vidalici",
+                "label": "Vidalići",
+                "tags": "vidalići"
+            },
+            {
+                "name": "zubovici",
+                "label": "Zubovići",
+                "tags": "zubovići"
+            },
+            {
+                "name": "pag",
+                "label": "Pag",
+                "tags": "pag"
+            },
+            {
+                "name": "bosana",
+                "label": "Bošana",
+                "tags": "bošana"
+            },
+            {
+                "name": "dinjiska",
+                "label": "Dinjiška",
+                "tags": "dinjiška"
+            },
+            {
+                "name": "kosljun",
+                "label": "Košljun",
+                "tags": "košljun"
+            },
+            {
+                "name": "miskovici",
+                "label": "Miškovići",
+                "tags": "miškovići"
+            },
+            {
+                "name": "proboj",
+                "label": "Proboj",
+                "tags": "proboj"
+            },
+            {
+                "name": "smokvica",
+                "label": "Smokvica",
+                "tags": "smokvica"
+            },
+            {
+                "name": "stara-vas",
+                "label": "Stara Vas",
+                "tags": "stara vas"
+            },
+            {
+                "name": "simuni",
+                "label": "Šimuni",
+                "tags": "šimuni"
+            },
+            {
+                "name": "vlasici",
+                "label": "Vlašići",
+                "tags": "vlašići"
+            },
+            {
+                "name": "vrcici",
+                "label": "Vrčići",
+                "tags": "vrčići"
+            },
+            {
+                "name": "kolan",
+                "label": "Kolan",
+                "tags": "kolan"
+            },
+            {
+                "name": "mandre",
+                "label": "Mandre",
+                "tags": "mandre"
+            },
+            {
+                "name": "povljana",
+                "label": "Povljana",
+                "tags": "povljana"
             }
         ]
     },
@@ -344,6 +496,17 @@
                 "name": "ugljan",
                 "label": "Ugljan",
                 "tags": "ugljan,muline,sušica,čeprljanda,fortoština"
+            }
+        ]
+    },
+    {
+        "name": "vir",
+        "label": "Vir",
+        "settlements": [
+            {
+                "name": "vir",
+                "label": "Vir",
+                "tags": "vir,torovi,lozice,kozjak"
             }
         ]
     },
