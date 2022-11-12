@@ -8,8 +8,9 @@ import sys
 import unicodedata
 from datetime import datetime
 from pathlib import Path
-from urllib.request import urlopen
-from xml.etree import ElementTree as ET
+from urllib.request import Request, urlopen
+
+from bs4 import BeautifulSoup
 
 from utils import send_email
 
@@ -17,15 +18,18 @@ from utils import send_email
 # set constants
 # -------------
 
-COMPANY_NAME = "Jadrolinija"
-SCRIPT_NAME = "jadrolinija"
+COMPANY_NAME = "HAK"
+SCRIPT_NAME = "hak"
 JOB_ID = "".join(random.choices(string.ascii_lowercase + string.digits, k=8))
 NOW = datetime.now().strftime("%Y%m%d_%H%M%S")
-SOURCE_URL = "https://www.jadrolinija.hr/Feeds/vijesti"
-INFRASTRUCTURE_PATH = Path(f"{SCRIPT_NAME}/infrastructure.json")
+SOURCE_URL = "https://m.hak.hr/stanje.asp?id=3"
+INFRASTRUCTURE_PATHS = [
+    Path(f"{SCRIPT_NAME}/infrastructure.json"),
+    Path(f"jadrolinija/infrastructure.json"),
+]
 RESULTS_PATH = Path(f"{SCRIPT_NAME}/results.log")
-DOWNLOAD_PATH = Path(f"{SCRIPT_NAME}/data/feed.xml")
-ARCHIVE_PATH = Path(f"{SCRIPT_NAME}/data/feed_{NOW}_{JOB_ID}.xml")
+DOWNLOAD_PATH = Path(f"{SCRIPT_NAME}/data/page.html")
+ARCHIVE_PATH = Path(f"{SCRIPT_NAME}/data/page_{NOW}_{JOB_ID}.html")
 LOG_PATH = Path(f"{SCRIPT_NAME}/processing.log")
 
 
@@ -54,10 +58,19 @@ logger.addHandler(stdout_handler)
 # ----------
 
 def process(url):
-    # download the RSS feed
+    # prepare headers
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '\
+                      'AppleWebKit/537.36 (KHTML, like Gecko) '\
+                      'Chrome/107.0.0.0 Safari/537.36'
+    }
+
+    # download the page
     try:
-        with urlopen(url) as r:
-            response = r.read()
+        request = Request(url)
+        for key, value in headers.items(): 
+            request.add_header(key, value)
+        response = urlopen(request).read()
     except:
         logger.error(f"Error downloading data")
         exit()
@@ -75,9 +88,11 @@ def process(url):
         exit()
     
     # load infrastructure data
-    with open(INFRASTRUCTURE_PATH.resolve(), "rb") as f:
-        infrastructure = json.load(f)
-        units = infrastructure.get("units")
+    units = list()
+    for infrastructure_path in INFRASTRUCTURE_PATHS:
+        with open(infrastructure_path.resolve(), "rb") as f:
+            infrastructure = json.load(f)
+            units.extend(infrastructure.get("units"))
 
     # create a results file it doesn't exist
     if not RESULTS_PATH.exists():
@@ -88,52 +103,37 @@ def process(url):
     with open(str(RESULTS_PATH.resolve())) as f:
         results = f.read()
 
-    # process XML response & entries
-    tree = ET.ElementTree(ET.fromstring(response))
-    root = tree.getroot()
-    entries = root.findall('.//channel/item')
-    
-    if not entries:
-        return
+    # process response
+    soup = BeautifulSoup(response, 'html.parser')
+    date_time_raw = soup.find('div', {'id': 'sitno'}).text
+    date_raw, time_raw = date_time_raw.replace(
+        'Pomorski promet', ''
+    ).split(' ')
+    content = soup.find('ul', {'class': 'pageitem'}).text
 
     new_results = []
-    for entry in entries:
-        # parse XML entry data
-        external_id = entry.findtext("guid", default="")
-        title = html.unescape(entry.findtext("title", default=""))
-        subtitle = html.unescape(entry.findtext("description", default=""))
-        body = html.unescape(
-            entry.findtext("{http://www.w3.org/2005/Atom}content", default="")
-        )
-        # # not used / unreliable in the feed
-        # published_at = entry.findtext("pubDate", default="")
-        
-        # compare XML entry data with results data
-        processing_fields = [
-            title, subtitle, body
-        ]   
-        for unit in units:
-            unit_name = unit.get("name")
-            result = f"{external_id}|{title}|{unit_name}"
-            # check first if there is already a result for this unit
-            if result not in results and result not in new_results:
-                unit_tags = unit.get("tags").split(",")
-                for field in processing_fields:  # process each field
-                    # &nbsp; turns into \xa0 when splitting and
-                    # slavic alphabet characters are not parsed correctly,
-                    # so we normalize first
-                    field_value = unicodedata.normalize(
-                        "NFKC", field.lower()
-                    )
-                    # find unit name and tags in field value;
-                    # use unit name (a number) as a separate tag
-                    # due to mixing with other numbers in value -
-                    # sorted by splitting field value by space
-                    if unit_name in field_value.split(" "):
-                        new_results.append(result)
-                    for tag in unit_tags:
-                        if tag in field.lower():
-                            new_results.append(result)
+
+    for unit in units:
+        unit_name = unit.get("name")
+        result = f"{date_raw}|{unit_name}"
+        # check first if there is already a result for this unit
+        if result not in results and result not in new_results:
+            unit_tags = unit.get("tags").split(",")
+            # &nbsp; turns into \xa0 when splitting and
+            # slavic alphabet characters are not parsed correctly,
+            # so we normalize first
+            content_value = unicodedata.normalize(
+                "NFKC", content.lower()
+                )
+            # find unit name and tags in field value;
+            # use unit name (a number) as a separate tag
+            # due to mixing with other numbers in value -
+            # sorted by splitting field value by space
+            if unit_name in content_value.split(" "):
+                new_results.append(result)
+            for tag in unit_tags:
+                if tag in content.lower():
+                    new_results.append(result)
 
     if not new_results:
         return
@@ -148,7 +148,7 @@ def process(url):
     # send email notifications
     for result in new_results:
         # construct an email message
-        external_id, title, unit_name = result.split("|")
+        date_raw, unit_name = result.split("|")
         unit_label = next(
             (
                 item.get("label") for item in units \
@@ -157,9 +157,9 @@ def process(url):
             ''
         )
         subject = f'[{COMPANY_NAME}] {unit_label}'
-        body = f'<!DOCTYPE html><html><body><p>{title}</p><br>'\
-            '<a href="https://www.jadrolinija.hr">'\
-            'https://www.jadrolinija.hr</a></body></html>'.strip()
+        body = f'<!DOCTYPE html><html><body><p>HAK - Pomorski promet {date_raw}</p><br>'\
+            '<a href="https://www.hak.hr/info/stanje-na-cestama/#trajektni-promet">'\
+            'https://www.hak.hr/info/stanje-na-cestama/#trajektni-promet</a></body></html>'.strip()
 
         # retrieve islands connected to this unit
         islands = next(

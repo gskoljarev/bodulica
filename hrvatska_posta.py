@@ -167,10 +167,6 @@ def process():
     # remove duplicate new results
     new_results = list(set(new_results))
 
-    # log new results
-    for result in new_results:
-        logger.info((f"[NEW RESULT] {result}"))
-
     # load island data
     with open("islands.json", "rb") as f:
         islands = json.load(f)
@@ -229,7 +225,7 @@ def process():
             else "<no recipients>"
         islands_str = ",".join(islands)
         logger.info(
-            f"[SEND EMAIL] {result}|{islands_str}|{emails_str}"
+            f"[NEW RESULT] {result}|{islands_str}|{emails_str}"
         )
 
         # send emails

@@ -170,8 +170,17 @@ def process():
         # get islands connected to the company unit
         entry_company_tag = entry.get("company_tag")
         entry_unit_tag = entry.get("unit_tag")
-        company = next((item for item in companies if item['tag'] == entry_company_tag), None)
-        unit = next((item for item in company.get('units') if item['tag'] == entry_unit_tag), None)
+        company = next(
+            (
+                item for item in companies if item['tag'] == entry_company_tag
+            ), None
+        )
+        unit = next(
+            (
+                item for item in company.get('units') \
+                    if item['tag'] == entry_unit_tag
+            ), None
+        )
         islands = unit.get('islands')
 
         # check if islands' settlements' tags in entry content
@@ -197,8 +206,6 @@ def process():
 
     # remove duplicate new results
     new_results = list(set(new_results))
-    for result in new_results:
-        logger.info((f"[NEW RESULT] {result}"))
 
     # load contact data
     with open("contacts.json", "rb") as f:
@@ -233,7 +240,7 @@ def process():
         emails_str = ",".join(emails) if emails \
             else "<no recipients>"
         logger.info(
-            f"[SEND EMAIL] {result}|{emails_str}"
+            f"[NEW RESULT] {result}|{emails_str}"
         )
 
         # send emails

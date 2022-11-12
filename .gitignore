@@ -13,6 +13,9 @@ hep/results.log
 hrvatska_posta/data/data*.json
 hrvatska_posta/processing.log
 hrvatska_posta/results.log
+hak/data/page*.html
+hak/processing.log
+hak/results.log
 
 
 # Python

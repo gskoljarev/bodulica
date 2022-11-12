@@ -14,7 +14,7 @@ config.read("config.ini")
 # mailing
 # -------------
 
-mailing_config = config.get('MAILING')
+mailing_config = config['MAILING']
 MAIL_ENABLED = mailing_config.getboolean('MailEnabled')
 MAIL_API_URL = mailing_config.get('MailAPIURL')
 MAIL_API_TOKEN = mailing_config.get('MailAPIToken')
