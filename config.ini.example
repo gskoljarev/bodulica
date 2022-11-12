@@ -1,4 +1,5 @@
 [MAILING]
+MailEnabled = False
 MailAPIURL = url
 MailAPIToken = token
 MailSenderEmail = email

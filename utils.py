@@ -14,11 +14,12 @@ config.read("config.ini")
 # mailing
 # -------------
 
-mailing_config = config['MAILING']
-MAIL_API_URL = mailing_config['MailAPIURL']
-MAIL_API_TOKEN = mailing_config['MailAPIToken']
-MAIL_SENDER_EMAIL = mailing_config['MailSenderEmail']
-MAIL_SENDER_NAME = mailing_config['MailSenderName']
+mailing_config = config.get('MAILING')
+MAIL_ENABLED = mailing_config.getboolean('MailEnabled')
+MAIL_API_URL = mailing_config.get('MailAPIURL')
+MAIL_API_TOKEN = mailing_config.get('MailAPIToken')
+MAIL_SENDER_EMAIL = mailing_config.get('MailSenderEmail')
+MAIL_SENDER_NAME = mailing_config.get('MailSenderName')
 
 
 def construct_request_payload(emails, subject, body):
@@ -51,13 +52,14 @@ def send_email(emails, subject, body):
     """
     Sends emails via SendInBlue service.
     """
-    payload = construct_request_payload(emails, subject, body)
-    data = str(json.dumps(payload)).encode('utf-8')
-    request = Request(f'{MAIL_API_URL}', data=data, method='POST')
-    request.add_header('api-key', MAIL_API_TOKEN)
-    request.add_header('Content-Type', 'application/json')
-    time.sleep(0.5)
-    urlopen(request)
+    if MAIL_ENABLED:
+        payload = construct_request_payload(emails, subject, body)
+        data = str(json.dumps(payload)).encode('utf-8')
+        request = Request(f'{MAIL_API_URL}', data=data, method='POST')
+        request.add_header('api-key', MAIL_API_TOKEN)
+        request.add_header('Content-Type', 'application/json')
+        time.sleep(0.5)
+        urlopen(request)
 
 
 def get_settlement_names_and_tags(islands, island_name):
