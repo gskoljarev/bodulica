@@ -24,7 +24,11 @@ JOB_ID = "".join(random.choices(string.ascii_lowercase + string.digits, k=8))
 NOW = datetime.now().strftime("%Y%m%d_%H%M%S")
 SOURCE_URL = "https://m.hak.hr/stanje.asp?id=3"
 INFRASTRUCTURE_PATHS = [
-    Path(f"{SCRIPT_NAME}/infrastructure.json"),
+    Path(f"{SCRIPT_NAME}/infrastructure/gp_sibenik.json"),
+    Path(f"{SCRIPT_NAME}/infrastructure/gv_line_iadera.json"),
+    Path(f"{SCRIPT_NAME}/infrastructure/kapetan_luka_krilo.json"),
+    Path(f"{SCRIPT_NAME}/infrastructure/miatours.json"),
+    Path(f"{SCRIPT_NAME}/infrastructure/rpz_vrgada.json"),
     Path(f"jadrolinija/infrastructure.json"),
 ]
 RESULTS_PATH = Path(f"{SCRIPT_NAME}/results.log")

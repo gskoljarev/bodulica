@@ -1,0 +1,13 @@
+{
+    "name": "rpz-vrgada",
+    "units": [
+        {
+            "name": "415",
+            "label": "415 Vrgada - Pakoštane - Biograd",
+            "tags": "vrgada - pakoštane,vrgada-pakoštane,vrgada - biograd,vrgada-biograd,biograd - pakoštane,biograd-pakoštane",
+            "islands": [
+                "vrgada"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "name": "gp-sibenik",
+    "units": [
+        {
+            "name": "501",
+            "label": "501 Krapanj - Brodarica",
+            "tags": "krapanj - brodarica,krapanj-brodarica,brodarica - krapanj,brodarica-krapanj",
+            "islands": [
+                "krapanj"
+            ]
+        }
+    ]
+}

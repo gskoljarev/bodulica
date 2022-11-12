@@ -1,0 +1,31 @@
+{
+    "name": "gv-line-iadera",
+    "units": [
+        {
+            "name": "405",
+            "label": "405 Rava - Mala Rava - Veli Iž - Mali Iž - Zadar",
+            "tags": "zadar - mali iž,mali iž - zadar,mali iž-zadar,zadar-mali iž,m.iž-zadar,zadar-m.iž,m.iž - zadar",
+            "islands": [
+                "rava",
+                "iž"
+            ]
+        },
+        {
+            "name": "406",
+            "label": "406 Zadar - Zaglav",
+            "tags": "sali - zaglav,zaglav - sali,sali-zaglav,zaglav-sali,zadar - zaglav,zadar-zaglav,zaglav - zadar,zaglav-zadar",
+            "islands": [
+                "dugi-otok"
+            ]
+        },
+        {
+            "name": "9406",
+            "label": "9406 Zadar - Zaglav - Mali Iž/Bršanj",
+            "tags": "zaglav-bršanj,bršanj-zaglav,zaglav - bršanj,bršanj - zaglav,iž - zaglav,iž-zaglav",
+            "islands": [
+                "dugi-otok",
+                "iž"
+            ]
+        }
+    ]
+}

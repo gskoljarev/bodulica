@@ -1,0 +1,13 @@
+{
+    "name": "kapetan-luka-krilo",
+    "units": [
+        {
+            "name": "9141",
+            "label": "9141 Pula - Unije - Susak - Mali Lošinj - Ilovik - Silba - Zadar",
+            "tags": "zadar - silba,silba - zadar,zadar-silba,silba-zadar,pula - zadar,zadar - pula,pula-zadar,zadar-pula",
+            "islands": [
+                "silba"
+            ]
+        }
+    ]
+}
