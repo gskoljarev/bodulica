@@ -3,6 +3,7 @@ import json
 import logging
 import random
 import shutil
+import ssl
 import string
 import sys
 import unicodedata
@@ -21,7 +22,7 @@ COMPANY_NAME = "Jadrolinija"
 SCRIPT_NAME = "jadrolinija"
 JOB_ID = "".join(random.choices(string.ascii_lowercase + string.digits, k=8))
 NOW = datetime.now().strftime("%Y%m%d_%H%M%S")
-SOURCE_URL = "https://www.jadrolinija.hr/Feeds/vijesti"
+SOURCE_URL = "https://www.jadrolinija.hr/feeds/vijesti"
 INFRASTRUCTURE_PATH = Path(f"{SCRIPT_NAME}/infrastructure.json")
 RESULTS_PATH = Path(f"{SCRIPT_NAME}/results.log")
 DOWNLOAD_PATH = Path(f"{SCRIPT_NAME}/data/feed.xml")
@@ -56,7 +57,8 @@ logger.addHandler(stdout_handler)
 def process(url):
     # download the RSS feed
     try:
-        with urlopen(url) as r:
+        context = ssl._create_unverified_context()
+        with urlopen(url, context=context) as r:
             response = r.read()
     except:
         logger.error(f"Error downloading data")
