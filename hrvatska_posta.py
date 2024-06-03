@@ -22,7 +22,7 @@ SCRIPT_NAME = "hrvatska_posta"
 JOB_ID = "".join(random.choices(string.ascii_lowercase + string.digits, k=8))
 NOW = datetime.now().strftime("%Y%m%d_%H%M%S")
 BASE_URL = 'https://www.posta.hr'
-SOURCE_URL = f'{BASE_URL}/aktualne-informacije/43'
+SOURCE_URL = f'{BASE_URL}/aktualne-informacije'
 DOWNLOAD_DELAY_SECONDS = 1
 INFRASTRUCTURE_PATH = Path(f"{SCRIPT_NAME}/infrastructure.json")
 RESULTS_PATH = Path(f"{SCRIPT_NAME}/results.log")
@@ -82,7 +82,7 @@ def process():
     # scrape sub page links
     for url, response in responses:
         soup = BeautifulSoup(response, 'html.parser')
-        div = soup.find('div', {'class': 'news-wrapper'})
+        div = soup.find('div', {'class': 'ast-articles'})
         # find and format raw links
         links = [
             BASE_URL+item.get("href") for item in \
@@ -97,7 +97,7 @@ def process():
     for url, response in responses:
         soup = BeautifulSoup(response, 'html.parser')
         title = soup.find('h1').text
-        body = soup.find('div', {'class': 'page-content'}).text
+        body = soup.find('div', {'class': 'user-content'}).text
 
         # no discernible information available on source page
         subtitle = ''
