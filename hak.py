@@ -162,8 +162,8 @@ def process(url):
         )
         subject = f'[{COMPANY_NAME}] {unit_label}'
         body = f'<!DOCTYPE html><html><body><p>HAK - Pomorski promet {date_raw}</p><br>'\
-            '<a href="https://www.hak.hr/info/stanje-na-cestama/#trajektni-promet">'\
-            'https://www.hak.hr/info/stanje-na-cestama/#trajektni-promet</a></body></html>'.strip()
+            '<a href="https://m.hak.hr/stanje.asp?id=3">'\
+            'https://m.hak.hr/stanje.asp?id=3/a></body></html>'.strip()
 
         # retrieve islands connected to this unit
         islands = next(
