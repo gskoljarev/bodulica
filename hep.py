@@ -27,7 +27,7 @@ JOB_ID = "".join(random.choices(string.ascii_lowercase + string.digits, k=8))
 NOW = datetime.now().strftime("%Y%m%d_%H%M%S")
 SOURCE_URL = 'https://www.hep.hr/ods/bez-struje/19' \
     '?dp={company}&el={unit}&datum={date}'
-DOWNLOAD_DELAY_SECONDS = 1
+DOWNLOAD_DELAY_SECONDS = 6
 INFRASTRUCTURE_PATH = Path(f"{SCRIPT_NAME}/infrastructure.json")
 RESULTS_PATH = Path(f"{SCRIPT_NAME}/results.log")
 DOWNLOAD_PATH = Path(f"{SCRIPT_NAME}/data/data.json")
@@ -101,8 +101,9 @@ def process():
 
     # prepare headers
     headers = {
-        'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0)' \
-                      'Gecko/20100101 Firefox/52.0'
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_4_1) ' \
+                      'AppleWebKit/605.1.15 (KHTML, like Gecko) ' \
+                      'Version/17.4.1 Safari/605.1.15'
     }
 
     # start making requests
