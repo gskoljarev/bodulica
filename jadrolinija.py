@@ -27,7 +27,7 @@ JOB_ID = "".join(random.choices(string.ascii_lowercase + string.digits, k=8))
 NOW = datetime.now().strftime("%Y%m%d_%H%M%S")
 SOURCE_URL_FEED = "https://www.jadrolinija.hr/feeds/vijesti"
 SOURCE_URL_SITE = "https://www.jadrolinija.hr/hr/obavijesti-za-putnike"
-DOWNLOAD_DELAY_SECONDS = 1
+DOWNLOAD_DELAY_SECONDS = 2
 INFRASTRUCTURE_PATH = Path(f"{SCRIPT_NAME}/infrastructure.json")
 RESULTS_PATH = Path(f"{SCRIPT_NAME}/results.log")
 DOWNLOAD_FEED_PATH = Path(f"{SCRIPT_NAME}/data/feed.xml")

@@ -52,7 +52,9 @@ def construct_request_payload(emails, subject, body):
 
 def send_email(emails, subject, body):
     """
-    Sends emails via SendInBlue service.
+    Sends emails via the Brevo service (formerly SendInBlue).
+
+    https://www.brevo.com
     """
     if MAIL_ENABLED:
         payload = construct_request_payload(emails, subject, body)
