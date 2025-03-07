@@ -12,7 +12,7 @@ config.read("config.ini")
 
 
 # mailing
-# -------------
+# -------
 
 mailing_config = config['MAILING']
 MAIL_ENABLED = mailing_config.getboolean('MailEnabled')
@@ -93,3 +93,60 @@ def get_settlement_names_and_tags(islands, island_name):
                 results.append(result)
             return results
     return []
+
+
+# string utils
+# ------------
+
+def get_substring_positions(s, substring):
+    """
+    Returns before and after substring positions.
+    """
+    index_of_occurrences = []
+    final_index = []
+    current_index = 0
+    while True:
+        current_index = s.find(substring, current_index)
+        if current_index == -1:
+            for i in index_of_occurrences:
+                final_index.append(i)
+            return final_index
+        else:
+            index_of_occurrences.append(current_index)
+            current_index += len(substring)
+
+
+def insert_into_string(s, index, character):
+    string_list = list(s)
+    string_list[index] = character
+    return "".join(string_list)
+
+
+def enumerate_with_step(items, start=0, step=2):
+    for item in items:
+        yield (start, item)
+        start += step
+
+
+def get_multiset_permutations(s):
+    """
+    Returns string combinations with multiset permutations of spaces
+    before and after character '-' in a string.
+    """
+    results = list()
+    substring_positions = get_substring_positions(s, '-')
+    print("### substring_positions", substring_positions)
+    positions_length = len(substring_positions) * 2
+    combinations = list(necklaces(positions_length, 3))
+    print("### combinations", combinations)
+
+    for number_spaces in combinations:
+        generated_string = s
+        for i, position in enumerate(substring_positions):
+            spaces = ''
+            for item in range(0, number_spaces, 2):
+                spaces += ' '
+                generated_string = insert_into_string(generated_string, position, spaces)
+            substring_positions = get_substring_positions(generated_string, '-')
+        results.append(generated_string)
+    return results
