@@ -3,6 +3,8 @@ import json
 import time
 from urllib.request import Request, urlopen
 
+from sympy.utilities.iterables import necklaces
+
 
 # load configuration
 # ------------------
