@@ -1,0 +1,14 @@
+{
+    "name": "nc-komiza",
+    "units": [
+        {
+            "name": "612",
+            "label": "612 Komiža - Biševo",
+            "tags": "komiža - biševo,komiža-biševo,biševo - komiža,biševo-komiža,porat > uvala salbunara > mezoporat > luka komiža",
+            "islands": [
+                "vis",
+                "biševo"
+            ]
+        }
+    ]
+}
