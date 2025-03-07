@@ -3,7 +3,7 @@ import json
 import time
 from urllib.request import Request, urlopen
 
-from sympy.utilities.iterables import necklaces
+# from sympy.utilities.iterables import necklaces
 
 
 # load configuration
@@ -130,25 +130,25 @@ def enumerate_with_step(items, start=0, step=2):
         start += step
 
 
-def get_multiset_permutations(s):
-    """
-    Returns string combinations with multiset permutations of spaces
-    before and after character '-' in a string.
-    """
-    results = list()
-    substring_positions = get_substring_positions(s, '-')
-    print("### substring_positions", substring_positions)
-    positions_length = len(substring_positions) * 2
-    combinations = list(necklaces(positions_length, 3))
-    print("### combinations", combinations)
+# def get_multiset_permutations(s):
+#     """
+#     Returns string combinations with multiset permutations of spaces
+#     before and after character '-' in a string.
+#     """
+#     results = list()
+#     substring_positions = get_substring_positions(s, '-')
+#     print("### substring_positions", substring_positions)
+#     positions_length = len(substring_positions) * 2
+#     combinations = list(necklaces(positions_length, 3))
+#     print("### combinations", combinations)
 
-    for number_spaces in combinations:
-        generated_string = s
-        for i, position in enumerate(substring_positions):
-            spaces = ''
-            for item in range(0, number_spaces, 2):
-                spaces += ' '
-                generated_string = insert_into_string(generated_string, position, spaces)
-            substring_positions = get_substring_positions(generated_string, '-')
-        results.append(generated_string)
-    return results
+#     for number_spaces in combinations:
+#         generated_string = s
+#         for i, position in enumerate(substring_positions):
+#             spaces = ''
+#             for item in range(0, number_spaces, 2):
+#                 spaces += ' '
+#                 generated_string = insert_into_string(generated_string, position, spaces)
+#             substring_positions = get_substring_positions(generated_string, '-')
+#         results.append(generated_string)
+#     return results

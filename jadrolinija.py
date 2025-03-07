@@ -6,11 +6,14 @@ import shutil
 import ssl
 import string
 import sys
+import time
 import unicodedata
 from datetime import datetime
 from pathlib import Path
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 from xml.etree import ElementTree as ET
+
+from bs4 import BeautifulSoup
 
 from utils import send_email
 
@@ -22,11 +25,15 @@ COMPANY_NAME = "Jadrolinija"
 SCRIPT_NAME = "jadrolinija"
 JOB_ID = "".join(random.choices(string.ascii_lowercase + string.digits, k=8))
 NOW = datetime.now().strftime("%Y%m%d_%H%M%S")
-SOURCE_URL = "https://www.jadrolinija.hr/feeds/vijesti"
+SOURCE_URL_FEED = "https://www.jadrolinija.hr/feeds/vijesti"
+SOURCE_URL_SITE = "https://www.jadrolinija.hr/hr/obavijesti-za-putnike"
+DOWNLOAD_DELAY_SECONDS = 1
 INFRASTRUCTURE_PATH = Path(f"{SCRIPT_NAME}/infrastructure.json")
 RESULTS_PATH = Path(f"{SCRIPT_NAME}/results.log")
-DOWNLOAD_PATH = Path(f"{SCRIPT_NAME}/data/feed.xml")
-ARCHIVE_PATH = Path(f"{SCRIPT_NAME}/data/feed_{NOW}_{JOB_ID}.xml")
+DOWNLOAD_FEED_PATH = Path(f"{SCRIPT_NAME}/data/feed.xml")
+ARCHIVE_FEED_PATH = Path(f"{SCRIPT_NAME}/data/feed_{NOW}_{JOB_ID}.xml")
+DOWNLOAD_SITE_PATH = Path(f"{SCRIPT_NAME}/data/data.json")
+ARCHIVE_SITE_PATH = Path(f"{SCRIPT_NAME}/data/data_{NOW}_{JOB_ID}.json")
 LOG_PATH = Path(f"{SCRIPT_NAME}/processing.log")
 
 
@@ -54,34 +61,52 @@ logger.addHandler(stdout_handler)
 # processing
 # ----------
 
-def process(url):
-    # download the RSS feed
+def make_requests(headers, urls):
+    for url in urls:
+        time.sleep(DOWNLOAD_DELAY_SECONDS)
+        try:
+            context = ssl._create_unverified_context()
+            request = Request(url)
+            for key, value in headers.items(): 
+                request.add_header(key, value)
+            response = urlopen(request, context=context).read().decode('utf-8')
+            yield url, response
+        except:
+            logger.error(f"Error downloading data")
+            exit()
+
+
+def process():
+    # process the RSS feed
+    # --------------------
+
+    # download the data
     try:
         context = ssl._create_unverified_context()
-        with urlopen(url, context=context) as r:
-            response = r.read()
+        with urlopen(SOURCE_URL_FEED, context=context) as r:
+            response_feed = r.read()
     except:
         logger.error(f"Error downloading data")
         exit()
 
     # create a download file it doesn't exist
-    if not DOWNLOAD_PATH.exists():
-        f = DOWNLOAD_PATH.open("wb+")
+    if not DOWNLOAD_FEED_PATH.exists():
+        f = DOWNLOAD_FEED_PATH.open("wb+")
         f.close()
 
-    # check if new data available
-    f = DOWNLOAD_PATH.open("rb")
-    existing_data = f.read()
-    f.close()
-    if existing_data == response:
-        exit()
+    # # check if new downloaded data available
+    # f = DOWNLOAD_FEED_PATH.open("rb")
+    # existing_data = f.read()
+    # f.close()
+    # if existing_data == response:
+    #     exit()
     
     # load infrastructure data
     with open(INFRASTRUCTURE_PATH.resolve(), "rb") as f:
         infrastructure = json.load(f)
         units = infrastructure.get("units")
 
-    # create a results file it doesn't exist
+    # create a results file if it doesn't exist
     if not RESULTS_PATH.exists():
         f = RESULTS_PATH.open("w+")
         f.close()
@@ -91,15 +116,72 @@ def process(url):
         results = f.read()
 
     # process XML response & entries
-    tree = ET.ElementTree(ET.fromstring(response))
+    tree = ET.ElementTree(ET.fromstring(response_feed))
     root = tree.getroot()
-    entries = root.findall('.//channel/item')
-    
-    if not entries:
-        return
+    entries_feed = root.findall('.//channel/item')
+
+    if not entries_feed:
+        entries_feed = []
+
+    # process the site
+    # ----------------
+
+    # prepare headers
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_4_1) ' \
+                      'AppleWebKit/605.1.15 (KHTML, like Gecko) ' \
+                      'Version/17.4.1 Safari/605.1.15'
+    }
+  
+    # make initial request
+    urls = [SOURCE_URL_SITE]
+    responses = make_requests(headers, urls)
+
+    # scrape sub page links
+    for url, response in responses:
+        soup = BeautifulSoup(response, 'html.parser')
+        ul = soup.find('ul', {'class': 'press__list'})
+        # find links
+        links = [
+            item.get("href") for item in \
+                ul.findChildren("a" , recursive=True)
+        ]
+
+    # make subpage requests
+    responses = make_requests(headers, links)
+
+    # scrape responses & collect entries
+    entries_site = []
+    for url, response in responses:
+        soup = BeautifulSoup(response, 'html.parser')
+        external_id = url.rpartition('/')[2]
+        title = soup.find('h1').text
+        subtitle = soup.find('h2').text
+        body = soup.find('div', {'class': 'wysiwyg'}).text.strip()
+
+        # unused; no discernible information available in the subpage,
+        # but can be parsed from root source URL
+        # published_at = '' 
+
+        # link = url  # unused
+
+        entry = {
+            "external_id": external_id,
+            # "published_at": published_at,
+            # "link": link,
+            "title": title,
+            "subtitle": subtitle,
+            "body": body
+        }
+        entries_site.append(entry)
+
+    # continue with further processing
+    # --------------------------------
 
     new_results = []
-    for entry in entries:
+    
+    # check for new results in the RSS feed data
+    for entry in entries_feed:
         # parse XML entry data
         external_id = entry.findtext("guid", default="")
         title = html.unescape(entry.findtext("title", default=""))
@@ -113,7 +195,41 @@ def process(url):
         # compare XML entry data with results data
         processing_fields = [
             title, subtitle, body
-        ]   
+        ] 
+        for unit in units:
+            unit_name = unit.get("name")
+            result = f"{external_id}|{title}|{unit_name}"
+            # check first if there is already a result for this unit
+            if result not in results and result not in new_results:
+                unit_tags = unit.get("tags").split(",")
+                for field in processing_fields:  # process each field
+                    # &nbsp; turns into \xa0 when splitting and
+                    # slavic alphabet characters are not parsed correctly,
+                    # so we normalize first
+                    field_value = unicodedata.normalize(
+                        "NFKC", field.lower()
+                    )
+                    # find unit name and tags in field value;
+                    # use unit name (a number) as a separate tag
+                    # due to mixing with other numbers in value -
+                    # sorted by splitting field value by space
+                    if unit_name in field_value.split(" "):
+                        new_results.append(result)
+                    for tag in unit_tags:
+                        if tag in field.lower():
+                            new_results.append(result)
+
+    # check for new results in the site data
+    for entry in entries_site:
+        # compare entry data with results data
+        external_id = entry.get("external_id")
+        title = entry.get("title")
+        body = entry.get("body")
+        
+        # compare the site entry data with results data
+        processing_fields = [
+            title, subtitle, body
+        ] 
         for unit in units:
             unit_name = unit.get("name")
             result = f"{external_id}|{title}|{unit_name}"
@@ -159,9 +275,14 @@ def process(url):
             ''
         )
         subject = f'[{COMPANY_NAME}] {unit_label}'
-        body = f'<!DOCTYPE html><html><body><p>{title}</p><br>'\
-            '<a href="https://www.jadrolinija.hr">'\
-            'https://www.jadrolinija.hr</a></body></html>'.strip()
+        if 'urn:uuid' in external_id:
+            body = f'<!DOCTYPE html><html><body><p>{title}</p><br>'\
+                '<a href="https://www.jadrolinija.hr/hr/obavijesti/stanje-u-prometu/">'\
+                'https://www.jadrolinija.hr/hr/obavijesti/stanje-u-prometu/</a></body></html>'.strip()
+        else:
+            body = f'<!DOCTYPE html><html><body><p>{title}</p><br>'\
+                '<a href="https://www.jadrolinija.hr/hr/obavijesti-za-putnike">'\
+                'https://www.jadrolinija.hr/hr/obavijesti-za-putnike</a></body></html>'.strip()
 
         # retrieve islands connected to this unit
         islands = next(
@@ -202,15 +323,23 @@ def process(url):
         for result in new_results:
             f.write(f"{result}\n")
 
-    # write to download file
-    f = DOWNLOAD_PATH.open("wb+")
-    f.write(response)
+    # write to download files
+    f = DOWNLOAD_FEED_PATH.open("wb+")
+    f.write(response_feed)
     f.close()
+
+    with open(DOWNLOAD_SITE_PATH.resolve(), "w+") as f:
+        json.dump(entries_site, f)
 
     # also copy for archiving & debugging purposes
     shutil.copy(
-        str(DOWNLOAD_PATH.resolve()),
-        str(ARCHIVE_PATH.resolve())
+        str(DOWNLOAD_FEED_PATH.resolve()),
+        str(ARCHIVE_FEED_PATH.resolve())
+    )
+
+    shutil.copy(
+        str(DOWNLOAD_SITE_PATH.resolve()),
+        str(ARCHIVE_SITE_PATH.resolve())
     )
 
     return
@@ -220,7 +349,7 @@ def process(url):
 # ----
 
 def main():
-    process(SOURCE_URL)
+    process()
 
 
 if __name__ == "__main__":

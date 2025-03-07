@@ -23,7 +23,7 @@ JOB_ID = "".join(random.choices(string.ascii_lowercase + string.digits, k=8))
 NOW = datetime.now().strftime("%Y%m%d_%H%M%S")
 BASE_URL = 'https://www.posta.hr'
 SOURCE_URL = f'{BASE_URL}/aktualne-informacije'
-DOWNLOAD_DELAY_SECONDS = 1
+DOWNLOAD_DELAY_SECONDS = 2
 INFRASTRUCTURE_PATH = Path(f"{SCRIPT_NAME}/infrastructure.json")
 RESULTS_PATH = Path(f"{SCRIPT_NAME}/results.log")
 DOWNLOAD_PATH = Path(f"{SCRIPT_NAME}/data/data.json")
@@ -68,6 +68,7 @@ def make_requests(headers, urls):
             logger.error(f"Error downloading data")
             exit()
 
+
 def process():
     # prepare headers
     headers = {
@@ -102,7 +103,6 @@ def process():
         # no discernible information available on source page
         subtitle = ''
         published_at = ''
-        subtitle = ''
 
         external_id = url.rpartition('/')[2]
         link = url

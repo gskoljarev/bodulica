@@ -119,10 +119,18 @@
         },
         {
             "name": "335",
-            "label": "Prizna - Žigljen",
+            "label": "335 Prizna - Žigljen",
             "tags": "žigljen",
             "islands": [
                 "pag"
+            ]
+        },
+        {
+            "name": "310",
+            "label": "Mali Lošinj - V. Srakane - Unije - Susak",
+            "tags": "srakane",
+            "islands": [
+                "susak"
             ]
         }
     ]
