@@ -47,8 +47,9 @@ formatter = logging.Formatter(
 stdout_handler = logging.StreamHandler(sys.stdout)
 stdout_handler.setLevel(logging.DEBUG)
 stdout_handler.setFormatter(formatter)
+stdout_handler.stream = open(1, 'w', encoding="utf-8", buffering=1)
 
-log_file_handler = logging.FileHandler(str(LOG_PATH.resolve()))
+log_file_handler = logging.FileHandler(str(LOG_PATH.resolve()), encoding="utf-8")
 log_file_handler.setLevel(logging.DEBUG)
 log_file_handler.setFormatter(formatter)
 
@@ -223,7 +224,7 @@ def process():
             ),
             ''
         )
-        subject = f'[{COMPANY_NAME}] {island_label}'
+        subject = f'{COMPANY_NAME} - {island_label}'
         link = external_id
         body = f'<!DOCTYPE html><html><body><p>{title}</p><br>'\
             f'<a href="{link}">{link}</a></body></html>'.strip()

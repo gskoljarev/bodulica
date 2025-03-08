@@ -1,4 +1,3 @@
-import html
 import json
 import logging
 import random
@@ -49,8 +48,9 @@ formatter = logging.Formatter(
 stdout_handler = logging.StreamHandler(sys.stdout)
 stdout_handler.setLevel(logging.DEBUG)
 stdout_handler.setFormatter(formatter)
+stdout_handler.stream = open(1, 'w', encoding="utf-8", buffering=1)
 
-log_file_handler = logging.FileHandler(str(LOG_PATH.resolve()))
+log_file_handler = logging.FileHandler(str(LOG_PATH.resolve()), encoding="utf-8")
 log_file_handler.setLevel(logging.DEBUG)
 log_file_handler.setFormatter(formatter)
 
@@ -160,7 +160,7 @@ def process(url):
             ),
             ''
         )
-        subject = f'[{COMPANY_NAME}] {unit_label}'
+        subject = f'{COMPANY_NAME} - {unit_label}'
         body = f'<!DOCTYPE html><html><body><p>HAK - Pomorski promet {date_raw}</p><br>'\
             '<a href="https://m.hak.hr/stanje.asp?id=3">'\
             'https://m.hak.hr/stanje.asp?id=3</a></body></html>'.strip()

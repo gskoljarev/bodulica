@@ -6,7 +6,7 @@
             {
                 "name": "babac",
                 "label": "Babac",
-                "tags": "babac"
+                "tags": "babac,babcu"
             }
         ]
     },
@@ -17,17 +17,17 @@
             {
                 "name": "bozava",
                 "label": "Božava",
-                "tags": "božava"
+                "tags": "božava,božavi,božave"
             },
             {
                 "name": "brbinj",
                 "label": "Brbinj",
-                "tags": "brbinj"
+                "tags": "brbinj,brbinju,brbinja"
             },
             {
                 "name": "dragove",
                 "label": "Dragove",
-                "tags": "dragove"
+                "tags": "dragove,dragova,dragovama"
             },
             {
                 "name": "luka",
@@ -37,37 +37,37 @@
             {
                 "name": "sali",
                 "label": "Sali",
-                "tags": "sali"
+                "tags": "sali,salima"
             },
             {
                 "name": "savar",
                 "label": "Savar",
-                "tags": "savar"
+                "tags": "savar,savru"
             },
             {
                 "name": "soline",
                 "label": "Soline",
-                "tags": "soline"
+                "tags": "soline,solinama"
             },
             {
                 "name": "veli-rat",
                 "label": "Veli Rat",
-                "tags": "veli rat,v.rat,v. rat"
+                "tags": "veli rat,v.rat,v. rat,velom ratu,v.ratu,v. ratu"
             },
             {
                 "name": "verunic",
                 "label": "Verunić",
-                "tags": "verunić"
+                "tags": "verunić,veruniću,verunića"
             },
             {
                 "name": "zaglav",
                 "label": "Zaglav",
-                "tags": "zaglav"
+                "tags": "zaglav,zaglavu,zaglava"
             },
             {
                 "name": "zman",
                 "label": "Žman",
-                "tags": "žman"
+                "tags": "žman,žmanu,žmana"
             }
         ]
     },
@@ -89,12 +89,12 @@
             {
                 "name": "mali-iz",
                 "label": "Mali Iž",
-                "tags": "mali iž,m. iž,m.iž, m.iž,iž mali,iž veli i iž mali"
+                "tags": "mali iž,m. iž,m.iž, m.iž,iž mali,iž veli i iž mali,malom ižu,ižu malom,ižu malome"
             },
             {
                 "name": "veli-iz",
                 "label": "Veli Iž",
-                "tags": "veli iž,v. iž,v.iž, v.iž,iž veli,iž veli i iž mali"
+                "tags": "veli iž,v. iž,v.iž, v.iž,iž veli,iž veli i iž mali,velom ižu,ižu velom,ižu velome"
             }
         ]
     },
@@ -105,7 +105,7 @@
             {
                 "name": "kaprije",
                 "label": "Kaprije",
-                "tags": "kaprije"
+                "tags": "kaprije,kapriju"
             }
         ]
     },
@@ -116,7 +116,7 @@
             {
                 "name": "kornati",
                 "label": "Kornati",
-                "tags": "kornati"
+                "tags": "kornati,kornatu,kornatima"
             }
         ]
     },
@@ -127,7 +127,7 @@
             {
                 "name": "krapanj",
                 "label": "Krapanj",
-                "tags": "krapanj"
+                "tags": "krapanj,krapnju,krapnja"
             }
         ]
     },
@@ -138,17 +138,17 @@
             {
                 "name": "brgulje",
                 "label": "Brgulje",
-                "tags": "brgulje"
+                "tags": "brgulje,brgulja,brguljama"
             },
             {
                 "name": "molat",
                 "label": "Molat",
-                "tags": "molat"
+                "tags": "molat,molatu,molata"
             },
             {
                 "name": "zapuntel",
                 "label": "Zapuntel",
-                "tags": "zapuntel"
+                "tags": "zapuntel,zapuntelu,zapuntela"
             }
         ]
     },
@@ -159,22 +159,22 @@
             {
                 "name": "murter",
                 "label": "Murter",
-                "tags": "murter"
+                "tags": "murter,murteru,murtera"
             },
             {
                 "name": "tisno",
                 "label": "Tisno",
-                "tags": "tisno"
+                "tags": "tisno,tisnom,tisnome"
             },
             {
                 "name": "betina",
                 "label": "Betina",
-                "tags": "betina"
+                "tags": "betina,betina,betine"
             },
             {
                 "name": "jezera",
                 "label": "Jezera",
-                "tags": "jezera"
+                "tags": "jezera,jezerama"
             }
         ]
     },
@@ -185,7 +185,7 @@
             {
                 "name": "olib",
                 "label": "Olib",
-                "tags": "olib"
+                "tags": "olib,olibu,oliba"
             }
         ]
     },
@@ -196,7 +196,7 @@
             {
                 "name": "osljak",
                 "label": "Ošljak",
-                "tags": "ošljak"
+                "tags": "ošljak,ošljaku,ošljaka,ošjak,ošjaku"
             }
         ]
     },
@@ -207,22 +207,22 @@
             {
                 "name": "novalja",
                 "label": "Novalja",
-                "tags": "novalja,novalje"
+                "tags": "novalja,novalji,novalje"
             },
             {
                 "name": "caska",
                 "label": "Caska",
-                "tags": "caska"
+                "tags": "caska,caski,caske"
             },
             {
                 "name": "gajac",
                 "label": "Gajac",
-                "tags": "gajac"
+                "tags": "gajac,gajcu"
             },
             {
                 "name": "kustici",
                 "label": "Kustići",
-                "tags": "kustići"
+                "tags": "kustići,kustićima,kustiće"
             },
             {
                 "name": "lun",
@@ -232,52 +232,52 @@
             {
                 "name": "metajna",
                 "label": "Metajna",
-                "tags": "metajna"
+                "tags": "metajna,metajni"
             },
             {
                 "name": "potocnica",
                 "label": "Potočnica",
-                "tags": "potočnica"
+                "tags": "potočnica,potočnici"
             },
             {
                 "name": "stara-novalja",
                 "label": "Stara Novalja",
-                "tags": "stara novalja,stare novalje,novalja stara"
+                "tags": "stara novalja,stare novalje,novalja stara,staroj novalji,novalji staroj"
             },
             {
                 "name": "vidalici",
                 "label": "Vidalići",
-                "tags": "vidalići"
+                "tags": "vidalići,vidalićima"
             },
             {
                 "name": "zubovici",
                 "label": "Zubovići",
-                "tags": "zubovići"
+                "tags": "zubovići,zubovićima"
             },
             {
                 "name": "pag",
                 "label": "Pag",
-                "tags": "pag"
+                "tags": "pag,pagu,paga"
             },
             {
                 "name": "bosana",
                 "label": "Bošana",
-                "tags": "bošana"
+                "tags": "bošana,bošani"
             },
             {
                 "name": "dinjiska",
                 "label": "Dinjiška",
-                "tags": "dinjiška"
+                "tags": "dinjiška,dnjiški"
             },
             {
                 "name": "kosljun",
                 "label": "Košljun",
-                "tags": "košljun"
+                "tags": "košljun,košljunu"
             },
             {
                 "name": "miskovici",
                 "label": "Miškovići",
-                "tags": "miškovići"
+                "tags": "miškovići,miškovićima"
             },
             {
                 "name": "proboj",
@@ -287,42 +287,42 @@
             {
                 "name": "smokvica",
                 "label": "Smokvica",
-                "tags": "smokvica"
+                "tags": "smokvica,smokvici"
             },
             {
                 "name": "stara-vas",
                 "label": "Stara Vas",
-                "tags": "stara vas"
+                "tags": "stara vas,staroj vas,staroj vasi"
             },
             {
                 "name": "simuni",
                 "label": "Šimuni",
-                "tags": "šimuni"
+                "tags": "šimuni,šimunima"
             },
             {
                 "name": "vlasici",
                 "label": "Vlašići",
-                "tags": "vlašići"
+                "tags": "vlašići,vlašićima"
             },
             {
                 "name": "vrcici",
                 "label": "Vrčići",
-                "tags": "vrčići"
+                "tags": "vrčići,vrčićima"
             },
             {
                 "name": "kolan",
                 "label": "Kolan",
-                "tags": "kolan"
+                "tags": "kolan,kolanu"
             },
             {
                 "name": "mandre",
                 "label": "Mandre",
-                "tags": "mandre"
+                "tags": "mandre,mandrama"
             },
             {
                 "name": "povljana",
                 "label": "Povljana",
-                "tags": "povljana"
+                "tags": "povljana,povljani"
             }
         ]
     },
@@ -333,52 +333,52 @@
             {
                 "name": "banj",
                 "label": "Banj",
-                "tags": "banj"
+                "tags": "banj,banju"
             },
             {
                 "name": "barotul",
                 "label": "Barotul",
-                "tags": "barotul"
+                "tags": "barotul,barotulu"
             },
             {
                 "name": "dobropoljana",
                 "label": "Dobropoljana",
-                "tags": "dobropoljana"
+                "tags": "dobropoljana,dobropoljani"
             },
             {
                 "name": "kraj",
                 "label": "Kraj",
-                "tags": "kraj"
+                "tags": "kraj,kraju"
             },
             {
                 "name": "mrljane",
                 "label": "Mrljane",
-                "tags": "mrljane"
+                "tags": "mrljane,mrljanama"
             },
             {
                 "name": "nevidjane",
                 "label": "Neviđane",
-                "tags": "neviđane"
+                "tags": "neviđane,neviđanima,neviđanema"
             },
             {
                 "name": "pasman",
                 "label": "Pašman",
-                "tags": "pašman"
+                "tags": "pašman,pašmanu,pašmana"
             },
             {
                 "name": "tkon",
                 "label": "Tkon",
-                "tags": "tkon"
+                "tags": "tkon,tkonu,tkona"
             },
             {
                 "name": "ugrinic",
                 "label": "Ugrinić",
-                "tags": "ugrinić"
+                "tags": "ugrinić,ugriniću,ugrinića"
             },
             {
                 "name": "zdrelac",
                 "label": "Ždrelac",
-                "tags": "ždrelac"
+                "tags": "ždrelac,ždrelcu,ždrelacu,ždrelca"
             }
         ]
     },
@@ -389,7 +389,7 @@
             {
                 "name": "premuda",
                 "label": "Premuda",
-                "tags": "premuda"
+                "tags": "premuda,premudi,premude"
             }
         ]
     },
@@ -400,12 +400,12 @@
             {
                 "name": "prvic-luka",
                 "label": "Prvić Luka",
-                "tags": "prvić luka"
+                "tags": "prvić luka,prvić luci,prvić luki,prvić luke"
             },
             {
                 "name": "prvic-sepurine",
                 "label": "Prvić Šepurine",
-                "tags": "prvić šepurine"
+                "tags": "prvić šepurine, prvić šepurinama"
             }
         ]
     },
@@ -416,12 +416,12 @@
             {
                 "name": "mala-rava",
                 "label": "Mala Rava",
-                "tags": "mala rava,m. rava, m.rava,rava mala,rava"
+                "tags": "mala rava,m. rava, m.rava,rava mala,rava,maloj ravi,ravi maloj"
             },
             {
                 "name": "vela-rava",
                 "label": "Vela Rava",
-                "tags": "vela rava,v. rava,v.rava,rava vela,rava"
+                "tags": "vela rava,v. rava,v.rava,rava vela,rava,veloj ravi,ravi veloj"
             }
         ]
     },
@@ -432,7 +432,7 @@
             {
                 "name": "rivanj",
                 "label": "Rivanj",
-                "tags": "rivanj"
+                "tags": "rivanj,rivnju,rivnja"
             }
         ]
     },
@@ -443,7 +443,7 @@
             {
                 "name": "sestrunj",
                 "label": "Sestrunj",
-                "tags": "sestrunj"
+                "tags": "sestrunj,sestrunju,sestrunja"
             }
         ]
     },
@@ -454,7 +454,7 @@
             {
                 "name": "silba",
                 "label": "Silba",
-                "tags": "silba"
+                "tags": "silba,silbi,silbe"
             }
         ]
     },
@@ -465,37 +465,37 @@
             {
                 "name": "kali",
                 "label": "Kali",
-                "tags": "kali"
+                "tags": "kali,kalima"
             },
             {
                 "name": "kukljica",
                 "label": "Kukljica",
-                "tags": "kukljica"
+                "tags": "kukljica,kukljici,kukljice"
             },
             {
                 "name": "lukoran",
                 "label": "Lukoran",
-                "tags": "lukoran"
+                "tags": "lukoran,lukoranu,lukorana"
             },
             {
                 "name": "poljana",
                 "label": "Poljana",
-                "tags": "poljana"
+                "tags": "poljana,poljani"
             },
             {
                 "name": "preko",
                 "label": "Preko",
-                "tags": "preko"
+                "tags": "preko,preku,preka"
             },
             {
                 "name": "sutomiscica",
                 "label": "Sutomišćica",
-                "tags": "sutomišćica"
+                "tags": "sutomišćica,sutomišćici,sutomišćice"
             },
             {
                 "name": "ugljan",
                 "label": "Ugljan",
-                "tags": "ugljan,muline,sušica,čeprljanda,fortoština"
+                "tags": "ugljan,muline,sušica,čeprljanda,fortoština,ugljanu,mulinama,sušici,čeprljandi,fortoštini"
             }
         ]
     },
@@ -506,7 +506,7 @@
             {
                 "name": "vir",
                 "label": "Vir",
-                "tags": "vir,torovi,lozice,kozjak"
+                "tags": "vir,torovi,lozice,kozjak,viru,torovima,lozicama"
             }
         ]
     },
@@ -517,7 +517,7 @@
             {
                 "name": "vrgada",
                 "label": "Vrgada",
-                "tags": "vrgada"
+                "tags": "vrgada,vrgade,vrgadu,vrgadi"
             }
         ]
     },
@@ -528,7 +528,7 @@
             {
                 "name": "zlarin",
                 "label": "Zlarin",
-                "tags": "zlarin"
+                "tags": "zlarin,zlarina,zlarinu"
             }
         ]
     },
@@ -539,7 +539,7 @@
             {
                 "name": "zverinac",
                 "label": "Zverinac",
-                "tags": "zverinac"
+                "tags": "zverinac,zverincu,zverinca"
             }
         ]
     },
@@ -550,7 +550,7 @@
             {
                 "name": "zirje",
                 "label": "Žirje",
-                "tags": "žirje"
+                "tags": "žirje,žirju,žirja"
             }
         ]
     }
