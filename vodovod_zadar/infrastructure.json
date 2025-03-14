@@ -1,0 +1,22 @@
+{
+    "name": "vodovod_zadar",
+    "units": [
+        {
+            "name": "vodovod-zadar",
+            "label": "Vodoopskrbni sustav",
+            "tags": "",
+            "islands": [
+                "ugljan",
+                "osljak",
+                "dugi-otok",
+                "ist",
+                "iz",
+                "molat",
+                "olib",
+                "silba",
+                "premuda",
+                "rava"
+            ]
+        }
+    ]
+}
