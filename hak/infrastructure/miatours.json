@@ -3,7 +3,7 @@
     "units": [
         {
             "name": "9401",
-            "label": "9401 Olib - Silba - Premuda/Krijal - Zadar",
+            "label": "9401 OLIB - SILBA/Žalić - PREMUDA/Krijal - ZADAR",
             "tags": "olib - silba - premuda - zadar,olib - silba - premuda/krijal - zadar,olib - silba - premuda(krijal) - zadar,zadar - premuda - silba - olib,zadar-premuda-silba-olib,olib-silba-premuda-zadar",
             "islands": [
                 "olib",
@@ -13,7 +13,7 @@
         },
         {
             "name": "9502",
-            "label": "9502 Žirje - Kaprije - Šibenik",
+            "label": "9502 ŽIRJE - KAPRIJE - ŠIBENIK",
             "tags": "kaprije - šibenik,šibenik - kaprije,kaprije-šibenik,šibenik-kaprije,šibenik-žirje-kaprije,šibenik - žirje - kaprije,kaprije - žirje - šibenik,žirje-kaprije - šibenik",
             "islands": [
                 "kaprije",
