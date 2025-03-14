@@ -74,7 +74,7 @@ def make_requests(headers, urls):
             yield url, response
         except:
             logger.error(f"Error downloading data")
-            exit()
+            return
 
 
 def process():
@@ -88,7 +88,7 @@ def process():
             response_feed = r.read()
     except:
         logger.error(f"Error downloading data")
-        exit()
+        return
 
     # create a download file it doesn't exist
     if not DOWNLOAD_FEED_PATH.exists():
@@ -100,7 +100,7 @@ def process():
     # existing_data = f.read()
     # f.close()
     # if existing_data == response:
-    #     exit()
+    #     return
     
     # load infrastructure data
     with open(INFRASTRUCTURE_PATH.resolve(), "rb") as f:

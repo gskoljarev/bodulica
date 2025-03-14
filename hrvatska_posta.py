@@ -67,7 +67,7 @@ def make_requests(headers, urls):
             yield url, response
         except:
             logger.error(f"Error downloading data")
-            exit()
+            return
 
 
 def process():

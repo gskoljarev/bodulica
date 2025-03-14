@@ -1,0 +1,71 @@
+{
+    "name": "hc",
+    "label": "Hrvatske ceste",
+    "units": [
+        {
+            "name": "DC106",
+            "label": "DC106 Novalja (trajektna luka) - Pag - Ražanac - Posedarje (DC8)",
+            "tags": "dc106,d106,dc 106,d 106,dc45",
+            "islands": [
+                "pag"
+            ]
+        },
+        {
+            "name": "DC109",
+            "label": "DC109 Veli Rat - Brbinj - Sali",
+            "tags": "dc109,d109,dc 109,d 109",
+            "islands": [
+                "dugi-otok"
+            ]
+        },
+        {
+            "name": "DC110",
+            "label": "DC110 Ugljan (trajektna luka) - Kukljica - Tkon (trajektna luka)",
+            "tags": "dc110,d110,dc 110,d 110",
+            "islands": [
+                "ugljan",
+                "pasman"
+            ]
+        },
+        {
+            "name": "DC121",
+            "label": "DC121 Murter (ŽC6250) - Tisno (DC8)",
+            "tags": "dc121,d121,dc 121,d 121",
+            "islands": [
+                "murter"
+            ]
+        },
+        {
+            "name": "DC124",
+            "label": "DC124 Brbinj (trajektna luka - DC109)",
+            "tags": "dc124,d124,dc 124,d 124",
+            "islands": [
+                "dugi-otok"
+            ]
+        },
+        {
+            "name": "DC125",
+            "label": "DC125 Zaglav (trajektna luka - DC109)",
+            "tags": "dc125,d125,dc 125,d 125",
+            "islands": [
+                "dugi-otok"
+            ]
+        },
+        {
+            "name": "DC128",
+            "label": "DC128 Žirje (Uvala Mikavica - trajektno pristanište)",
+            "tags": "dc128,d128,dc 128,d 128",
+            "islands": [
+                "zirje"
+            ]
+        },
+        {
+            "name": "DC306",
+            "label": "DC306 Vir (LC63017) - Nin - Zadar (DC8)",
+            "tags": "dc306,d306,dc 306,d 306",
+            "islands": [
+                "vir"
+            ]
+        }
+    ]
+}

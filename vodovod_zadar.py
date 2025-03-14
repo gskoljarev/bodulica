@@ -78,7 +78,7 @@ def process():
         response = urlopen(request).read()
     except:
         logger.error(f"Error downloading data")
-        exit()
+        return
 
     # create a download file it doesn't exist
     if not DOWNLOAD_PATH.exists():
@@ -90,7 +90,7 @@ def process():
     existing_data = f.read()
     f.close()
     if existing_data == response:
-        exit()
+        return
 
     # scrape the response & collect entries
     entries = []

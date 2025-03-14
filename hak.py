@@ -7,6 +7,7 @@ import sys
 import unicodedata
 from datetime import datetime
 from pathlib import Path
+from time import sleep
 from urllib.request import Request, urlopen
 
 from bs4 import BeautifulSoup
@@ -21,8 +22,10 @@ COMPANY_NAME = "HAK"
 SCRIPT_NAME = "hak"
 JOB_ID = "".join(random.choices(string.ascii_lowercase + string.digits, k=8))
 NOW = datetime.now().strftime("%Y%m%d_%H%M%S")
-SOURCE_URL = "https://m.hak.hr/stanje.asp?id=3"
-INFRASTRUCTURE_PATHS = [
+DOWNLOAD_DELAY = 3
+
+SOURCE_URL_MARITIME = "https://m.hak.hr/stanje.asp?id=3"
+INFRASTRUCTURE_PATHS_MARITIME = [
     Path(f"{SCRIPT_NAME}/infrastructure/gp_sibenik.json"),
     Path(f"{SCRIPT_NAME}/infrastructure/gv_line_iadera.json"),
     Path(f"{SCRIPT_NAME}/infrastructure/kapetan_luka_krilo.json"),
@@ -30,9 +33,17 @@ INFRASTRUCTURE_PATHS = [
     Path(f"{SCRIPT_NAME}/infrastructure/rpz_vrgada.json"),
     Path(f"jadrolinija/infrastructure.json"),
 ]
+DOWNLOAD_PATH_MARITIME = Path(f"{SCRIPT_NAME}/data/page_mar.html")
+ARCHIVE_PATH_MARITIME = Path(f"{SCRIPT_NAME}/data/page_mar_{NOW}_{JOB_ID}.html")
+
+SOURCE_URL_ROADS = "https://m.hak.hr/stanje.asp?id=1"
+INFRASTRUCTURE_PATHS_ROADS = [
+    Path(f"{SCRIPT_NAME}/infrastructure/hc.json"),
+]
+DOWNLOAD_PATH_ROADS = Path(f"{SCRIPT_NAME}/data/page_roads.html")
+ARCHIVE_PATH_ROADS = Path(f"{SCRIPT_NAME}/data/page_roads_{NOW}_{JOB_ID}.html")
+
 RESULTS_PATH = Path(f"{SCRIPT_NAME}/results.log")
-DOWNLOAD_PATH = Path(f"{SCRIPT_NAME}/data/page.html")
-ARCHIVE_PATH = Path(f"{SCRIPT_NAME}/data/page_{NOW}_{JOB_ID}.html")
 LOG_PATH = Path(f"{SCRIPT_NAME}/processing.log")
 
 
@@ -61,7 +72,19 @@ logger.addHandler(stdout_handler)
 # processing
 # ----------
 
-def process(url):
+def process(source='maritime'):
+    # handle source
+    if source == 'maritime':
+        SOURCE_URL = SOURCE_URL_MARITIME
+        INFRASTRUCTURE_PATHS = INFRASTRUCTURE_PATHS_MARITIME
+        DOWNLOAD_PATH = DOWNLOAD_PATH_MARITIME
+        ARCHIVE_PATH = ARCHIVE_PATH_MARITIME
+    if source == 'roads':
+        SOURCE_URL = SOURCE_URL_ROADS
+        INFRASTRUCTURE_PATHS = INFRASTRUCTURE_PATHS_ROADS
+        DOWNLOAD_PATH = DOWNLOAD_PATH_ROADS
+        ARCHIVE_PATH = ARCHIVE_PATH_ROADS
+
     # prepare headers
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '\
@@ -71,13 +94,13 @@ def process(url):
 
     # download the page
     try:
-        request = Request(url)
+        request = Request(SOURCE_URL)
         for key, value in headers.items(): 
             request.add_header(key, value)
         response = urlopen(request).read()
     except:
         logger.error(f"Error downloading data")
-        exit()
+        return
 
     # create a download file it doesn't exist
     if not DOWNLOAD_PATH.exists():
@@ -89,7 +112,7 @@ def process(url):
     existing_data = f.read()
     f.close()
     if existing_data == response:
-        exit()
+        return
     
     # load infrastructure data
     units = list()
@@ -161,9 +184,14 @@ def process(url):
             ''
         )
         subject = f'{COMPANY_NAME} - {unit_label}'
-        body = f'<!DOCTYPE html><html><body><p>HAK - Pomorski promet {date_raw}</p><br>'\
-            '<a href="https://m.hak.hr/stanje.asp?id=3">'\
-            'https://m.hak.hr/stanje.asp?id=3</a></body></html>'.strip()
+        if source == 'maritime':
+            body = f'<!DOCTYPE html><html><body><p>HAK - Pomorski promet {date_raw}</p><br>'\
+                '<a href="https://m.hak.hr/stanje.asp?id=3">'\
+                'https://m.hak.hr/stanje.asp?id=3</a></body></html>'.strip()
+        else:
+            body = f'<!DOCTYPE html><html><body><p>HAK - Prohodnost {date_raw}</p><br>'\
+                '<a href="https://m.hak.hr/stanje.asp?id=1">'\
+                'https://m.hak.hr/stanje.asp?id=1</a></body></html>'.strip()
 
         # retrieve islands connected to this unit
         islands = next(
@@ -215,14 +243,14 @@ def process(url):
         str(ARCHIVE_PATH.resolve())
     )
 
-    return
-
 
 # main
 # ----
 
 def main():
-    process(SOURCE_URL)
+    process(source='maritime')
+    sleep(DOWNLOAD_DELAY)
+    process(source='roads')
 
 
 if __name__ == "__main__":
