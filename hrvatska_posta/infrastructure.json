@@ -10,9 +10,57 @@
             ]
         },
         {
+            "name": "22232",
+            "label": "22232 ZLARIN",
+            "tags": "22232",
+            "islands": [
+                "zlarin"
+            ]
+        },
+        {
+            "name": "22233",
+            "label": "22233 PRVIĆ LUKA",
+            "tags": "22233",
+            "islands": [
+                "prvic"
+            ]
+        },
+        {
+            "name": "22234",
+            "label": "22234 PRVIĆ ŠEPURINE",
+            "tags": "22234",
+            "islands": [
+                "prvic"
+            ]
+        },
+        {
+            "name": "22235",
+            "label": "22235 KAPRIJE",
+            "tags": "22235",
+            "islands": [
+                "kaprije"
+            ]
+        },
+        {
+            "name": "22236",
+            "label": "22236 ŽIRJE",
+            "tags": "22236",
+            "islands": [
+                "zirje"
+            ]
+        },
+        {
             "name": "22240",
             "label": "22240 TISNO",
             "tags": "22240",
+            "islands": [
+                "murter"
+            ]
+        },
+        {
+            "name": "22242",
+            "label": "22242 JEZERA",
+            "tags": "22242",
             "islands": [
                 "murter"
             ]
@@ -27,11 +75,18 @@
             ]
         },
         {
-            "name": "23210",
-            "label": "23210 BIOGRAD NA MORU",
-            "tags": "23210",
+            "name": "23207",
+            "label": "23207 SVETI FILIP I JAKOV",
+            "tags": "23207",
             "islands": [
-                "babac",
+                "babac"
+            ]
+        },
+        {
+            "name": "23211",
+            "label": "23211 PAKOŠTANE",
+            "tags": "23211",
+            "islands": [
                 "vrgada"
             ]
         },
@@ -41,6 +96,38 @@
             "tags": "23212",
             "islands": [
                 "pasman"
+            ]
+        },
+        {
+            "name": "23234",
+            "label": "23234 VIR",
+            "tags": "23234",
+            "islands": [
+                "vir"
+            ]
+        },
+        {
+            "name": "23249",
+            "label": "23249 POVLJANA",
+            "tags": "23249",
+            "islands": [
+                "pag"
+            ]
+        },
+        {
+            "name": "23250",
+            "label": "23250 PAG",
+            "tags": "23250",
+            "islands": [
+                "pag"
+            ]
+        },
+        {
+            "name": "23251",
+            "label": "23251 KOLAN",
+            "tags": "23251",
+            "islands": [
+                "pag"
             ]
         },
         {
@@ -89,15 +176,8 @@
             "label": "23273 PREKO",
             "tags": "23273",
             "islands": [
-                "ugljan"
-            ]
-        },
-        {
-            "name": "23274",
-            "label": "23274 LUKORAN SEZ.",
-            "tags": "23274",
-            "islands": [
-                "ugljan"
+                "ugljan",
+                "osljak"
             ]
         },
         {
@@ -215,51 +295,27 @@
             ]
         },
         {
-            "name": "22236",
-            "label": "22236 ŽIRJE",
-            "tags": "22236",
+            "name": "53291",
+            "label": "53291 NOVALJA",
+            "tags": "53291",
             "islands": [
-                "zirje"
+                "pag"
             ]
         },
         {
-            "name": "22232",
-            "label": "22232 ZLARIN",
-            "tags": "22232",
+            "name": "53294",
+            "label": "53294 LUN",
+            "tags": "53294",
             "islands": [
-                "zlarin"
+                "pag"
             ]
         },
         {
-            "name": "22233",
-            "label": "22233 PRVIĆ LUKA",
-            "tags": "22233",
+            "name": "53296",
+            "label": "53296 ZUBOVIĆI",
+            "tags": "53296",
             "islands": [
-                "prvic"
-            ]
-        },
-        {
-            "name": "22234",
-            "label": "22234 PRVIĆ ŠEPURINE",
-            "tags": "22234",
-            "islands": [
-                "prvic"
-            ]
-        },
-        {
-            "name": "22235",
-            "label": "22235 KAPRIJE",
-            "tags": "22235",
-            "islands": [
-                "kaprije"
-            ]
-        },
-        {
-            "name": "23234",
-            "label": "23234 VIR",
-            "tags": "23234",
-            "islands": [
-                "vir"
+                "pag"
             ]
         }
     ]
