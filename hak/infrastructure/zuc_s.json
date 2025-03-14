@@ -1,0 +1,22 @@
+{
+    "name": "zuc-s",
+    "label": "Županijska uprava za ceste Šibenik",
+    "units": [
+        {
+            "name": "zc6085",
+            "label": "ŽC6085 Jezera (DC121 - ACI marina Jezera)",
+            "tags": "žc6085,ž6085,žc 6085,ž 6085",
+            "islands": [
+                "murter"
+            ]
+        },
+        {
+            "name": "zc6250",
+            "label": "ŽC6250 Murter (DC121) - Betina - Murter (DC121)",
+            "tags": "žc6250,ž6250,žc 6250,ž 6250",
+            "islands": [
+                "murter"
+            ]
+        }
+    ]
+}

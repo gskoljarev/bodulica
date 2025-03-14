@@ -1,0 +1,414 @@
+{
+    "name": "zuc-zz",
+    "label": "Županijska uprava za ceste Zadarske županije",
+    "units": [
+        {
+            "name": "lc63002",
+            "label": "LC63002 Kolan (DC106 - DC106)",
+            "tags": "lc63002,l63002,lc 63002,l 63002",
+            "islands": [
+                "pag"
+            ]
+        },
+        {
+            "name": "lc63003",
+            "label": "LC63003 Kolan (LC63002) - Mandre",
+            "tags": "lc63003,l63003,lc 63003,l 63003",
+            "islands": [
+                "pag"
+            ]
+        },
+        {
+            "name": "lc63004",
+            "label": "LC63004 Kolan (LC63003) - Šimuni (DC106)",
+            "tags": "lc63004,l63004,lc 63004,l 63004",
+            "islands": [
+                "pag"
+            ]
+        },
+        {
+            "name": "lc63005",
+            "label": "LC63005 Pag (DC106) - Košljun (LC63006)",
+            "tags": "lc63005,l63005,lc 63005,l 63005",
+            "islands": [
+                "pag"
+            ]
+        },
+        {
+            "name": "lc63006",
+            "label": "LC63006 Pag - Košljun (LC63005)",
+            "tags": "lc63006,l63006,lc 63006,l 63006",
+            "islands": [
+                "pag"
+            ]
+        },
+        {
+            "name": "lc63007",
+            "label": "LC63007 Pag (LC63006 - LC63211)",
+            "tags": "lc63007,l63007,lc 63007,l 63007",
+            "islands": [
+                "pag"
+            ]
+        },
+        {
+            "name": "lc63008",
+            "label": "LC63008 Pag (nerazvrstana cesta - LC63211)",
+            "tags": "lc63008,l63008,lc 63008,l 63008",
+            "islands": [
+                "pag"
+            ]
+        },
+        {
+            "name": "lc63017",
+            "label": "LC63017 Vir (nerazvrstana cesta - DC306)",
+            "tags": "lc63017,l63017,lc 63017,l 63017",
+            "islands": [
+                "vir"
+            ]
+        },
+        {
+            "name": "lc63018",
+            "label": "LC63018 Vir (nerazvrstana cesta - LC63017)",
+            "tags": "lc63018,l63018,lc 63018,l 63018",
+            "islands": [
+                "vir"
+            ]
+        },
+        {
+            "name": "lc63019",
+            "label": "LC63019 Povljana (ŽC6275) - Stara Vas (ŽC6005)",
+            "tags": "lc63019,l63019,lc 63019,l 63019",
+            "islands": [
+                "pag"
+            ]
+        },
+        {
+            "name": "lc63020",
+            "label": "LC63020 Smokvica (LC63209) - Vlašići (ŽC6005)",
+            "tags": "lc63020,l63020,lc 63020,l 63020",
+            "islands": [
+                "pag"
+            ]
+        },
+        {
+            "name": "lc63041",
+            "label": "LC63041 Verunić - Soline (DC109)",
+            "tags": "lc63041,l63041,lc 63041,l 63041",
+            "islands": [
+                "dugi-otok"
+            ]
+        },
+        {
+            "name": "lc63043",
+            "label": "LC63046 Soline (LC63041 - nerazvrstana cesta)",
+            "tags": "lc63043,l63043,lc 63043,l 63043",
+            "islands": [
+                "dugi-otok"
+            ]
+        },
+        {
+            "name": "lc63044",
+            "label": "LC63044 Božava (nerazvrstana cesta - DC109)",
+            "tags": "lc63044,l63044,lc 63044,l 63044",
+            "islands": [
+                "dugi-otok"
+            ]
+        },
+        {
+            "name": "lc63045",
+            "label": "LC63045 Sestrunj (luka Hrvatin - luka Kablin)",
+            "tags": "lc63045,l63045,lc 63045,l 63045",
+            "islands": [
+                "sestrunj"
+            ]
+        },
+        {
+            "name": "lc63046",
+            "label": "LC63046 Ugljan (DC110 - DC110)",
+            "tags": "lc63046,l63046,lc 63046,l 63046",
+            "islands": [
+                "ugljan"
+            ]
+        },
+        {
+            "name": "lc63047",
+            "label": "LC63047 Ugljan (DC110 - DC110)",
+            "tags": "lc63047,l63047,lc 63047,l 63047",
+            "islands": [
+                "ugljan"
+            ]
+        },
+        {
+            "name": "lc63092",
+            "label": "LC63092 Dragove (luka - DC109)",
+            "tags": "lc63092,l63092,lc 63092,l 63092",
+            "islands": [
+                "dugi-otok"
+            ]
+        },
+        {
+            "name": "lc63093",
+            "label": "LC63093 Ugljan (LC63047 - DC110)",
+            "tags": "lc63093,l63093,lc 63093,l 63093",
+            "islands": [
+                "ugljan"
+            ]
+        },
+        {
+            "name": "lc63095",
+            "label": "LC63095 Savar (DC109 - crkva sv. Pelegrina)",
+            "tags": "lc63095,l63095,lc 63095,l 63095",
+            "islands": [
+                "dugi-otok"
+            ]
+        },
+        {
+            "name": "lc63096",
+            "label": "LC63096 Sutomišćica (nerazvrstana cesta - DC110)",
+            "tags": "lc63096,l63096,lc 63096,l 63096",
+            "islands": [
+                "ugljan"
+            ]
+        },
+        {
+            "name": "lc63097",
+            "label": "LC63097 Poljana (DC110 - nerazvrstana cesta)",
+            "tags": "lc63097,l63097,lc 63097,l 63097",
+            "islands": [
+                "ugljan"
+            ]
+        },
+        {
+            "name": "lc63098",
+            "label": "LC63098 Preko (DC110 - DC110)",
+            "tags": "lc63098,l63098,lc 63098,l 63098",
+            "islands": [
+                "ugljan"
+            ]
+        },
+        {
+            "name": "lc63099",
+            "label": "LC63099 Kali (DC110 - nerazvrstana cesta)",
+            "tags": "lc63099,l63099,lc 63099,l 63099",
+            "islands": [
+                "ugljan"
+            ]
+        },
+        {
+            "name": "lc63100",
+            "label": "LC63100 Kali (DC110 - nerazvrstana cesta)",
+            "tags": "lc63100,l63100,lc 63100,l 63100",
+            "islands": [
+                "ugljan"
+            ]
+        },
+        {
+            "name": "lc63109",
+            "label": "LC63109 Ždrelac (DC110 - uvala Sveti Luka)",
+            "tags": "lc63109,l63109,lc 63109,l 63109",
+            "islands": [
+                "pasman"
+            ]
+        },
+        {
+            "name": "lc63110",
+            "label": "LC63110 Ždrelac (DC110 - nerazvrstana cesta)",
+            "tags": "lc63110,l63110,lc 63110,l 63110",
+            "islands": [
+                "pasman"
+            ]
+        },
+        {
+            "name": "lc63111",
+            "label": "LC63111 Banj (nerazvrstana cesta - DC110)",
+            "tags": "lc63111,l63111,lc 63111,l 63111",
+            "islands": [
+                "pasman"
+            ]
+        },
+        {
+            "name": "lc63216",
+            "label": "LC63216 Veli Rat (svjetionik Veli Rat - DC109)",
+            "tags": "lc63216,l63216,lc 63216,l 63216",
+            "islands": [
+                "dugi-otok"
+            ]
+        },
+        {
+            "name": "lc63135",
+            "label": "LC63135 Zaglav (nerazvrstana cesta - DC109)",
+            "tags": "lc63135,l63135,lc 63135,l 63135",
+            "islands": [
+                "dugi-otok"
+            ]
+        },
+        {
+            "name": "lc63136",
+            "label": "LC63136 Dobropoljana (DC110) - Neviđane (DC110)",
+            "tags": "lc63136,l63136,lc 63136,l 63136",
+            "islands": [
+                "pasman"
+            ]
+        },
+        {
+            "name": "lc63140",
+            "label": "LC63140 Kraj (DC110) - Tkon (DC110)",
+            "tags": "lc63140,l63140,lc 63140,l 63140",
+            "islands": [
+                "pasman"
+            ]
+        },
+        {
+            "name": "lc63168",
+            "label": "LC63168 Vir (LC63017 - DC306)",
+            "tags": "lc63168,l63168,lc 63168,l 63168",
+            "islands": [
+                "vir"
+            ]
+        },
+        {
+            "name": "lc63169",
+            "label": "LC63169 Vir (LC63017 - DC306/LC63017)",
+            "tags": "lc63169,l63169,lc 63169,l 63169",
+            "islands": [
+                "vir"
+            ]
+        },
+        {
+            "name": "lc63170",
+            "label": "LC63170 Rivanj (nerazvrstana cesta - trajektno pristanište)",
+            "tags": "lc63170,l63170,lc 63170,l 63170",
+            "islands": [
+                "rivanj"
+            ]
+        },
+        {
+            "name": "lc63171",
+            "label": "LC63171 Kukljica (DC110 - nerazvrstana cesta)",
+            "tags": "lc63171,l63171,lc 63171,l 63171",
+            "islands": [
+                "ugljan"
+            ]
+        },
+        {
+            "name": "lc63179",
+            "label": "LC63179 Pag (nerazvrstana cesta - LC63008)",
+            "tags": "lc63179,l63179,lc 63179,l 63179",
+            "islands": [
+                "pag"
+            ]
+        },
+        {
+            "name": "lc63208",
+            "label": "LC63208 Pag (LC63006) - Vrčići (ŽC6275)",
+            "tags": "lc63208,l63208,lc 63208,l 63208",
+            "islands": [
+                "pag"
+            ]
+        },
+        {
+            "name": "lc63209",
+            "label": "LC63209 Povljana (ŽC6275) - Smokvica (LC63020)",
+            "tags": "lc63209,l63209,lc 63209,l 63209",
+            "islands": [
+                "pag"
+            ]
+        },
+        {
+            "name": "lc63211",
+            "label": "LC63211 Pag (DC106 - DC106)",
+            "tags": "lc63211,l63211,lc 63211,l 63211",
+            "islands": [
+                "pag"
+            ]
+        },
+        {
+            "name": "lc63215",
+            "label": "LC63215 Sali (DC109 - Mala Proversa)",
+            "tags": "lc63215,l63215,lc 63215,l 63215",
+            "islands": [
+                "dugi-otok"
+            ]
+        },
+        {
+            "name": "lc63218",
+            "label": "LC63218 Pašman (DC110 - ŽC6062)",
+            "tags": "lc63218,l63218,lc 63218,l 63218",
+            "islands": [
+                "pasman"
+            ]
+        },
+        {
+            "name": "zc6005",
+            "label": "ŽC6005 Stara Vas (DC106) - Vlašići",
+            "tags": "žc6005,ž6005,žc 6005,ž 6005",
+            "islands": [
+                "pag"
+            ]
+        },
+        {
+            "name": "zc6059",
+            "label": "ŽC6059 Luka (nerazvrstana cesta - DC109)",
+            "tags": "žc6059,ž6059,žc 6059,ž 6059",
+            "islands": [
+                "dugi-otok"
+            ]
+        },
+        {
+            "name": "zc6060",
+            "label": "ŽC6060 Žman (nerazvrstana cesta - DC109)",
+            "tags": "žc6060,ž6060,žc 6060,ž 6060",
+            "islands": [
+                "dugi-otok"
+            ]
+        },
+        {
+            "name": "zc6062",
+            "label": "ŽC6062 Pašman (DC110 - DC110)",
+            "tags": "žc6062,ž6062,žc 6062,ž 6062",
+            "islands": [
+                "pasman"
+            ]
+        },
+        {
+            "name": "zc6245",
+            "label": "ŽC6245 Lukoran (nerazvrstana cesta - DC110)",
+            "tags": "žc6245,ž6245,žc 6245,ž 6245",
+            "islands": [
+                "ugljan"
+            ]
+        },
+        {
+            "name": "zc6248",
+            "label": "ŽC6248 Tkon (DC110 - nerazvrstana cesta)",
+            "tags": "žc6248,ž6248,žc 6248,ž 6248",
+            "islands": [
+                "pasman"
+            ]
+        },
+        {
+            "name": "zc6249",
+            "label": "ŽC6249 Tkon (DC110 - T.N. Pustograd)",
+            "tags": "žc6249,ž6249,žc 6249,ž 6249",
+            "islands": [
+                "pasman"
+            ]
+        },
+        {
+            "name": "zc6271",
+            "label": "ŽC6271 Sali (DC109 - P.P. Telaščica)",
+            "tags": "žc6271,ž6271,žc 6271,ž 6271",
+            "islands": [
+                "dugi-otok"
+            ]
+        },
+        {
+            "name": "zc6275",
+            "label": "ŽC6275 Gorica (DC106) - Povljana (LC63209)",
+            "tags": "žc6275,ž6275,žc 6275,ž 6275",
+            "islands": [
+                "pag"
+            ]
+        }
+    ]
+}

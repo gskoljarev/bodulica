@@ -3,15 +3,23 @@
     "label": "Hrvatske ceste",
     "units": [
         {
-            "name": "DC106",
+            "name": "dc106",
             "label": "DC106 Novalja (trajektna luka) - Pag - Ražanac - Posedarje (DC8)",
-            "tags": "dc106,d106,dc 106,d 106",
+            "tags": "dc106,d106,dc 106,d 106,paški most,paškom mostu,paškog mosta",
             "islands": [
                 "pag"
             ]
         },
         {
-            "name": "DC109",
+            "name": "dc107",
+            "label": "DC107 Stara Novalja (trajektna luka) - Novalja (DC106)",
+            "tags": "dc107,d107,dc 107,d 107",
+            "islands": [
+                "pag"
+            ]
+        },
+        {
+            "name": "dc109",
             "label": "DC109 Veli Rat - Brbinj - Sali",
             "tags": "dc109,d109,dc 109,d 109",
             "islands": [
@@ -19,7 +27,7 @@
             ]
         },
         {
-            "name": "DC110",
+            "name": "dc110",
             "label": "DC110 Ugljan (trajektna luka) - Kukljica - Tkon (trajektna luka)",
             "tags": "dc110,d110,dc 110,d 110",
             "islands": [
@@ -28,7 +36,7 @@
             ]
         },
         {
-            "name": "DC121",
+            "name": "dc121",
             "label": "DC121 Murter (ŽC6250) - Tisno (DC8)",
             "tags": "dc121,d121,dc 121,d 121",
             "islands": [
@@ -36,7 +44,7 @@
             ]
         },
         {
-            "name": "DC124",
+            "name": "dc124",
             "label": "DC124 Brbinj (trajektna luka - DC109)",
             "tags": "dc124,d124,dc 124,d 124",
             "islands": [
@@ -44,7 +52,7 @@
             ]
         },
         {
-            "name": "DC125",
+            "name": "dc125",
             "label": "DC125 Zaglav (trajektna luka - DC109)",
             "tags": "dc125,d125,dc 125,d 125",
             "islands": [
@@ -52,7 +60,7 @@
             ]
         },
         {
-            "name": "DC128",
+            "name": "dc128",
             "label": "DC128 Žirje (Uvala Mikavica - trajektno pristanište)",
             "tags": "dc128,d128,dc 128,d 128",
             "islands": [
@@ -60,11 +68,19 @@
             ]
         },
         {
-            "name": "DC306",
+            "name": "dc306",
             "label": "DC306 Vir (LC63017) - Nin - Zadar (DC8)",
-            "tags": "dc306,d306,dc 306,d 306",
+            "tags": "dc306,d306,dc 306,d 306,virski most,virskom mostu,virskog mosta",
             "islands": [
                 "vir"
+            ]
+        },
+        {
+            "name": "dc406",
+            "label": "DC406 Prizna (DC8 - trajektna luka)",
+            "tags": "dc406,d406,dc 406,d 406",
+            "islands": [
+                "pag"
             ]
         }
     ]

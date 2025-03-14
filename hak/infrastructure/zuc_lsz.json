@@ -1,0 +1,22 @@
+{
+    "name": "zuc-lsz",
+    "label": "Županijska uprava za ceste Ličko-senjske županije",
+    "units": [
+        {
+            "name": "lc59077",
+            "label": "LC59077 Novalja (DC106) - Metajna",
+            "tags": "lc59077,l59077,lc 59077,l 59077",
+            "islands": [
+                "pag"
+            ]
+        },
+        {
+            "name": "zc5151",
+            "label": "ŽC5151 Lun (LC59046) - Novalja (DC106)",
+            "tags": "žc5151,ž5151,žc 5151,ž 5151",
+            "islands": [
+                "pag"
+            ]
+        }
+    ]
+}

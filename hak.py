@@ -39,6 +39,9 @@ ARCHIVE_PATH_MARITIME = Path(f"{SCRIPT_NAME}/data/page_mar_{NOW}_{JOB_ID}.html")
 SOURCE_URL_ROADS = "https://m.hak.hr/stanje.asp?id=1"
 INFRASTRUCTURE_PATHS_ROADS = [
     Path(f"{SCRIPT_NAME}/infrastructure/hc.json"),
+    Path(f"{SCRIPT_NAME}/infrastructure/zuc_lsz.json"),
+    Path(f"{SCRIPT_NAME}/infrastructure/zuc_s.json"),
+    Path(f"{SCRIPT_NAME}/infrastructure/zuc_zz.json"),
 ]
 DOWNLOAD_PATH_ROADS = Path(f"{SCRIPT_NAME}/data/page_roads.html")
 ARCHIVE_PATH_ROADS = Path(f"{SCRIPT_NAME}/data/page_roads_{NOW}_{JOB_ID}.html")
