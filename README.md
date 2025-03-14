@@ -27,6 +27,7 @@ nano /etc/crontab
 5 */12   * * *   root    cd /opt/bodulica && .venv/bin/python hep.py
 5 */12   * * *   root    cd /opt/bodulica && .venv/bin/python hrvatska_posta.py
 5 */12   * * *   root    cd /opt/bodulica && .venv/bin/python hak.py
+5 */12   * * *   root    cd /opt/bodulica && .venv/bin/python vodovod_zadar.py
 ```
 
 ## Usage
