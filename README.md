@@ -34,8 +34,5 @@ nano /etc/crontab
 - activate the virtual environment
 `source .venv/bin/activate`
 
-- run the script with today's date
-`make`
-
 - run the desired script
 `python hak.py`
