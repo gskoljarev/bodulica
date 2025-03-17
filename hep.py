@@ -215,7 +215,8 @@ def process():
     with open("contacts.json", "rb") as f:
         contacts = json.load(f)
 
-    # send email notifications
+    # construct email notifications
+    emails = []
     for result in new_results:
         # construct an email message
         external_id, title, island_name, _ = result.split("|")
@@ -232,7 +233,7 @@ def process():
             f'<a href="{link}">{link}</a></body></html>'.strip()
 
         # collect contacts' emails connected to this island
-        emails = next(
+        email_addresses = next(
             (
                 item.get("contacts") for item in contacts \
                     if item.get("island") == island_name
@@ -241,14 +242,23 @@ def process():
         )
         
         # log what is to be sent
-        emails_str = ",".join(emails) if emails \
+        emails_str = ",".join(email_addresses) if email_addresses \
             else "<no recipients>"
         logger.info(
             f"[NEW RESULT] {result}|{emails_str}"
         )
 
-        # send emails
-        send_email(emails, subject, body)
+        emails.append((email_addresses, subject, body))
+
+    # remove duplicate emails
+    emails = list(set((tuple(emails), subject, body) for emails, subject, body in emails))
+
+    # send email notifications
+    for email in emails:
+        email_addresses = email[0]
+        subject = email[1]
+        body = email[2]
+        send_email(email_addresses, subject, body)
 
     # write new results
     with open(RESULTS_PATH.resolve(), "a+", encoding="utf-8") as f:
