@@ -27,7 +27,6 @@ JOB_ID = "".join(random.choices(string.ascii_lowercase + string.digits, k=8))
 NOW = datetime.now().strftime("%Y%m%d_%H%M%S")
 SOURCE_URL = 'https://www.hep.hr/ods/bez-struje/19' \
     '?dp={company}&el={unit}&datum={date}'
-DOWNLOAD_DELAY_SECONDS = 6
 INFRASTRUCTURE_PATH = Path(f"{SCRIPT_NAME}/infrastructure.json")
 RESULTS_PATH = Path(f"{SCRIPT_NAME}/results.log")
 DOWNLOAD_PATH = Path(f"{SCRIPT_NAME}/data/data.json")
@@ -62,7 +61,7 @@ logger.addHandler(stdout_handler)
 
 def make_requests(headers, urls):
     for url in urls:
-        time.sleep(DOWNLOAD_DELAY_SECONDS)
+        time.sleep(random.randrange(4,9))
         try:
             request = Request(url)
             for key, value in headers.items(): 
@@ -198,10 +197,13 @@ def process():
                 # check tags
                 tags = settlement.get('tags').split(',')
                 for tag in tags:
-                    if tag in body:
-                        # check if result already exists
-                        if result not in results:
-                            new_results.append(result)
+                    for item in body:
+                        # sometimes settlement names are grouped in one line
+                        # and separated with a comma
+                        if tag in item or tag == item:
+                            # check if result already exists
+                            if result not in results:
+                                new_results.append(result)
 
     if not new_results:
         return
