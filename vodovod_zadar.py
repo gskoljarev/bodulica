@@ -137,8 +137,10 @@ def process():
     # process entries
     new_results = []
     for entry in entries:
-        body = entry.get("body").strip().replace('\n', ' ')
-        # print("###", body)
+        body_raw = entry.get("body").strip().replace('\n', ' ').replace(',', ' ').split(' ')
+        body = [
+            item.strip() for item in body_raw if item.strip()
+        ]
         
         # get islands connected to the singular company unit
         unit = units[0]
