@@ -137,7 +137,13 @@ def process():
     # process entries
     new_results = []
     for entry in entries:
-        body_raw = entry.get("body").strip().replace('\n', ' ').replace(',', ' ').split(' ')
+        body_raw = entry.get("body").strip().replace(
+            '\n', ' '
+        ).replace(
+            '\xa0', ' '
+        ).replace(
+            ',', ' '
+        ).split(' ')
         body = [
             item.strip() for item in body_raw if item.strip()
         ]
@@ -159,7 +165,9 @@ def process():
                 for tag in tags:
                     # capitalize the tag
                     # for ex. m.iž > M.Iž, staroj novalji > Staroj Novalji
-                    capitalized_tag = re.sub(r'(\b[a-z])', lambda m: m.group(1).upper(), tag)
+                    capitalized_tag = re.sub(
+                        r'(\b[a-z])', lambda m: m.group(1).upper(), tag
+                    )
                     # print(">", capitalized_tag)
                     if capitalized_tag in body:
                         # check if result already exists
