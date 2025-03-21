@@ -17,6 +17,12 @@ hrvatska_posta/results.log
 hak/data/page*.html
 hak/processing.log
 hak/results.log
+vodovod_zadar/data/page*.html
+vodovod_zadar/processing.log
+vodovod_zadar/results.log
+komunalac_bnm/data/data*.json
+komunalac_bnm/processing.log
+komunalac_bnm/results.log
 
 
 # Python
