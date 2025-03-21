@@ -5,6 +5,7 @@ import re
 import shutil
 import string
 import sys
+import time
 from datetime import datetime
 from pathlib import Path
 from urllib.request import Request, urlopen
@@ -20,20 +21,17 @@ from utils import (
 # set constants
 # -------------
 
-COMPANY_NAME = "Vodovod Zadar"
-SCRIPT_NAME = "vodovod_zadar"
+COMPANY_NAME = "Komunalac Biograd na Moru"
+SCRIPT_NAME = "komunalac_bnm"
 JOB_ID = "".join(random.choices(string.ascii_lowercase + string.digits, k=8))
 NOW = datetime.now().strftime("%Y%m%d_%H%M%S")
-SOURCE_URLS = [
-    'https://www.vodovod-zadar.hr/obavijesti',
-    # 'https://www.vodovod-zadar.hr/novosti',
-
-]
-DOWNLOAD_DELAY_SECONDS = 3
+BASE_URL = 'https://www.komunalac.com'
+SOURCE_URL = f'{BASE_URL}/obavijesti'
+DOWNLOAD_DELAY_SECONDS = 1
 INFRASTRUCTURE_PATH = Path(f"{SCRIPT_NAME}/infrastructure.json")
 RESULTS_PATH = Path(f"{SCRIPT_NAME}/results.log")
-DOWNLOAD_PATH = Path(f"{SCRIPT_NAME}/data/page.html")
-ARCHIVE_PATH = Path(f"{SCRIPT_NAME}/data/page_{NOW}_{JOB_ID}.html")
+DOWNLOAD_PATH = Path(f"{SCRIPT_NAME}/data/data.json")
+ARCHIVE_PATH = Path(f"{SCRIPT_NAME}/data/data_{NOW}_{JOB_ID}.json")
 LOG_PATH = Path(f"{SCRIPT_NAME}/processing.log")
 
 
@@ -62,54 +60,65 @@ logger.addHandler(stdout_handler)
 # processing
 # ----------
 
+def make_requests(headers, urls):
+    for url in urls:
+        time.sleep(DOWNLOAD_DELAY_SECONDS)
+        try:
+            request = Request(url)
+            for key, value in headers.items(): 
+                request.add_header(key, value)
+            response = urlopen(request).read().decode('utf-8')
+            yield url, response
+        except:
+            logger.error(f"Error downloading data")
+            return
+
+
 def process():
     # prepare headers
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '\
-                      'AppleWebKit/537.36 (KHTML, like Gecko) '\
-                      'Chrome/107.0.0.0 Safari/537.36'
+        'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0)' \
+                      'Gecko/20100101 Firefox/53.0'
     }
+  
+    # make initial request
+    urls = [SOURCE_URL]
+    responses = make_requests(headers, urls)
 
-    # download the page
-    try:
-        request = Request(SOURCE_URLS[0])
-        for key, value in headers.items(): 
-            request.add_header(key, value)
-        response = urlopen(request).read()
-    except:
-        logger.error(f"Error downloading data")
-        return
+    # scrape sub page links
+    for url, response in responses:
+        soup = BeautifulSoup(response, 'html.parser')
+        div = soup.find('div', {'class': 'news-list'})
+        # find and format raw links
+        links = [
+            BASE_URL+item.get("href") for item in \
+                div.findChildren("a" , recursive=True)
+        ]
 
-    # create a download file it doesn't exist
-    if not DOWNLOAD_PATH.exists():
-        f = DOWNLOAD_PATH.open("wb+")
-        f.close()
+    # limit to last 8 links
+    links = links[:7]
 
-    # check if new data available
-    f = DOWNLOAD_PATH.open("rb")
-    existing_data = f.read()
-    f.close()
-    if existing_data == response:
-        return
+    # make subpage requests
+    responses = make_requests(headers, links)
 
-    # scrape the response & collect entries
+    # scrape responses & collect entries
     entries = []
-    soup = BeautifulSoup(response, 'html.parser')
-    divs = soup.find_all('div', class_='news-news-list')
-    for div in divs:
-        published_at = div.find('time').text
-        body = div.findChildren('div', {'class': 'content clearfix'})[0].text.strip()
+    for url, response in responses:
+        soup = BeautifulSoup(response, 'html.parser')
+        title = soup.find('h1').text
+        body = soup.find('div', {'class': 'content'}).text
 
         # no discernible information available on source page
-        title = 'Obavijest potrošačima'
         subtitle = ''
-        external_id = ''
-        url = ''
+        published_at = ''
+
+        external_id = url.rpartition('/')[2]
+        link = url
 
         entry = {
             "external_id": external_id,
             "published_at": published_at,
-            "link": url,
+            "link": link,
             "title": title,
             "subtitle": subtitle,
             "body": body
@@ -121,6 +130,10 @@ def process():
         infrastructure = json.load(f)
         units = infrastructure.get("units")
 
+    # load island data
+    with open("islands.json", "rb") as f:
+        islands_all = json.load(f)
+
     # create a results file it doesn't exist
     if not RESULTS_PATH.exists():
         f = RESULTS_PATH.open("w+")
@@ -129,10 +142,6 @@ def process():
     # open the existing results file
     with open(str(RESULTS_PATH.resolve())) as f:
         results = f.read()
-
-    # load island data
-    with open("islands.json", "rb") as f:
-        islands_all = json.load(f)
 
     # process entries
     new_results = []
@@ -157,7 +166,7 @@ def process():
             for settlement in settlements:
                 # form a result
                 locality = settlement.get('name')
-                result = f"{published_at}|{title}|{body_raw}|{island}|{locality}"
+                result = f"{external_id}|{title}|{island}|{locality}"
                 # check tags
                 tags = settlement.get('tags').split(',')
                 for tag in tags:
@@ -190,9 +199,9 @@ def process():
     emails = []
     for result in new_results:
         # construct an email message
-        published_at, title, body, island_name, _ = result.split("|")
+        external_id, title, island_name, _ = result.split("|")
         subject = f'{COMPANY_NAME} - {title}'
-        link = 'https://www.vodovod-zadar.hr/obavijesti'
+        link = 'https://www.komunalac.com/obavijesti'
         body = f'<!DOCTYPE html><html><body><p>{title}</p><br>'\
             f'<a href="{link}">{link}</a></body></html>'.strip()
 
@@ -217,6 +226,8 @@ def process():
     # remove duplicate emails
     emails = list(set((tuple(emails), subject, body) for emails, subject, body in emails))
 
+    print("### emails", emails)
+
     # send email notifications
     for email in emails:
         email_addresses = email[0]
@@ -230,9 +241,8 @@ def process():
             f.write(f"{result}\n")
 
     # write to download file
-    f = DOWNLOAD_PATH.open("wb+")
-    f.write(response)
-    f.close()
+    with open(DOWNLOAD_PATH.resolve(), "w+") as f:
+        json.dump(entries, f)
 
     # also copy for archiving & debugging purposes
     shutil.copy(

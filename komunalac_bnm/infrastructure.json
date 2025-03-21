@@ -1,0 +1,15 @@
+{
+    "name": "komunalac_bnm",
+    "units": [
+        {
+            "name": "komunalac-bnm",
+            "label": "Vodoopskrbni sustav",
+            "tags": "",
+            "islands": [
+                "babac",
+                "pasman",
+                "vrgada"
+            ]
+        }
+    ]
+}
