@@ -105,7 +105,7 @@
             {
                 "name": "kaprije",
                 "label": "Kaprije",
-                "tags": "kaprije,kapriju"
+                "tags": "kaprije,kapriju,kaprija"
             }
         ]
     },
@@ -116,7 +116,7 @@
             {
                 "name": "kornati",
                 "label": "Kornati",
-                "tags": "kornati,kornatu,kornatima"
+                "tags": "kornati,kornatu,kornatima,kornata"
             }
         ]
     },
@@ -164,7 +164,7 @@
             {
                 "name": "tisno",
                 "label": "Tisno",
-                "tags": "tisno,tisnom,tisnome"
+                "tags": "tisno,tisnom,tisnome,tisnoga"
             },
             {
                 "name": "betina",
@@ -287,7 +287,7 @@
             {
                 "name": "smokvica",
                 "label": "Smokvica",
-                "tags": "smokvica,smokvici"
+                "tags": "smokvica,smokvici,smokvice"
             },
             {
                 "name": "stara-vas",
@@ -302,22 +302,22 @@
             {
                 "name": "vlasici",
                 "label": "Vlašići",
-                "tags": "vlašići,vlašićima"
+                "tags": "vlašići,vlašićima,vlašića"
             },
             {
                 "name": "vrcici",
                 "label": "Vrčići",
-                "tags": "vrčići,vrčićima"
+                "tags": "vrčići,vrčićima,vrčića"
             },
             {
                 "name": "kolan",
                 "label": "Kolan",
-                "tags": "kolan,kolanu"
+                "tags": "kolan,kolanu,kolana"
             },
             {
                 "name": "mandre",
                 "label": "Mandre",
-                "tags": "mandre,mandrama"
+                "tags": "mandre,mandrama,mandri"
             },
             {
                 "name": "povljana",
