@@ -1,6 +1,7 @@
 import json
 import logging
 import random
+import re
 import shutil
 import string
 import sys
@@ -163,7 +164,7 @@ def process():
         # isolate and format settlement names in the entry body
         body_raw = entry.get("body")
         body = [
-            item.strip().split("Ulica:")[0].strip().lower() \
+            item.strip().split("Ulica:")[0].strip() \
                 for item in body_raw.replace('\n', ' ').split("Mjesto: ") \
                     if item.strip()
         ]
@@ -200,7 +201,10 @@ def process():
                     for item in body:
                         # sometimes settlement names are grouped in one line
                         # and separated with a comma
-                        if tag in item or tag == item:
+                        capitalized_tag = re.sub(
+                            r'(\b[a-z])', lambda m: m.group(1).upper(), tag
+                        )
+                        if capitalized_tag in item or tag == item.lower():
                             # check if result already exists
                             if result not in results:
                                 new_results.append(result)
