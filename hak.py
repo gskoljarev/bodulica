@@ -35,6 +35,7 @@ INFRASTRUCTURE_PATHS_MARITIME = [
 ]
 DOWNLOAD_PATH_MARITIME = Path(f"{SCRIPT_NAME}/data/page_mar.html")
 ARCHIVE_PATH_MARITIME = Path(f"{SCRIPT_NAME}/data/page_mar_{NOW}_{JOB_ID}.html")
+RESULTS_PATH_MARITIME = Path(f"{SCRIPT_NAME}/results_mar.log")
 
 SOURCE_URL_ROADS = "https://m.hak.hr/stanje.asp?id=1"
 INFRASTRUCTURE_PATHS_ROADS = [
@@ -45,8 +46,8 @@ INFRASTRUCTURE_PATHS_ROADS = [
 ]
 DOWNLOAD_PATH_ROADS = Path(f"{SCRIPT_NAME}/data/page_roads.html")
 ARCHIVE_PATH_ROADS = Path(f"{SCRIPT_NAME}/data/page_roads_{NOW}_{JOB_ID}.html")
+RESULTS_PATH_ROADS = Path(f"{SCRIPT_NAME}/results_roads.log")
 
-RESULTS_PATH = Path(f"{SCRIPT_NAME}/results.log")
 LOG_PATH = Path(f"{SCRIPT_NAME}/processing.log")
 
 
@@ -82,11 +83,13 @@ def process(source='maritime'):
         INFRASTRUCTURE_PATHS = INFRASTRUCTURE_PATHS_MARITIME
         DOWNLOAD_PATH = DOWNLOAD_PATH_MARITIME
         ARCHIVE_PATH = ARCHIVE_PATH_MARITIME
+        RESULTS_PATH = RESULTS_PATH_MARITIME
     if source == 'roads':
         SOURCE_URL = SOURCE_URL_ROADS
         INFRASTRUCTURE_PATHS = INFRASTRUCTURE_PATHS_ROADS
         DOWNLOAD_PATH = DOWNLOAD_PATH_ROADS
         ARCHIVE_PATH = ARCHIVE_PATH_ROADS
+        RESULTS_PATH = RESULTS_PATH_ROADS
 
     # prepare headers
     headers = {
@@ -131,7 +134,9 @@ def process(source='maritime'):
 
     # open the existing results file
     with open(str(RESULTS_PATH.resolve())) as f:
-        results = f.read()
+        existing_results = [
+            line.strip() for line in f if line.strip()
+        ]
 
     # process response
     soup = BeautifulSoup(response, 'html.parser')
@@ -141,35 +146,38 @@ def process(source='maritime'):
     ).split(' ')
     content = soup.find('ul', {'class': 'pageitem'}).text
 
-    new_results = []
+    results = []
 
     for unit in units:
         unit_name = unit.get("name")
-        result = f"{date_raw}|{unit_name}"
+        result = unit_name
         # check first if there is already a result for this unit
-        if result not in results and result not in new_results:
+        if result not in results:
             unit_tags = unit.get("tags").split(",")
             # &nbsp; turns into \xa0 when splitting and
             # slavic alphabet characters are not parsed correctly,
             # so we normalize first
             content_value = unicodedata.normalize(
                 "NFKC", content.lower()
-                )
+            )
             # find unit name and tags in field value;
             # use unit name (a number) as a separate tag
             # due to mixing with other numbers in value -
             # sorted by splitting field value by space
             if unit_name in content_value.split(" "):
-                new_results.append(result)
+                results.append(result)
             for tag in unit_tags:
                 if tag in content.lower():
-                    new_results.append(result)
-
-    if not new_results:
-        return
+                    results.append(result)
 
     # remove duplicate new results
-    new_results = list(set(new_results))
+    results = list(set(results))
+
+    # check for new results
+    new_results = []
+    for item in results:
+        if item not in existing_results:
+            new_results.append(item)
 
     # load contact data
     with open("contacts.json", "rb") as f:
@@ -178,7 +186,7 @@ def process(source='maritime'):
     # send email notifications
     for result in new_results:
         # construct an email message
-        date_raw, unit_name = result.split("|")
+        unit_name = result
         unit_label = next(
             (
                 item.get("label") for item in units \
@@ -230,9 +238,9 @@ def process(source='maritime'):
         # send emails
         send_email(emails_all, subject, body)
 
-    # write new results
-    with open(RESULTS_PATH.resolve(), "a+", encoding="utf-8") as f:
-        for result in new_results:
+    # write results
+    with open(RESULTS_PATH.resolve(), "w+", encoding="utf-8") as f:
+        for result in results:
             f.write(f"{result}\n")
 
     # write to download file
