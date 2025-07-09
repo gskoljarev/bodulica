@@ -169,9 +169,10 @@ def process():
                     # print(">", capitalized_tag)
                     if capitalized_tag in body:
                         # discard specific cases
-                        if capitalized_tag == 'Poljana' and 'Poljana Branka Stojakovića' in body:
-                            continue
-                        if capitalized_tag == 'Poljana' and 'Poljana Požarišće' in body:
+                        if capitalized_tag == 'Poljana' and (
+                            'Poljana Branka Stojakovića' in body
+                            or 'Poljana Požarišće' in body
+                        ):
                             continue
 
                         # check if result already exists
