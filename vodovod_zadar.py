@@ -157,6 +157,7 @@ def process():
             for settlement in settlements:
                 # form a result
                 locality = settlement.get('name')
+                published_at = entry.get("published_at").strip()
                 result = f"{published_at}|{title}|{body_raw}|{island}|{locality}"
                 # check tags
                 tags = settlement.get('tags').split(',')
@@ -169,11 +170,9 @@ def process():
                     # print(">", capitalized_tag)
                     if capitalized_tag in body:
                         # discard specific cases
-                        if capitalized_tag == 'Poljana' and (
-                            'Poljana Branka Stojakovića' in body
-                            or 'Poljana Požarišće' in body
-                        ):
-                            continue
+                        if capitalized_tag == 'Poljana':
+                            if 'Stojakovića' in body or 'Požarišće' in body:
+                                continue
 
                         # check if result already exists
                         if result not in results:
