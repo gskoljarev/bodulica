@@ -89,7 +89,7 @@
             {
                 "name": "mali-iz",
                 "label": "Mali Iž",
-                "tags": "mali iž,m. iž,m.iž, m.iž,iž mali,iž veli i iž mali,malom ižu,ižu malom,ižu malome"
+                "tags": "mali iž,m. iž,m.iž, m.iž,iž mali,iž veli i iž mali,malom ižu,ižu malom,ižu malome,bršanj,bršanju,bršnju"
             },
             {
                 "name": "veli-iz",
@@ -454,7 +454,7 @@
             {
                 "name": "silba",
                 "label": "Silba",
-                "tags": "silba,silbi,silbe"
+                "tags": "silba,silbi,silbu,silbe"
             }
         ]
     },
@@ -470,7 +470,7 @@
             {
                 "name": "kukljica",
                 "label": "Kukljica",
-                "tags": "kukljica,kukljici,kukljice"
+                "tags": "kukljica,kukljici,kukljicu,kukljice"
             },
             {
                 "name": "lukoran",
@@ -480,7 +480,7 @@
             {
                 "name": "poljana",
                 "label": "Poljana",
-                "tags": "poljana,poljani"
+                "tags": "poljana,poljani,poljanu"
             },
             {
                 "name": "preko",
@@ -490,7 +490,7 @@
             {
                 "name": "sutomiscica",
                 "label": "Sutomišćica",
-                "tags": "sutomišćica,sutomišćici,sutomišćice"
+                "tags": "sutomišćica,sutomišćici,sutomišćicu,sutomišćice"
             },
             {
                 "name": "ugljan",
