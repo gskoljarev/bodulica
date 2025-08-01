@@ -1,0 +1,54 @@
+{
+    "name": "liburnija_zadar",
+    "units": [
+        {
+            "name": "101",
+            "label": "101 Zadar - Vir",
+            "tags": "",
+            "islands": [
+                "vir"
+            ]
+        },
+        {
+            "name": "201",
+            "label": "201 Brbinj - Veli Rat",
+            "tags": "",
+            "islands": [
+                "dugi-otok"
+            ]
+        },
+        {
+            "name": "202",
+            "label": "202 Sali - Zaglav - Luka",
+            "tags": "",
+            "islands": [
+                "dugi-otok"
+            ]
+        },
+        {
+            "name": "203",
+            "label": "203 Bršanj - Veli Iž",
+            "tags": "",
+            "islands": [
+                "iz"
+            ]
+        },
+        {
+            "name": "204",
+            "label": "204 Preko - Muline",
+            "tags": "",
+            "islands": [
+                "ugljan"
+            ]
+        },
+        {
+            "name": "205",
+            "label": "205 Preko - Tkon",
+            "tags": "",
+            "islands": [
+                "pasman",
+                "ugljan"
+            ]
+        }
+    ]
+}
