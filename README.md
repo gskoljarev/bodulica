@@ -18,7 +18,7 @@ Visit https://skoljarev.com/bodulica and subscribe via email to start receiving 
 - install Python requirements: `pip install -r requirements.txt`
 - deactivate the virtual environment: `deactivate`
 - setup a config file using `config.ini.example` as an example: `nano config.ini`
-  - mailing uses Brevo service (formerly SendInBLue); to enable mailing set `MailEnabled`, `MailAPIURL` and `MailAPIToken`
+  - mailing uses Brevo service (formerly SendInBlue); to enable mailing set `MailEnabled`, `MailAPIURL` and `MailAPIToken`
 - setup a contacts file using `contacts.json.example` as an example: `nano contacts.json`
 - setup a cronjob at desired intervals, ie. every 12 hours:
 ```

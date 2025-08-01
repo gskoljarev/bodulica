@@ -226,8 +226,6 @@ def process():
     # remove duplicate emails
     emails = list(set((tuple(emails), subject, body) for emails, subject, body in emails))
 
-    print("### emails", emails)
-
     # send email notifications
     for email in emails:
         email_addresses = email[0]
