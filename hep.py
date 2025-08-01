@@ -231,7 +231,7 @@ def process():
             ),
             ''
         )
-        subject = f'{COMPANY_NAME} - {island_label}'
+        subject = f'{COMPANY_NAME} | {island_label}'
         link = external_id
         body = f'<!DOCTYPE html><html><body><p>{title}</p><br>'\
             f'<a href="{link}">{link}</a></body></html>'.strip()

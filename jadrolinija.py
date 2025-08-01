@@ -275,7 +275,7 @@ def process():
             ),
             ''
         )
-        subject = f'{COMPANY_NAME} - {unit_label}'
+        subject = f'{COMPANY_NAME} | {unit_label}'
         if 'urn:uuid' in external_id:
             body = f'<!DOCTYPE html><html><body><p>{title}</p><br>'\
                 '<a href="https://www.jadrolinija.hr/hr/obavijesti/stanje-u-prometu/">'\

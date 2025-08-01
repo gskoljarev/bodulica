@@ -194,7 +194,7 @@ def process(source='maritime'):
             ),
             ''
         )
-        subject = f'{COMPANY_NAME} - {unit_label}'
+        subject = f'{COMPANY_NAME} | {unit_label}'
         if source == 'maritime':
             body = f'<!DOCTYPE html><html><body><p>HAK - Pomorski promet {date_raw}</p><br>'\
                 '<a href="https://m.hak.hr/stanje.asp?id=3">'\

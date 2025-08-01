@@ -187,7 +187,7 @@ def process():
             ),
             ''
         )
-        subject = f'{COMPANY_NAME} - {unit_label}'
+        subject = f'{COMPANY_NAME} | {unit_label}'
         link = next(
             (
                 item.get("link") for item in message_links \

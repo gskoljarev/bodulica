@@ -200,7 +200,7 @@ def process():
     for result in new_results:
         # construct an email message
         external_id, title, island_name, _ = result.split("|")
-        subject = f'{COMPANY_NAME} - {title}'
+        subject = f'{COMPANY_NAME} | {title}'
         link = 'https://www.komunalac.com/obavijesti'
         body = f'<!DOCTYPE html><html><body><p>{title}</p><br>'\
             f'<a href="{link}">{link}</a></body></html>'.strip()

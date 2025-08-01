@@ -197,7 +197,7 @@ def process():
     for result in new_results:
         # construct an email message
         published_at, title, body, island_name, _ = result.split("|")
-        subject = f'{COMPANY_NAME} - {title}'
+        subject = f'{COMPANY_NAME} | {title}'
         link = 'https://www.vodovod-zadar.hr/obavijesti'
         body = f'<!DOCTYPE html><html><body><p>{title}</p><br>'\
             f'<a href="{link}">{link}</a></body></html>'.strip()
