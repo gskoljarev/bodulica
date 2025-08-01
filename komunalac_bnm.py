@@ -96,7 +96,7 @@ def process():
         ]
 
     # limit to last 8 links
-    links = links[:7]
+    links = links[:8]
 
     # make subpage requests
     responses = make_requests(headers, links)
@@ -166,12 +166,15 @@ def process():
             for settlement in settlements:
                 # form a result
                 locality = settlement.get('name')
+                external_id = entry.get('external_id').strip()
+                title = entry.get('title').strip()
                 result = f"{external_id}|{title}|{island}|{locality}"
                 # check tags
                 tags = settlement.get('tags').split(',')
                 for tag in tags:
                     # capitalize the tag
-                    # for ex. m.iž > M.Iž, staroj novalji > Staroj Novalji
+                    # for ex. m.iž > M.Iž
+                    # for ex. staroj novalji > Staroj Novalji
                     capitalized_tag = re.sub(
                         r'(\b[a-z])', lambda m: m.group(1).upper(), tag
                     )

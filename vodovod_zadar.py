@@ -158,6 +158,7 @@ def process():
                 # form a result
                 locality = settlement.get('name')
                 published_at = entry.get("published_at").strip()
+                title = entry.get("title").strip()
                 result = f"{published_at}|{title}|{body_raw}|{island}|{locality}"
                 # check tags
                 tags = settlement.get('tags').split(',')
