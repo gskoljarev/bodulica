@@ -1,0 +1,19 @@
+{
+    "name": "vo_sibenik",
+    "units": [
+        {
+            "name": "vo_sibenik",
+            "label": "Vodoopskrbni sustav",
+            "tags": "",
+            "islands": [
+                "murter",
+                "kornat",
+                "krapanj",
+                "kaprije",
+                "prvic",
+                "zirje",
+                "zlarin"
+            ]
+        }
+    ]
+}

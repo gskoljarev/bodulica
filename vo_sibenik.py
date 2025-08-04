@@ -21,12 +21,12 @@ from utils import (
 # set constants
 # -------------
 
-COMPANY_NAME = "Komunalno društvo Pag"
-SCRIPT_NAME = "kd_pag"
+COMPANY_NAME = "Vodovod i odvodnja Šibenik"
+SCRIPT_NAME = "vo_sibenik"
 JOB_ID = "".join(random.choices(string.ascii_lowercase + string.digits, k=8))
 NOW = datetime.now().strftime("%Y%m%d_%H%M%S")
-BASE_URL = 'https://kd-pag.hr'
-SOURCE_URL = f'{BASE_URL}/o-nama/prekidi-u-isporuci-usluga.html'
+BASE_URL = 'https://www.vodovodsib.hr'
+SOURCE_URL = f'{BASE_URL}/category/prekidi/'
 DOWNLOAD_DELAY_SECONDS = 1
 INFRASTRUCTURE_PATH = Path(f"{SCRIPT_NAME}/infrastructure.json")
 RESULTS_PATH = Path(f"{SCRIPT_NAME}/results.log")
@@ -88,16 +88,10 @@ def process():
     # scrape sub page links
     for url, response in responses:
         soup = BeautifulSoup(response, 'html.parser')
-        main = soup.find('main', {'id': 'g-mainbar'})
 
-        # find and format raw links
+        # find links
         links = [
-            BASE_URL+item.get("href") for item in \
-                main.find_all(
-                    "a",
-                    href=re.compile(r"o-nama/prekidi-u-isporuci-usluga/"),
-                    recursive=True
-                )
+            item.get("href") for item in soup.select("h5 a")
         ]
 
     # make subpage requests
@@ -108,9 +102,10 @@ def process():
     for url, response in responses:
         soup = BeautifulSoup(response, 'html.parser')
 
-        title = soup.find('h2').text.strip()
-        body = soup.find('div', {'itemprop': 'articleBody'}).text
-        external_id = url.rpartition('/')[2]
+        script = soup.find("script", id="dt-above-fold-js-extra")
+        external_id = re.search(r'"postID"\s*:\s*"(\d+)"', script.string).group(1)
+        title = soup.find('h1').text.strip()
+        body = [p.get_text(" ", strip=True) for p in soup.find_all("p")][0].strip()
         link = url
 
         # available but unused
@@ -127,6 +122,8 @@ def process():
             "body": body
         }
         entries.append(entry)
+
+    print("### entries", entries)
 
     # load infrastructure data
     with open(INFRASTRUCTURE_PATH.resolve(), "rb") as f:
@@ -149,22 +146,13 @@ def process():
     # process entries
     new_results = []
     for entry in entries:
-        title_raw = entry.get('title').strip().replace(
-            ',', ' '
-        ).replace('-', ' ')
-        title = [
-            item.strip().lower() for item in title_raw.split(' ') if item.strip()
-        ]
-
         body_raw = entry.get("body").strip().replace(
             '\n', ' '
         ).replace(
             '\xa0', ' '
-        ).replace(
-            ',', ' '
-        ).replace('-', ' ')
+        ).replace(',', ' ')
         body = [
-            item.strip().lower() for item in body_raw.split(' ') if item.strip()
+            item.strip() for item in body_raw.split(' ') if item.strip()
         ]
         
         # get islands connected to the singular company unit
@@ -179,12 +167,19 @@ def process():
                 # form a result
                 locality = settlement.get('name')
                 external_id = entry.get('external_id').strip()
-                title_result = entry.get('title').strip()
-                result = f"{external_id}|{title_result}|{island}|{locality}"
+                title = entry.get('title').strip()
+                result = f"{external_id}|{title}|{island}|{locality}"
                 # check tags
                 tags = settlement.get('tags').split(',')
                 for tag in tags:
-                    if tag in body or tag in title:
+                    # capitalize the tag
+                    # for ex. m.iž > M.Iž
+                    # for ex. staroj novalji > Staroj Novalji
+                    capitalized_tag = re.sub(
+                        r'(\b[a-z])', lambda m: m.group(1).upper(), tag
+                    )
+                    # print(">", capitalized_tag)
+                    if capitalized_tag in body:
                         # check if result already exists
                         if result not in results:
                             new_results.append(result)
@@ -209,7 +204,7 @@ def process():
         # construct an email message
         external_id, title, island_name, _ = result.split("|")
         subject = f'{COMPANY_NAME} | {title}'
-        link = 'https://kd-pag.hr/o-nama/prekidi-u-isporuci-usluga.html'
+        link = 'https://www.vodovodsib.hr/category/prekidi/'
         body = f'<!DOCTYPE html><html><body><p>{title}</p><br>'\
             f'<a href="{link}">{link}</a></body></html>'.strip()
 

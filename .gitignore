@@ -29,6 +29,9 @@ liburnija_zadar/results.log
 kd_pag/data/data*.json
 kd_pag/processing.log
 kd_pag/results.log
+vo_sibenik/data/data*.json
+vo_sibenik/processing.log
+vo_sibenik/results.log
 
 
 # Python
