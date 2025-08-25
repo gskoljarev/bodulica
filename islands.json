@@ -94,7 +94,7 @@
             {
                 "name": "veli-iz",
                 "label": "Veli Iž",
-                "tags": "veli iž,v. iž,v.iž, v.iž,iž veli,iž veli i iž mali,velom ižu,ižu velom,ižu velome"
+                "tags": "veli iž,v. iž,v.iž, v.iž,iž veli,iž veli i iž mali,velom ižu,ižu velom,ižu velome,otok iž,otoka iža,otoku ižu"
             }
         ]
     },
@@ -215,6 +215,11 @@
                 "tags": "caska,caski,caske"
             },
             {
+                "name": "dubac-varsan",
+                "label": "Dubac-Varsan",
+                "tags": "dubac-varsan,dubcu-varsan,dubac-varsanu"
+            },
+            {
                 "name": "gajac",
                 "label": "Gajac",
                 "tags": "gajac,gajcu"
@@ -225,9 +230,14 @@
                 "tags": "kustići,kustićima,kustiće"
             },
             {
+                "name": "jakisnica",
+                "label": "Jakišnica",
+                "tags": "jakišnica,jakišnicu,jakišnicom,jakišnice"
+            },
+            {
                 "name": "lun",
                 "label": "Lun",
-                "tags": "lun,tovarnele,gurijel,dudići,perićev kanat,gager,stanišće,jakišnica"
+                "tags": "lun,tovarnele,gurijel,dudići,perićev kanat,gager,stanišće"
             },
             {
                 "name": "metajna",
