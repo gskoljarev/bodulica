@@ -12,7 +12,7 @@
         {
             "name": "401",
             "label": "401 ZADAR/Gaženica - IST/Kosirača - OLIB - SILBA - PREMUDA/Krijal - MALI LOŠINJ",
-            "tags": "ist - olib - silba,silba - olib - ist,ist(kosirača) - olib - silba,ist/kosirača - olib - silba,zadar (gaženica) - ist - olib - silba- premuda - mali lošinj,trajektna linija za silbu",
+            "tags": "ist - olib - silba,silba - olib - ist,ist(kosirača) - olib - silba,ist/kosirača - olib - silba,zadar (gaženica) - ist - olib - silba- premuda - mali lošinj,zadar(gaženica)-olib-silba-premuda,trajektna linija za silbu",
             "islands": [
                 "ist",
                 "olib",
@@ -99,7 +99,7 @@
         {
             "name": "9309",
             "label": "9309 NOVALJA (Pag) - RAB - RIJEKA",
-            "tags": "novalja - rab - rijeka,novalja-rab-rijeka,novalja- rab,novalja -rab",
+            "tags": "novalja - rab - rijeka,novalja-rab-rijeka,novalja- rab,novalja -rab,rijeka-rab-novalja",
             "islands": [
                 "pag"
             ]
