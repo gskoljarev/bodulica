@@ -15,7 +15,7 @@ from xml.etree import ElementTree as ET
 
 from bs4 import BeautifulSoup
 
-from utils import send_email
+from utils import get_email_footer, send_email
 
 
 # set constants
@@ -35,6 +35,7 @@ ARCHIVE_FEED_PATH = Path(f"{SCRIPT_NAME}/data/feed_{NOW}_{JOB_ID}.xml")
 DOWNLOAD_SITE_PATH = Path(f"{SCRIPT_NAME}/data/data.json")
 ARCHIVE_SITE_PATH = Path(f"{SCRIPT_NAME}/data/data_{NOW}_{JOB_ID}.json")
 LOG_PATH = Path(f"{SCRIPT_NAME}/processing.log")
+EMAIL_FOOTER = get_email_footer()
 
 
 # setup logging
@@ -279,11 +280,15 @@ def process():
         if 'urn:uuid' in external_id:
             body = f'<!DOCTYPE html><html><body><p>{title}</p><br>'\
                 '<a href="https://www.jadrolinija.hr/hr/obavijesti/stanje-u-prometu/">'\
-                'https://www.jadrolinija.hr/hr/obavijesti/stanje-u-prometu/</a></body></html>'.strip()
+                'https://www.jadrolinija.hr/hr/obavijesti/stanje-u-prometu/</a>'\
+                f'{EMAIL_FOOTER}'\
+                '</body></html>'.strip()
         else:
             body = f'<!DOCTYPE html><html><body><p>{title}</p><br>'\
                 '<a href="https://www.jadrolinija.hr/hr/obavijesti-za-putnike">'\
-                'https://www.jadrolinija.hr/hr/obavijesti-za-putnike</a></body></html>'.strip()
+                'https://www.jadrolinija.hr/hr/obavijesti-za-putnike</a>'\
+                f'{EMAIL_FOOTER}'\
+                '</body></html>'.strip()
 
         # retrieve islands connected to this unit
         islands = next(

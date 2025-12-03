@@ -98,6 +98,11 @@ def get_settlement_names_and_tags(islands, island_name):
             return results
     return []
 
+def get_email_footer():
+    return '<br><p>---</p>'\
+        '<a href="https://skoljarev.com/bodulica/">'\
+        'https://skoljarev.com/bodulica/</a>'
+
 
 # string utils
 # ------------

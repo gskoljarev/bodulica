@@ -12,7 +12,7 @@ from urllib.request import Request, urlopen
 
 from bs4 import BeautifulSoup
 
-from utils import send_email
+from utils import get_email_footer, send_email
 
 
 # set constants
@@ -49,6 +49,7 @@ ARCHIVE_PATH_ROADS = Path(f"{SCRIPT_NAME}/data/page_roads_{NOW}_{JOB_ID}.html")
 RESULTS_PATH_ROADS = Path(f"{SCRIPT_NAME}/results_roads.log")
 
 LOG_PATH = Path(f"{SCRIPT_NAME}/processing.log")
+EMAIL_FOOTER = get_email_footer()
 
 
 # setup logging
@@ -196,13 +197,19 @@ def process(source='maritime'):
         )
         subject = f'{COMPANY_NAME} | {unit_label}'
         if source == 'maritime':
-            body = f'<!DOCTYPE html><html><body><p>HAK - Pomorski promet {date_raw}</p><br>'\
+            body = f'<!DOCTYPE html><html><body>'\
+                f'<p>HAK - Pomorski promet {date_raw}</p><br>'\
                 '<a href="https://m.hak.hr/stanje.asp?id=3">'\
-                'https://m.hak.hr/stanje.asp?id=3</a></body></html>'.strip()
+                'https://m.hak.hr/stanje.asp?id=3</a>'\
+                f'{EMAIL_FOOTER}'\
+                '</body></html>'.strip()
         else:
-            body = f'<!DOCTYPE html><html><body><p>HAK - Prohodnost {date_raw}</p><br>'\
+            body = f'<!DOCTYPE html><html><body>'\
+                f'<p>HAK - Prohodnost {date_raw}</p><br>'\
                 '<a href="https://m.hak.hr/stanje.asp?id=1">'\
-                'https://m.hak.hr/stanje.asp?id=1</a></body></html>'.strip()
+                'https://m.hak.hr/stanje.asp?id=1</a>'\
+                f'{EMAIL_FOOTER}'\
+                '</body></html>'.strip()
 
         # retrieve islands connected to this unit
         islands = next(

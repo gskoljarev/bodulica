@@ -12,6 +12,7 @@ from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
 
 from utils import (
+    get_email_footer,
     get_settlement_names_and_tags,
     send_email,
 )
@@ -35,6 +36,7 @@ RESULTS_PATH = Path(f"{SCRIPT_NAME}/results.log")
 DOWNLOAD_PATH = Path(f"{SCRIPT_NAME}/data/page.html")
 ARCHIVE_PATH = Path(f"{SCRIPT_NAME}/data/page_{NOW}_{JOB_ID}.html")
 LOG_PATH = Path(f"{SCRIPT_NAME}/processing.log")
+EMAIL_FOOTER = get_email_footer()
 
 
 # setup logging
@@ -201,7 +203,9 @@ def process():
         subject = f'{COMPANY_NAME} | {title}'
         link = 'https://www.vodovod-zadar.hr/obavijesti'
         body = f'<!DOCTYPE html><html><body><p>{title}</p><br>'\
-            f'<a href="{link}">{link}</a></body></html>'.strip()
+            f'<a href="{link}">{link}</a>'\
+            f'{EMAIL_FOOTER}'\
+            '</body></html>'.strip()
 
         # collect contacts' emails connected to this island
         email_addresses = next(
