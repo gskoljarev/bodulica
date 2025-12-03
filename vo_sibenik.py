@@ -107,7 +107,8 @@ def process():
         script = soup.find("script", id="dt-above-fold-js-extra")
         external_id = re.search(r'"postID"\s*:\s*"(\d+)"', script.string).group(1)
         title = soup.find('h1').text.strip()
-        body = [p.get_text(" ", strip=True) for p in soup.find_all("p")][0].strip()
+        # multiple <p> elements are possible in the body
+        body = ' '.join([p.get_text(" ", strip=True) for p in soup.find_all("p")])
         link = url
 
         # available but unused
@@ -124,8 +125,6 @@ def process():
             "body": body
         }
         entries.append(entry)
-
-    print("### entries", entries)
 
     # load infrastructure data
     with open(INFRASTRUCTURE_PATH.resolve(), "rb") as f:
@@ -152,9 +151,19 @@ def process():
             '\n', ' '
         ).replace(
             '\xa0', ' '
-        ).replace(',', ' ')
+        ).replace(
+            ',', ' '
+        ).replace(
+            ';', ' '
+        ).replace(
+            ':', ' '
+        )
         body = [
             item.strip() for item in body_raw.split(' ') if item.strip()
+        ]
+        # check for last characters, for ex. Jezera. > Jezera
+        body = [
+            item[:-1] for item in body if item[-1:] in ['.', '-', '–']
         ]
         
         # get islands connected to the singular company unit

@@ -153,7 +153,13 @@ def process():
     for entry in entries:
         title_raw = entry.get('title').strip().replace(
             ',', ' '
-        ).replace('-', ' ')
+        ).replace(
+            ';', ' '
+        ).replace(
+            ':', ' '
+        ).replace(
+            '-', ' '
+        )
         title = [
             item.strip().lower() for item in title_raw.split(' ') if item.strip()
         ]
@@ -164,7 +170,13 @@ def process():
             '\xa0', ' '
         ).replace(
             ',', ' '
-        ).replace('-', ' ')
+        ).replace(
+            ';', ' '
+        ).replace(
+            ':', ' '
+        ).replace(
+            '-', ' '
+        )
         body = [
             item.strip().lower() for item in body_raw.split(' ') if item.strip()
         ]

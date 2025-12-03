@@ -161,7 +161,6 @@ def process():
                                     "link": link
                                 }
                             )
-    print(len(new_results))
 
     if not new_results:
         return

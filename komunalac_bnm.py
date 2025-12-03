@@ -152,9 +152,19 @@ def process():
             '\n', ' '
         ).replace(
             '\xa0', ' '
-        ).replace(',', ' ')
+        ).replace(
+            ',', ' '
+        ).replace(
+            ';', ' '
+        ).replace(
+            ':', ' '
+        )
         body = [
             item.strip() for item in body_raw.split(' ') if item.strip()
+        ]
+        # check for last characters, for ex. Jezera. > Jezera
+        body = [
+            item[:-1] for item in body if item[-1:] in ['.', '-', '–']
         ]
         
         # get islands connected to the singular company unit
@@ -180,8 +190,12 @@ def process():
                     capitalized_tag = re.sub(
                         r'(\b[a-z])', lambda m: m.group(1).upper(), tag
                     )
+                    # uppercase the tag
+                    # for ex. žman > ŽMAN
+                    uppercase_tag = tag.upper()
                     # print(">", capitalized_tag)
-                    if capitalized_tag in body:
+                    # print(">", uppercase_tag)
+                    if capitalized_tag in body or uppercase_tag in body:
                         # check if result already exists
                         if result not in results:
                             new_results.append(result)

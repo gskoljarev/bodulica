@@ -142,9 +142,23 @@ def process():
             '\n', ' '
         ).replace(
             '-', ' '
-        ).replace(',', ' ')
+        ).replace(
+            ',', ' '
+        ).replace(
+            ';', ' '
+        ).replace(
+            ':', ' '
+        ).replace(
+            '“', ' '
+        ).replace(
+            '”', ' '
+        )
         title = [
             item.strip() for item in title_raw.split(' ') if item.strip()
+        ]
+        # check for last characters, for ex. Vir. > Vir
+        body = [
+            item[:-1] for item in body if item[-1:] in ['.', '-', '–']
         ]
         
         # get islands connected to the company units

@@ -143,9 +143,19 @@ def process():
             '\n', ' '
         ).replace(
             '\xa0', ' '
-        ).replace(',', ' ')
+        ).replace(
+            ',', ' '
+        ).replace(
+            ';', ' '
+        ).replace(
+            ':', ' '
+        )
         body = [
             item.strip() for item in body_raw.split(' ') if item.strip()
+        ]
+        # check for last characters, for ex. Vir. > Vir
+        body = [
+            item[:-1] for item in body if item[-1:] in ['.', '-', '–']
         ]
         
         # get islands connected to the singular company unit
