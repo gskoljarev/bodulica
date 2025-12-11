@@ -3,6 +3,9 @@ import json
 import time
 from urllib.request import Request, urlopen
 
+from babel.dates import format_datetime
+from dateutil import parser
+
 # from sympy.utilities.iterables import necklaces
 
 
@@ -159,3 +162,10 @@ def enumerate_with_step(items, start=0, step=2):
 #             substring_positions = get_substring_positions(generated_string, '-')
 #         results.append(generated_string)
 #     return results
+
+# misc
+# ----
+
+def get_weekday_in_lang(date_str, lang):
+    dt = parser.parse(date_str)
+    return format_datetime(dt, "EEEE", locale=lang)

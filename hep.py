@@ -16,6 +16,7 @@ from bs4 import BeautifulSoup
 from utils import (
     get_email_footer,
     get_settlement_names_and_tags,
+    get_weekday_in_lang,
     send_email,
 )
 
@@ -225,7 +226,7 @@ def process():
     emails = []
     for result in new_results:
         # construct an email message
-        external_id, title, island_name, _ = result.split("|")
+        external_id, title_raw, island_name, _ = result.split("|")
         island_label = next(
             (
                 item.get("label") for item in islands_all \
@@ -235,6 +236,9 @@ def process():
         )
         subject = f'{COMPANY_NAME} | otok {island_label}'
         link = external_id
+        title_date = title_raw.replace('Bez struje - ', '').strip()
+        title_day = get_weekday_in_lang(title_date, 'hr')
+        title = f'Bez struje - {title_day}, {title_date}'
         body = f'<!DOCTYPE html><html><body><p>{title}</p><br>'\
             f'<a href="{link}">{link}</a>'\
             f'{EMAIL_FOOTER}'\

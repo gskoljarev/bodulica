@@ -184,7 +184,7 @@ def process():
                     if capitalized_tag in body:
                         # discard specific cases
                         if capitalized_tag == 'Poljana':
-                            if 'Stojakovića' in body or 'Požarišće' in body:
+                            if 'Stojakovića' in body or 'Požarišće' in body or 'Pavlovića' in body:
                                 continue
 
                         # check if result already exists
