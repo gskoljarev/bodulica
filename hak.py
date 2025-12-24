@@ -145,7 +145,12 @@ def process(source='maritime'):
     date_raw, time_raw = date_time_raw.replace(
         'Pomorski promet', ''
     ).split(' ')
-    content = soup.find('ul', {'class': 'pageitem'}).text
+    content_raw = soup.find('ul', {'class': 'pageitem'}).text
+    content = content_raw.strip().replace(
+        ';', ' '
+    ).replace(
+        ':', ' '
+    )
 
     results = []
 
