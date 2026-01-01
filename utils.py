@@ -1,12 +1,22 @@
 import configparser
 import json
+import re
 import time
 from urllib.request import Request, urlopen
 
 from babel.dates import format_datetime
 from dateutil import parser
 
-# from sympy.utilities.iterables import necklaces
+
+# constants
+# ---------
+
+# hyphen variants + minus + normal hyphen
+DASHES = "\u2010\u2011\u2012\u2013\u2014\u2212-"
+
+_dash_re = re.compile(f"[{re.escape(DASHES)}]")
+_ws_re = re.compile(r"\s+")
+_space_around_dash_re = re.compile(r"\s*-\s*")
 
 
 # load configuration
@@ -15,10 +25,6 @@ from dateutil import parser
 config = configparser.ConfigParser()
 config.read("config.ini")
 
-
-# mailing
-# -------
-
 mailing_config = config['MAILING']
 MAIL_ENABLED = mailing_config.getboolean('MailEnabled')
 MAIL_API_URL = mailing_config.get('MailAPIURL')
@@ -26,6 +32,9 @@ MAIL_API_TOKEN = mailing_config.get('MailAPIToken')
 MAIL_SENDER_EMAIL = mailing_config.get('MailSenderEmail')
 MAIL_SENDER_NAME = mailing_config.get('MailSenderName')
 
+
+# mailing
+# -------
 
 def construct_request_payload(emails, subject, body):
     payload = dict()
@@ -69,6 +78,44 @@ def send_email(emails, subject, body):
         urlopen(request)
 
 
+def get_email_footer():
+    return '<br><p>---</p>'\
+        '<a href="https://skoljarev.com/bodulica/">'\
+        'https://skoljarev.com/bodulica/</a>'
+
+
+# string utils
+# ------------
+
+def normalize_for_match(s: str) -> str:
+    # Normalize common copy/paste whitespace
+    s = s.replace("\u00A0", " ")  # NBSP -> space
+
+    # Normalize all dash-like characters to "-"
+    s = _dash_re.sub("-", s)
+
+    # Collapse whitespace runs
+    s = _ws_re.sub(" ", s).strip()
+
+    # Remove spaces around dashes so all boundaries become just "-"
+    s = _space_around_dash_re.sub("-", s)
+
+    # Case-insensitive (Unicode-aware)
+    return s.casefold()
+
+
+def contains_variant(text: str, canonical: str) -> bool:
+    return normalize_for_match(canonical) in normalize_for_match(text)
+
+
+# misc
+# ----
+
+def get_weekday_in_lang(date_str, lang):
+    dt = parser.parse(date_str)
+    return format_datetime(dt, "EEEE", locale=lang)
+
+
 def get_settlement_names_and_tags(islands, island_name):
     """
     Returns list of settlement names and tags for an island name as an input.
@@ -100,72 +147,3 @@ def get_settlement_names_and_tags(islands, island_name):
                 results.append(result)
             return results
     return []
-
-def get_email_footer():
-    return '<br><p>---</p>'\
-        '<a href="https://skoljarev.com/bodulica/">'\
-        'https://skoljarev.com/bodulica/</a>'
-
-
-# string utils
-# ------------
-
-def get_substring_positions(s, substring):
-    """
-    Returns before and after substring positions.
-    """
-    index_of_occurrences = []
-    final_index = []
-    current_index = 0
-    while True:
-        current_index = s.find(substring, current_index)
-        if current_index == -1:
-            for i in index_of_occurrences:
-                final_index.append(i)
-            return final_index
-        else:
-            index_of_occurrences.append(current_index)
-            current_index += len(substring)
-
-
-def insert_into_string(s, index, character):
-    string_list = list(s)
-    string_list[index] = character
-    return "".join(string_list)
-
-
-def enumerate_with_step(items, start=0, step=2):
-    for item in items:
-        yield (start, item)
-        start += step
-
-
-# def get_multiset_permutations(s):
-#     """
-#     Returns string combinations with multiset permutations of spaces
-#     before and after character '-' in a string.
-#     """
-#     results = list()
-#     substring_positions = get_substring_positions(s, '-')
-#     print("### substring_positions", substring_positions)
-#     positions_length = len(substring_positions) * 2
-#     combinations = list(necklaces(positions_length, 3))
-#     print("### combinations", combinations)
-
-#     for number_spaces in combinations:
-#         generated_string = s
-#         for i, position in enumerate(substring_positions):
-#             spaces = ''
-#             for item in range(0, number_spaces, 2):
-#                 spaces += ' '
-#                 generated_string = insert_into_string(generated_string, position, spaces)
-#             substring_positions = get_substring_positions(generated_string, '-')
-#         results.append(generated_string)
-#     return results
-
-# misc
-# ----
-
-def get_weekday_in_lang(date_str, lang):
-    dt = parser.parse(date_str)
-    return format_datetime(dt, "EEEE", locale=lang)

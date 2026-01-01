@@ -1,0 +1,14 @@
+{
+    "name": "miatrade",
+    "units": [
+        {
+            "name": "9502",
+            "label": "9502 ŽIRJE - KAPRIJE - ŠIBENIK",
+            "tags": "kaprije-šibenik,šibenik-kaprije,šibenik-žirje-kaprije",
+            "islands": [
+                "kaprije",
+                "zirje"
+            ]
+        }
+    ]
+}

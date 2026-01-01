@@ -15,7 +15,11 @@ from xml.etree import ElementTree as ET
 
 from bs4 import BeautifulSoup
 
-from utils import get_email_footer, send_email
+from utils import (
+    get_email_footer,
+    send_email,
+    contains_variant
+)
 
 
 # set constants
@@ -114,7 +118,7 @@ def process():
         f.close()
 
     # open the existing results file
-    with open(str(RESULTS_PATH.resolve())) as f:
+    with open(RESULTS_PATH.resolve(), encoding="utf-8") as f:
         results = f.read()
 
     # process XML response & entries
@@ -218,7 +222,8 @@ def process():
                     if unit_name in field_value.split(" "):
                         new_results.append(result)
                     for tag in unit_tags:
-                        if tag in field.lower():
+                        if contains_variant(field.lower(), tag):
+                        # if tag in field.lower():
                             new_results.append(result)
 
     # check for new results in the site data
@@ -252,7 +257,8 @@ def process():
                     if unit_name in field_value.split(" "):
                         new_results.append(result)
                     for tag in unit_tags:
-                        if tag in field.lower():
+                        if contains_variant(field.lower(), tag):
+                        # if tag in field.lower():
                             new_results.append(result)
 
     if not new_results:

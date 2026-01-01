@@ -4,7 +4,7 @@
         {
             "name": "405",
             "label": "405 RAVA - MALA RAVA - VELI IŽ - MALI IŽ - ZADAR",
-            "tags": "zadar - mali iž,mali iž - zadar,mali iž-zadar,zadar-mali iž,m.iž-zadar,zadar-m.iž,m.iž - zadar",
+            "tags": "zadar-mali iž,mali iž-zadar,zadar-iž mali,iž mali-zadar",
             "islands": [
                 "rava",
                 "iz"
@@ -13,18 +13,9 @@
         {
             "name": "406",
             "label": "406 ZADAR - SALI (Dugi otok) - ZAGLAV (Dugi otok)",
-            "tags": "sali - zaglav,zaglav - sali,sali-zaglav,zaglav-sali,zadar - zaglav,zadar-zaglav,zaglav - zadar,zaglav-zadar,sali -zaglav,sali- zaglav",
+            "tags": "sali-zaglav,zaglav-sali,zadar-zaglav,zaglav-zadar",
             "islands": [
                 "dugi-otok"
-            ]
-        },
-        {
-            "name": "9406",
-            "label": "9406 ZADAR - SALI (Dugi otok) - ZAGLAV (Dugi otok) - BRŠANJ (Iž)",
-            "tags": "zaglav-bršanj,bršanj-zaglav,zaglav - bršanj,bršanj - zaglav,iž - zaglav,iž-zaglav",
-            "islands": [
-                "dugi-otok",
-                "iz"
             ]
         }
     ]

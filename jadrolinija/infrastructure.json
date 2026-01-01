@@ -12,7 +12,7 @@
         {
             "name": "401",
             "label": "401 ZADAR/Gaženica - IST/Kosirača - OLIB - SILBA - PREMUDA/Krijal - MALI LOŠINJ",
-            "tags": "ist - olib - silba,silba - olib - ist,ist(kosirača) - olib - silba,ist/kosirača - olib - silba,zadar (gaženica) - ist - olib - silba- premuda - mali lošinj,zadar(gaženica)-olib-silba-premuda,trajektna linija za silbu",
+            "tags": "ist-olib-silba,silba-olib-ist,ist(kosirača)-olib-silba,ist/kosirača-olib-silba,zadar (gaženica)-ist-olib-silba-premuda-mali lošinj,zadar(gaženica)-olib-silba-premuda,trajektna linija za silbu",
             "islands": [
                 "ist",
                 "olib",
@@ -23,7 +23,7 @@
         {
             "name": "409",
             "label": "409 PREKO (Ugljan) - ZADAR",
-            "tags": "zadar-preko,preko-zadar,zadar - preko,preko - zadar",
+            "tags": "zadar-preko,preko-zadar",
             "islands": [
                 "ugljan",
                 "osljak",
@@ -33,7 +33,7 @@
         {
             "name": "431",
             "label": "431 PREKO (Ugljan) - OŠLJAK - ZADAR/Gaženica",
-            "tags": "zadar-ošljak-preko,preko-ošljak-zadar,zadar - ošljak - preko,preko - ošljak - zadar,trajektna linija zadar - preko,trajektna linija zadar-preko,trajektnu liniju zadar - preko,trajektnu liniju zadar-preko",
+            "tags": "zadar-ošljak-preko,preko-ošljak-zadar,trajektna linija zadar-preko,trajektnu liniju zadar-preko",
             "islands": [
                 "ugljan",
                 "osljak",
@@ -43,7 +43,7 @@
         {
             "name": "432",
             "label": "432 TKON (Pašman) - BIOGRAD NA MORU",
-            "tags": "biograd-tkon,tkon-biograd,biograd - tkon,tkon - biograd",
+            "tags": "biograd-tkon,tkon-biograd",
             "islands": [
                 "pasman"
             ]
@@ -51,7 +51,7 @@
         {
             "name": "433",
             "label": "433 ZADAR/Gaženica - RIVANJ - SESTRUNJ - ZVERINAC - MOLAT - IST/Kosirača",
-            "tags": "sestrunj - zverinac - molat,molat - zverinac - sestrunj,sestrunj-zverinac-molat,molat-zverinac-sestrunj,zadar - molat - ist,zadar-molat-ist,trajekt zadar - molat,trajekt zadar -molat -,trajekt zadar-molat",
+            "tags": "sestrunj-zverinac-molat,molat-zverinac-sestrunj,zadar-molat-ist,trajekt zadar-molat",
             "islands": [
                 "rivanj",
                 "sestrunj",
@@ -63,7 +63,7 @@
         {
             "name": "434",
             "label": "434 BRBINJ (Dugi otok) - ZADAR/Gaženica",
-            "tags": "brbinj - zadar,zadar - brbinj,brbinj-zadar,zadar-brbinj,zadar (gaženica) - brbinj,zadar(gaženica) - brbinj,zadar (gaženica)-brbinj",
+            "tags": "brbinj-zadar,zadar-brbinj,zadar(gaženica)-brbinj,zadar (gaženica)-brbinj",
             "islands": [
                 "dugi-otok"
             ]
@@ -71,7 +71,7 @@
         {
             "name": "435",
             "label": "435 ZADAR/Gaženica - BRŠANJ (Iž) - RAVA - RAVA MALA",
-            "tags": "bršanj - rava,rava - bršanj,bršanj-rava,rava-bršanj,zadar-bršanj,zadar (gaženica) - bršanj,zadar (gaženica)-bršanj,zadar (gaženica) - bršanj(iž)",
+            "tags": "bršanj-rava,rava-bršanj,zadar-bršanj,zadar (gaženica)-bršanj,zadar(gaženica)-bršanj,zadar (gaženica)-bršanj (iž),zadar (gaženica) - bršanj(iž)",
             "islands": [
                 "iz",
                 "rava"
@@ -80,7 +80,7 @@
         {
             "name": "505",
             "label": "505 VODICE - PRVIĆ ŠEPURINE - PRVIĆ LUKA - ZLARIN - ŠIBENIK",
-            "tags": "vodice -,- vodice,vodice-,-vodice",
+            "tags": "vodice-,-vodice",
             "islands": [
                 "prvic",
                 "zlarin"
@@ -89,7 +89,7 @@
         {
             "name": "532",
             "label": "532 ŠIBENIK - ZLARIN - OBONJAN - KAPRIJE - ŽIRJE",
-            "tags": "šibenik - zlarin - kaprije,kaprije - zlarin - šibenik,kaprije-zlarin-šibenik,šibenik-zlarin-kaprije,šibenik-kaprije-žirje,šibenik - kaprije,šibenik-kaprije",
+            "tags": "šibenik-zlarin-kaprije,kaprije-zlarin-šibenik,šibenik-kaprije-žirje,šibenik-kaprije",
             "islands": [
                 "kaprije",
                 "zlarin",
@@ -99,7 +99,7 @@
         {
             "name": "9309",
             "label": "9309 NOVALJA (Pag) - RAB - RIJEKA",
-            "tags": "novalja - rab - rijeka,novalja-rab-rijeka,novalja- rab,novalja -rab,rijeka-rab-novalja,rab - novalja",
+            "tags": "novalja-rab,novalja-rab-rijeka,rijeka-rab-novalja",
             "islands": [
                 "pag"
             ]
@@ -107,7 +107,7 @@
         {
             "name": "9403",
             "label": "9403 IST/Široka - ZAPUNTEL - BRGULJE - MOLAT - ZADAR",
-            "tags": "zapuntel - brgulje,brgulje - zapuntel,zapuntel-brgulje,brgulje-zapuntel",
+            "tags": "zapuntel-brgulje,brgulje-zapuntel",
             "islands": [
                 "ist",
                 "molat"
@@ -116,7 +116,7 @@
         {
             "name": "9404",
             "label": "9404 BRBINJ (Dugi otok) - BOŽAVA (Dugi otok) - ZVERINAC - SESTRUNJ - RIVANJ - ZADAR",
-            "tags": "brbinj - božava,božava - brbinj,brbinj-božava,božava-brbinj,zadar - rivanj - sestrunj - zverinac - božava - brbinj",
+            "tags": "brbinj-božava,božava-brbinj,zadar-rivanj-sestrunj-zverinac-božava-brbinj",
             "islands": [
                 "dugi-otok",
                 "sestrunj",
@@ -127,7 +127,7 @@
         {
             "name": "9405",
             "label": "9405 ZADAR - IŽ MALI - VELI IŽ - RAVA MALA - RAVA",
-            "tags": "zadar - mali iž,mali iž - zadar,mali iž-zadar,zadar-mali iž,zadar - iž mali,zadar-iž mali,iž mali-zadar,iž mali - zadar,zadar-iž mali,zadar - iž mali",
+            "tags": "zadar-mali iž,mali iž-zadar,zadar-iž mali,iž mali-zadar",
             "islands": [
                 "iz",
                 "rava"

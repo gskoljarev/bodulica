@@ -1,0 +1,24 @@
+{
+    "name": "tp-line",
+    "units": [
+        {
+            "name": "9401",
+            "label": "9401 OLIB - SILBA/Žalić - PREMUDA/Krijal - ZADAR",
+            "tags": "olib-silba-premuda-zadar,olib-silba-premuda/krijal-zadar,olib-silba-premuda(krijal)-zadar,zadar-premuda-silba-olib",
+            "islands": [
+                "olib",
+                "premuda",
+                "silba"
+            ]
+        },
+        {
+            "name": "9406",
+            "label": "9406 ZADAR - SALI (Dugi otok) - ZAGLAV (Dugi otok) - BRŠANJ (Iž)",
+            "tags": "zaglav-bršanj,bršanj-zaglav,iž-zaglav",
+            "islands": [
+                "dugi-otok",
+                "iz"
+            ]
+        }
+    ]
+}

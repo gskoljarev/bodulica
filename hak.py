@@ -12,7 +12,11 @@ from urllib.request import Request, urlopen
 
 from bs4 import BeautifulSoup
 
-from utils import get_email_footer, send_email
+from utils import (
+    get_email_footer,
+    send_email,
+    contains_variant
+)
 
 
 # set constants
@@ -29,8 +33,9 @@ INFRASTRUCTURE_PATHS_MARITIME = [
     Path(f"{SCRIPT_NAME}/infrastructure/gp_sibenik.json"),
     Path(f"{SCRIPT_NAME}/infrastructure/gv_line_iadera.json"),
     Path(f"{SCRIPT_NAME}/infrastructure/kapetan_luka_krilo.json"),
-    Path(f"{SCRIPT_NAME}/infrastructure/miatours.json"),
+    Path(f"{SCRIPT_NAME}/infrastructure/miatrade.json"),
     Path(f"{SCRIPT_NAME}/infrastructure/rpz_vrgada.json"),
+    Path(f"{SCRIPT_NAME}/infrastructure/tp_line.json"),
     Path(f"jadrolinija/infrastructure.json"),
 ]
 DOWNLOAD_PATH_MARITIME = Path(f"{SCRIPT_NAME}/data/page_mar.html")
@@ -134,7 +139,7 @@ def process(source='maritime'):
         f.close()
 
     # open the existing results file
-    with open(str(RESULTS_PATH.resolve())) as f:
+    with open(str(RESULTS_PATH.resolve()), encoding='utf-8') as f:
         existing_results = [
             line.strip() for line in f if line.strip()
         ]
@@ -173,8 +178,12 @@ def process(source='maritime'):
             if unit_name in content_value.split(" "):
                 results.append(result)
             for tag in unit_tags:
-                if tag in content.lower():
-                    results.append(result)
+                if source == 'maritime':
+                    if contains_variant(content.lower(), tag):
+                        results.append(result)
+                if source == 'roads':
+                    if tag in content.lower():
+                        results.append(result)
 
     # remove duplicate new results
     results = list(set(results))
