@@ -154,9 +154,7 @@ def process():
             item.strip() for item in body_raw.split(' ') if item.strip()
         ]
         # check for last characters, for ex. Vir. > Vir
-        body = [
-            item[:-1] for item in body if item[-1:] in ['.', '-', '–']
-        ]
+        body = [item[:-1] if item[-1:] in ['.', '-', '–'] else item for item in body]
         
         # get islands connected to the singular company unit
         unit = units[0]

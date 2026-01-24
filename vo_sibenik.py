@@ -161,11 +161,10 @@ def process():
         body = [
             item.strip() for item in body_raw.split(' ') if item.strip()
         ]
+        print("### body", body)
         # check for last characters, for ex. Jezera. > Jezera
-        body = [
-            item[:-1] for item in body if item[-1:] in ['.', '-', '–']
-        ]
-        
+        body = [item[:-1] if item[-1:] in ['.', '-', '–'] else item for item in body]
+        print("### body", body)
         # get islands connected to the singular company unit
         unit = units[0]
         islands = unit.get('islands')
