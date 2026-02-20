@@ -36,7 +36,7 @@ INFRASTRUCTURE_PATHS_MARITIME = [
     Path(f"{SCRIPT_NAME}/infrastructure/miatrade.json"),
     Path(f"{SCRIPT_NAME}/infrastructure/rpz_vrgada.json"),
     Path(f"{SCRIPT_NAME}/infrastructure/tp_line.json"),
-    Path(f"jadrolinija/infrastructure.json"),
+    # Path(f"jadrolinija/infrastructure.json"),
 ]
 DOWNLOAD_PATH_MARITIME = Path(f"{SCRIPT_NAME}/data/page_mar.html")
 ARCHIVE_PATH_MARITIME = Path(f"{SCRIPT_NAME}/data/page_mar_{NOW}_{JOB_ID}.html")
