@@ -1,0 +1,38 @@
+{
+    "name": "zuc-pgz",
+    "label": "Županijska uprava za ceste Primorsko-goranske županije",
+    "units": [
+        {
+            "name": "lc58104",
+            "label": "LC58104 Supetarska Draga (nerazvrstana cesta - DC105)",
+            "tags": "lc58104,l58104,lc 58104",
+            "islands": [
+                "rab"
+            ]
+        },
+        {
+            "name": "lc58105",
+            "label": "LC58105 Kampor (ŽC5139 - turističko naselje Suha Punta)",
+            "tags": "lc58105,l58105,lc 58105",
+            "islands": [
+                "rab"
+            ]
+        },
+        {
+            "name": "zc5138",
+            "label": "ŽC5138 Lopar (DC105 - turističko naselje San Marino)",
+            "tags": "žc5138,ž5138,žc 5138",
+            "islands": [
+                "rab"
+            ]
+        },
+        {
+            "name": "zc5139",
+            "label": "ŽC5139 Kampor - Barbat na Rabu (DC105)",
+            "tags": "žc5139,ž5139,žc 5139",
+            "islands": [
+                "rab"
+            ]
+        }
+    ]
+}

@@ -295,6 +295,55 @@
             ]
         },
         {
+            "name": "51280",
+            "label": "51280 RAB",
+            "tags": "51280",
+            "islands": [
+                "rab"
+            ]
+        },
+        {
+            "name": "51281",
+            "label": "51281 LOPAR",
+            "tags": "51281",
+            "islands": [
+                "rab"
+            ]
+        },
+        {
+            "name": "51550",
+            "label": "51550 MALI LOŠINJ",
+            "tags": "51550",
+            "islands": [
+                "male-srakane",
+                "vele-srakane"
+            ]
+        },
+        {
+            "name": "51552",
+            "label": "51552 ILOVIK",
+            "tags": "51552",
+            "islands": [
+                "ilovik"
+            ]
+        },
+        {
+            "name": "51561",
+            "label": "51561 SUSAK",
+            "tags": "51561",
+            "islands": [
+                "susak"
+            ]
+        },
+        {
+            "name": "51562",
+            "label": "51562 UNIJE",
+            "tags": "51562",
+            "islands": [
+                "unije"
+            ]
+        },
+        {
             "name": "53291",
             "label": "53291 NOVALJA",
             "tags": "53291",

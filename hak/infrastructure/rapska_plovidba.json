@@ -1,0 +1,13 @@
+{
+    "name": "rapska-plovidba",
+    "units": [
+        {
+            "name": "337",
+            "label": "337 MIŠNJAK (Rab) - STINICA",
+            "tags": "mišnjak-stinica,stinica-mišnjak,rab-stinica,stinica-rab",
+            "islands": [
+                "rab"
+            ]
+        }
+    ]
+}

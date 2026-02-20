@@ -67,6 +67,33 @@
                     ]
                 }
             ]
+        },
+        {
+            "name": "rijeka",
+            "label": "Elektroprimorje Rijeka",
+            "tag": "rijeka",
+            "units": [
+                {
+                    "name": "cres-losinj",
+                    "label": "Cres - Lošinj",
+                    "tag": "CL",
+                    "islands": [
+                        "ilovik",
+                        "male-srakane",
+                        "susak",
+                        "unije",
+                        "vele-srakane"
+                    ]
+                },
+                {
+                    "name": "rab",
+                    "label": "Rab",
+                    "tag": "206",
+                    "islands": [
+                        "rab"
+                    ]
+                }
+            ]
         }
     ]
 }

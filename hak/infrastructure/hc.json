@@ -3,6 +3,14 @@
     "label": "Hrvatske ceste",
     "units": [
         {
+            "name": "dc105",
+            "label": "DC105 Lopar (trajektna luka) - Banjol - Barbat na Rabu (trajektna luka)",
+            "tags": "dc105,d105,dc 105",
+            "islands": [
+                "rab"
+            ]
+        },
+        {
             "name": "dc106",
             "label": "DC106 Novalja (trajektna luka) - Pag - Ražanac - Posedarje (DC8)",
             "tags": "dc106,d106,dc 106,paški most,paškom mostu,paškog mosta",
@@ -73,6 +81,14 @@
             "tags": "dc306,d306,dc 306,virski most,virskom mostu,virskog mosta",
             "islands": [
                 "vir"
+            ]
+        },
+        {
+            "name": "dc405",
+            "label": "DC405 Stinica (trajektna luka - DC8)",
+            "tags": "dc405,d405,dc 405",
+            "islands": [
+                "rab"
             ]
         },
         {

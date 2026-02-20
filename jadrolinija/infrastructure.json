@@ -2,11 +2,30 @@
     "name": "jadrolinija",
     "units": [
         {
+            "name": "310",
+            "label": "310 MALI LOŠINJ - UNIJE - VELE SRAKANE - SUSAK",
+            "tags": "mali lošinj-unije,m. lošinj-unije,m.lošinj-unije,unije-mali lošinj,srakane-susak,mali lošinj-susak,m.lošinj-susak",
+            "islands": [
+                "male-srakane",
+                "susak",
+                "vele-srakane",
+                "unije"
+            ]
+        },
+        {
             "name": "335",
             "label": "335 PRIZNA - ŽIGLJEN (Pag)",
             "tags": "žigljen",
             "islands": [
                 "pag"
+            ]
+        },
+        {
+            "name": "338",
+            "label": "338 LOPAR (Rab) - VALBISKA (Krk)",
+            "tags": "lopar-valbiska,valbiska-lopar",
+            "islands": [
+                "rab"
             ]
         },
         {
@@ -97,11 +116,22 @@
             ]
         },
         {
+            "name": "9308",
+            "label": "9308 MALI LOŠINJ - ILOVIK - SUSAK - UNIJE - MARTINŠĆICA (Cres) - CRES - RIJEKA",
+            "tags": "mali lošinj-ilovik,ilovik-mali lošinj,mali lošinj-cres,m. lošinj-cres,m.lošinj-cres",
+            "islands": [
+                "ilovik",
+                "susak",
+                "unije"
+            ]
+        },
+        {
             "name": "9309",
             "label": "9309 NOVALJA (Pag) - RAB - RIJEKA",
             "tags": "novalja-rab,novalja-rab-rijeka,rijeka-rab-novalja",
             "islands": [
-                "pag"
+                "pag",
+                "rab"
             ]
         },
         {

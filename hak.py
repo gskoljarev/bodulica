@@ -36,6 +36,8 @@ INFRASTRUCTURE_PATHS_MARITIME = [
     Path(f"{SCRIPT_NAME}/infrastructure/miatrade.json"),
     Path(f"{SCRIPT_NAME}/infrastructure/rpz_vrgada.json"),
     Path(f"{SCRIPT_NAME}/infrastructure/tp_line.json"),
+    Path(f"{SCRIPT_NAME}/infrastructure/rapska_plovidba.json"),
+    Path(f"{SCRIPT_NAME}/infrastructure/porat_ilovik.json"),
     # Path(f"jadrolinija/infrastructure.json"),
 ]
 DOWNLOAD_PATH_MARITIME = Path(f"{SCRIPT_NAME}/data/page_mar.html")
@@ -45,6 +47,7 @@ RESULTS_PATH_MARITIME = Path(f"{SCRIPT_NAME}/results_mar.log")
 SOURCE_URL_ROADS = "https://m.hak.hr/stanje.asp?id=1"
 INFRASTRUCTURE_PATHS_ROADS = [
     Path(f"{SCRIPT_NAME}/infrastructure/hc.json"),
+    Path(f"{SCRIPT_NAME}/infrastructure/zuc_pgz.json"),
     Path(f"{SCRIPT_NAME}/infrastructure/zuc_lsz.json"),
     Path(f"{SCRIPT_NAME}/infrastructure/zuc_s.json"),
     Path(f"{SCRIPT_NAME}/infrastructure/zuc_zz.json"),

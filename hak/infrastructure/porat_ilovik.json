@@ -1,0 +1,13 @@
+{
+    "name": "porat-ilovik",
+    "units": [
+        {
+            "name": "311",
+            "label": "311 ILOVIK - MRTVAŠKA (Lošinj) - MALI LOŠINJ",
+            "tags": "ilovik-mrtvaška,mrtvaška-ilovik,ilovil-mali lošinj,mali lošinj-ilovik,mali lošinj-mrtvaška",
+            "islands": [
+                "ilovik"
+            ]
+        }
+    ]
+}
