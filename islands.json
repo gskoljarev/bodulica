@@ -72,6 +72,17 @@
         ]
     },
     {
+        "name": "ilovik",
+        "label": "Ilovik",
+        "settlements": [
+            {
+                "name": "ilovik",
+                "label": "Ilovik",
+                "tags": "ilovik,iloviku,ilovika"
+            }
+        ]
+    },
+    {
         "name": "ist",
         "label": "Ist",
         "settlements": [
@@ -420,7 +431,53 @@
             {
                 "name": "prvic-sepurine",
                 "label": "Prvić Šepurine",
-                "tags": "prvić šepurine, prvić šepurinama"
+                "tags": "prvić šepurine,prvić šepurinama"
+            }
+        ]
+    },
+    {
+        "name": "rab",
+        "label": "Rab",
+        "settlements": [
+            {
+                "name": "banjol",
+                "label": "Banjol",
+                "tags": "banjola"
+            },
+            {
+                "name": "barbat-na-rabu",
+                "label": "Barbat na Rabu",
+                "tags": "barbat,barbata,barbatu"
+            },
+            {
+                "name": "kampor",
+                "label": "Kampor",
+                "tags": "kampor,kampora,kamporu"
+            },
+            {
+                "name": "lopar",
+                "label": "Lopar",
+                "tags": "lopar,lopara,loparu"
+            },
+            {
+                "name": "mundanije",
+                "label": "Mundanije",
+                "tags": "mundanije,mundanija,mundanijama,mundanijema,mundaniji"
+            },
+            {
+                "name": "palit",
+                "label": "Palit",
+                "tags": "palit,palita,palitu"
+            },
+            {
+                "name": "rab",
+                "label": "Rab",
+                "tags": "rab,raba,rabu"
+            },
+            {
+                "name": "supetarska-draga",
+                "label": "Supetarska Draga",
+                "tags": "supetarska draga,supetraske drage,supetarskoj dragi,supetraskim dragama,supetarski draga"
             }
         ]
     },
@@ -474,6 +531,17 @@
         ]
     },
     {
+        "name": "susak",
+        "label": "Susak",
+        "settlements": [
+            {
+                "name": "susak",
+                "label": "Susak",
+                "tags": "susak,suska,susku"
+            }
+        ]
+    },
+    {
         "name": "ugljan",
         "label": "Ugljan",
         "settlements": [
@@ -511,6 +579,17 @@
                 "name": "ugljan",
                 "label": "Ugljan",
                 "tags": "ugljan,muline,sušica,čeprljanda,fortoština,ugljanu,mulinama,sušici,čeprljandi,fortoštini"
+            }
+        ]
+    },
+    {
+        "name": "unije",
+        "label": "Unije",
+        "settlements": [
+            {
+                "name": "unije",
+                "label": "Unije",
+                "tags": "unije,unijama"
             }
         ]
     },
