@@ -143,6 +143,17 @@
         ]
     },
     {
+        "name": "male-srakane",
+        "label": "Male Srakane",
+        "settlements": [
+            {
+                "name": "male-srakane",
+                "label": "Male Srakane",
+                "tags": "vele srakane,velih srakana,velim srakanama,male srakane,malim srakanama,malih srakana"
+            }
+        ]
+    },
+    {
         "name": "molat",
         "label": "Molat",
         "settlements": [
@@ -590,6 +601,17 @@
                 "name": "unije",
                 "label": "Unije",
                 "tags": "unije,unijama"
+            }
+        ]
+    },
+    {
+        "name": "vele-srakane",
+        "label": "Vele Srakane",
+        "settlements": [
+            {
+                "name": "vele-srakane",
+                "label": "Vele Srakane",
+                "tags": "vele srakane,velih srakana,velim srakanama,velike srakane,velikih srakana,velikim srakanama,male srakane,malim srakanama,malih srakana"
             }
         ]
     },
