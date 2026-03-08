@@ -112,7 +112,7 @@ def contains_variant(text: str, canonical: str) -> bool:
 # ----
 
 def get_weekday_in_lang(date_str, lang):
-    dt = parser.parse(date_str)
+    dt = parser.parse(date_str, dayfirst=True)
     return format_datetime(dt, "EEEE", locale=lang)
 
 
