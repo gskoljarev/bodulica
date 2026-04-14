@@ -157,7 +157,7 @@
         {
             "name": "9405",
             "label": "9405 ZADAR - IŽ MALI - VELI IŽ - RAVA MALA - RAVA",
-            "tags": "zadar-mali iž,mali iž-zadar,zadar-iž mali,iž mali-zadar",
+            "tags": "zadar-mali iž,zadar-iž mali",
             "islands": [
                 "iz",
                 "rava"
