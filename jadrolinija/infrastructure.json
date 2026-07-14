@@ -13,6 +13,23 @@
             ]
         },
         {
+            "name": "322",
+            "label": "322 ZADAR - SILBA - MALI LOŠINJ",
+            "tags": "silba-mali lošinj,mali lošinj-silba,silba-m. lošinj,m. lošinj-silba,silba-m.lošinj,m.lošinj-silba,zadar-mali lošinj,mali lošinj-zadar",
+            "islands": [
+                "silba"
+            ]
+        },
+        {
+            "name": "323",
+            "label": "323 KRALJEVICA - CRIKVENICA - SENJ - BAŠKA (Krk) - LOPAR (Rab) - RAB - LUN/TOVARNELE (Pag)",
+            "tags": "kraljevica-crikvenica,crikvenica-kraljevica",
+            "islands": [
+                "pag",
+                "rab"
+            ]
+        },
+        {
             "name": "335",
             "label": "335 PRIZNA - ŽIGLJEN (Pag)",
             "tags": "žigljen",
